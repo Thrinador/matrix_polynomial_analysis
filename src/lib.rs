@@ -1,9 +1,31 @@
+use itertools::Itertools;
 use nalgebra::DMatrix;
 use nalgebra::DVector;
+
+mod fuzz_polynomial;
+
+pub fn print_polynomial(polynomial: DVector<f64>) {
+    let mut i = polynomial.len();
+    for term in polynomial.iter() {
+        i -= 1;
+        print!("+ {}x^{} ", term, i);
+    }
+}
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     for value in matrix.iter().enumerate() {
         if value.1 < &0.0 {
+            return false;
+        }
+    }
+    true
+}
+
+pub fn is_polynomial_nonnegative(polynomial: &DVector<f64>) -> bool {
+    for value in polynomial {
+        // Set it slightly less than zero to deal with rounding errors
+        // Make this more accurate once the fuzzing gets better.
+        if value < &-0.01 {
             return false;
         }
     }
@@ -17,22 +39,57 @@ pub fn apply_polynomial(polynomial: &DVector<f64>, matrix: &DMatrix<f64>) -> DMa
     let mut term: u32 = polynomial.len() as u32;
     for coefficient in polynomial.iter() {
         term = term - 1;
-        final_matrix = final_matrix + matrix.pow(term).scale(*coefficient);
+        final_matrix += matrix.pow(term).scale(*coefficient);
     }
     final_matrix
 }
 
-// TODO in the future it would be good to have several different distributions that these random matrices are generated from.
-// The ones that come to mind are a distribution that favors the extremes much more then the middle and one that favors the
-// middle (maybe gaussian) more than the extremes
-pub fn fuzz_polynomial(polynomial: &DVector<f64>, size: usize) -> Option<DMatrix<f64>> {
-    for _ in 1..100000 {
-        let random_matrix = DMatrix::<f64>::new_random(size, size);
-        let final_matrix = apply_polynomial(&polynomial, &random_matrix);
-        if !is_matrix_nonnegative(&final_matrix) {
-            return Some(random_matrix);
+// Given a polynomial we want to mutate it by slowly changing the coefficients of the polynomial trying to keep it
+// preserving the nonnegativity of matrices of a given size. I want to do this to try and "map out" what the space of polynomials that preserve nonnegativity are.
+// This space should form a cone.
+//
+// I think the way I want to do this is with multi-sets. First mutate all the coefficients one at a time. Next take all
+// the pairs of coefficients and try to minimize them. Keep going till you try and minimize them all at once.
+//
+// Another idea is to write some machine learning algorithm that trys to minimize on certain criteria such as smallest
+// difference between largest and smallest coeffiecents, or lowest possible negative values.
+pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVector<f64>> {
+    let mut vector = Vec::new();
+    for i in 1..base_polynomial.len() {
+        let combinations_of_i = (0..base_polynomial.len()).combinations(i);
+        for combination in combinations_of_i {
+            if let Some(polynomial) = mutate_coefficients(&base_polynomial, size, &combination) {
+                vector.push(polynomial);
+            }
         }
     }
+    vector
+}
 
-    None
+// One big issue with this function is that it tries to lower all the coefficients in lock step. I am not sure how to do this,
+// but it would be interesting to try and lower some of them. One way this could be done is by changing the starting polynomial.
+// This wouldn't give all possible variations, but might be a good place to start
+pub fn mutate_coefficients(
+    base_polynomial: &DVector<f64>,
+    size: usize,
+    combination: &Vec<usize>,
+) -> Option<DVector<f64>> {
+    let mut backoff = 0.5;
+    let mut polynomial = base_polynomial.clone();
+    while backoff > 0.01 {
+        for i in combination {
+            polynomial[i.clone()] -= backoff;
+        }
+        if !fuzz_polynomial::fuzz_polynomial(&polynomial, size) {
+            for i in combination {
+                polynomial[i.clone()] += backoff;
+            }
+            backoff /= 2.0;
+        }
+    }
+    if !is_polynomial_nonnegative(&polynomial) {
+        Some(polynomial)
+    } else {
+        None
+    }
 }
