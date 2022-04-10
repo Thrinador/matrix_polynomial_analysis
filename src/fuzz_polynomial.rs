@@ -3,11 +3,12 @@ use nalgebra::DMatrix;
 use nalgebra::DVector;
 use rand::distributions::Uniform;
 use rand::thread_rng;
+use rand_distr::*;
 use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use threadpool::ThreadPool;
 
-const RANDOM_MATRICES_TO_GENERATE: usize = 100000;
+const RANDOM_MATRICES_TO_GENERATE: usize = 10000;
 
 // TODO Fuzzing should have several different distributions that these random matrices are generated from.
 // The ones that come to mind are a distribution that favors the extremes much more then the middle and one that favors the
@@ -57,12 +58,35 @@ pub fn fuzz_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
     distributions.push(Uniform::<f64>::new(0.0, 10.0));
     distributions.push(Uniform::<f64>::new(0.0, 1000.0));
     distributions.push(Uniform::<f64>::new(0.0, 100000.0));
-    distributions.push(Uniform::<f64>::new(10.0, 11.0));
-    distributions.push(Uniform::<f64>::new(10.0, 100.0));
-    distributions.push(Uniform::<f64>::new(10000.0, 100000.0));
-    //  distributions.push(Uniform::<f64>::new(1000000.0, 100000000.0));
 
-    let number_of_distributions = distributions.len();
+    let mut number_of_distributions = distributions.len();
+
+    if let Ok(dist) = InverseGaussian::<f64>::new(500.0, 10.0) {
+        fuzz_polynomial_distribution_worker_inverse_gaussian(
+            polynomial.clone(),
+            size,
+            dist,
+            &pool,
+            sender.clone(),
+        );
+        number_of_distributions += 1;
+    } else {
+        panic!("Error in building inverse gaussian distribution 1");
+    }
+
+    if let Ok(dist) = InverseGaussian::<f64>::new(1.0, 1.0) {
+        fuzz_polynomial_distribution_worker_inverse_gaussian(
+            polynomial.clone(),
+            size,
+            dist,
+            &pool,
+            sender.clone(),
+        );
+        number_of_distributions += 1;
+    } else {
+        panic!("Error in building inverse gaussian distribution 2");
+    }
+
     for distribution in distributions {
         fuzz_polynomial_distribution_worker_uniform(
             polynomial.clone(),
@@ -73,7 +97,7 @@ pub fn fuzz_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
         );
     }
 
-    for _ in 1..number_of_distributions {
+    for _ in 0..number_of_distributions {
         if let Ok(message) = receiver.recv() {
             if !message {
                 return false;
@@ -83,12 +107,12 @@ pub fn fuzz_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
     true
 }
 
-fn fuzz_polynomial_distribution_worker_uniform(
+fn fuzz_polynomial_distribution_worker_inverse_gaussian(
     polynomial: DVector<f64>,
     size: usize,
-    dist: rand::distributions::Uniform<f64>,
+    dist: InverseGaussian<f64>,
     pool: &ThreadPool,
-    sender: std::sync::mpsc::Sender<bool>,
+    sender: Sender<bool>,
 ) {
     pool.execute(move || {
         let mut rng = thread_rng();
@@ -100,5 +124,31 @@ fn fuzz_polynomial_distribution_worker_uniform(
             }
         }
         sender.send(true);
+    });
+}
+
+fn fuzz_polynomial_distribution_worker_uniform(
+    polynomial: DVector<f64>,
+    size: usize,
+    dist: Uniform<f64>,
+    pool: &ThreadPool,
+    sender: Sender<bool>,
+) {
+    pool.execute(move || {
+        let mut rng = thread_rng();
+        let mut found_negative_matrix = false;
+        for _ in 1..RANDOM_MATRICES_TO_GENERATE {
+            let random_matrix = DMatrix::<f64>::from_distribution(size, size, &dist, &mut rng);
+            let final_matrix = apply_polynomial(&polynomial, &random_matrix);
+            if !is_matrix_nonnegative(&final_matrix) {
+                found_negative_matrix = true;
+                break;
+            }
+        }
+        if found_negative_matrix {
+            sender.send(false);
+        } else {
+            sender.send(true);
+        }
     });
 }

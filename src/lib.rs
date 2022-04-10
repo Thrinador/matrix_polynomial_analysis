@@ -2,13 +2,14 @@ use itertools::Itertools;
 use nalgebra::DMatrix;
 use nalgebra::DVector;
 use rand::prelude::Rng;
-use std::time::{Duration, Instant};
-use fibers::{Spawn, Executor, ThreadPoolExecutor};
-use futures::Future;
+use std::sync::mpsc::channel;
+use std::sync::mpsc::{Receiver, Sender};
+use std::time::Instant;
+use threadpool::ThreadPool;
 
 mod fuzz_polynomial;
 
-const RANDOM_POLYNOMIAL_MUTATIONS: usize = 50;
+const RANDOM_POLYNOMIAL_MUTATIONS: usize = 10;
 
 pub fn print_polynomial(polynomial: DVector<f64>) {
     let mut i = polynomial.len();
@@ -28,10 +29,12 @@ pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
 }
 
 pub fn is_polynomial_nonnegative(polynomial: &DVector<f64>) -> bool {
+    is_polynomial_nonnegative_with_threshold(&polynomial, 0.0)
+}
+
+pub fn is_polynomial_nonnegative_with_threshold(polynomial: &DVector<f64>, threshold: f64) -> bool {
     for value in polynomial {
-        // Set it slightly less than zero to deal with rounding errors
-        // Make this more accurate once the fuzzing gets better.
-        if value < &-0.01 {
+        if value < &threshold {
             return false;
         }
     }
@@ -71,9 +74,13 @@ pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVe
                 &combination,
             ));
             let duration = start.elapsed();
-            println!("Time elapsed in mutate_coefficients() with combination {} is: {:?}",combination ,duration);
-            println!("Finished operation {} out of {}", i, base_polynomial.len());
+            print!("Time elapsed in mutate_coefficients() with combination ");
+            for combo in combination {
+                print!("{} ", combo);
+            }
+            println!(" is: {:?}", duration);
         }
+        println!("Finished operation {} out of {}", i, base_polynomial.len());
     }
     collapse_polynomials(vector)
 }
@@ -81,6 +88,14 @@ pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVe
 // Returns a subset of the vector containing the elementwise smallest polynomials.
 // TODO This function could use some work. It is very slow and quite long for what it is doing.
 pub fn collapse_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f64>> {
+    // Scale up polynomials so that their smallest element is one.
+    for i in 0..polynomials.len() {
+        let smallest_value = polynomials[i][polynomials[i].iamin()];
+        for j in 0..polynomials[i].len() {
+            polynomials[i][j] /= smallest_value;
+        }
+    }
+
     let mut i = 0;
     while i < polynomials.len() {
         let mut j = 0;
@@ -111,7 +126,26 @@ pub fn collapse_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f
             i += 1;
         }
     }
+
+    // Scale down polynomials so that their largest element is one.
+    for i in 0..polynomials.len() {
+        let largest_value = polynomials[i][polynomials[i].iamax()];
+        for j in 0..polynomials[i].len() {
+            polynomials[i][j] /= largest_value;
+        }
+    }
+
     polynomials
+}
+
+// TODO add more matrices to this function that do a good job removing problem polynomials.
+fn sanity_check_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
+    let identity = DMatrix::<f64>::identity(size, size);
+    if !is_matrix_nonnegative(&apply_polynomial(&polynomial, &identity)) {
+        return false;
+    }
+
+    true
 }
 
 // Given a base polynomial of all ones make random_polynomial_mutations number of mutated polynomials with reduced coefficients.
@@ -123,7 +157,7 @@ pub fn mutate_coefficients(
 ) -> Vec<DVector<f64>> {
     let mut mutated_base_polynomials = Vec::new();
     let mut rng = rand::thread_rng();
-    for _ in 1..RANDOM_POLYNOMIAL_MUTATIONS {
+    for _ in 0..RANDOM_POLYNOMIAL_MUTATIONS {
         let mut polynomial = base_polynomial.clone();
         for j in combination {
             // Generates a float between 0 and 1 and subtracts it from the base polynomial of all 1's.
@@ -132,18 +166,37 @@ pub fn mutate_coefficients(
         }
         mutated_base_polynomials.push(polynomial);
     }
-    let mut negative_polynomials = Vec::new();
-    let mut executor = ThreadPoolExecutor::new().unwrap();
+    let n_workers = 8;
+    let pool = ThreadPool::new(n_workers);
+    let (sender, receiver): (Sender<Option<DVector<f64>>>, Receiver<Option<DVector<f64>>>) =
+        channel();
+
     for polynomial in mutated_base_polynomials {
-        executor.spawn(futures::lazy(|| {
-            if let Some(negative_polynomial) =
-                minimize_polynomial_coefficients(polynomial, size, &combination)
-            {
-                negative_polynomials.push(negative_polynomial);
+        let combination_clone = combination.clone();
+        let size_clone = size.clone();
+        let polynomial_clone = polynomial.clone();
+        let sender_clone = sender.clone();
+
+        pool.execute(move || {
+            if !sanity_check_polynomial(&polynomial_clone, size_clone) {
+                sender_clone.send(None);
+            } else {
+                sender_clone.send(minimize_polynomial_coefficients(
+                    polynomial_clone,
+                    size_clone,
+                    &combination_clone,
+                ));
             }
-        }));
+        });
     }
-    executor.run().unwrap();
+
+    let mut negative_polynomials = Vec::new();
+    for _ in 0..RANDOM_POLYNOMIAL_MUTATIONS {
+        if let Ok(Some(message)) = receiver.recv() {
+            negative_polynomials.push(message);
+        }
+    }
+
     collapse_polynomials(negative_polynomials)
 }
 
@@ -164,7 +217,7 @@ pub fn minimize_polynomial_coefficients(
             backoff /= 2.0;
         }
     }
-    if !is_polynomial_nonnegative(&polynomial) {
+    if !is_polynomial_nonnegative_with_threshold(&polynomial, -0.1) {
         Some(polynomial)
     } else {
         None
