@@ -8,11 +8,14 @@ use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use threadpool::ThreadPool;
 
-const RANDOM_MATRICES_TO_GENERATE: usize = 10000;
+const RANDOM_MATRICES_TO_GENERATE: usize = 100000;
 
 // TODO Fuzzing should have several different distributions that these random matrices are generated from.
 // The ones that come to mind are a distribution that favors the extremes much more then the middle and one that favors the
 // middle (maybe gaussian) more than the extremes.
+
+// TODO Another idea for fuzzing is to take randomly generated matrices and sometimes 0 out certain elements, or use
+// different structered matrices to try and prune some early cases.
 
 // Runs much slower than the other fuzz polynomial function, but allows for the matrix that caused the fuzz to fail to be returned.
 pub fn fuzz_polynomials_slow(polynomial: &DVector<f64>, size: usize) -> Option<DMatrix<f64>> {
@@ -43,10 +46,46 @@ pub fn fuzz_polynomials_slow(polynomial: &DVector<f64>, size: usize) -> Option<D
     None
 }
 
+// TODO add more matrices to this function that do a good job removing problem polynomials.
+fn check_structured_matrices(polynomial: &DVector<f64>, size: usize) -> bool {
+    let mut identity = DMatrix::<f64>::identity(size, size);
+    if !is_matrix_nonnegative(&apply_polynomial(&polynomial, &identity)) {
+        return false;
+    }
+    // Go through some permutation matrices
+    for i in 1..size {
+        identity.swap_rows(0, i);
+        if !is_matrix_nonnegative(&apply_polynomial(&polynomial, &identity)) {
+            return false;
+        }
+    }
+    // Fundamental circulant
+    if !is_matrix_nonnegative(&apply_polynomial(&polynomial, &identity)) {
+        return false;
+    }
+
+    true
+}
+
+fn are_first_last_negative(polynomial: &DVector<f64>, size: usize) -> bool {
+    for i in 0..size {
+        if polynomial[i] < 0.0 || polynomial[(polynomial.len() - 1) - i] < 0.0 {
+            return true;
+        }
+    }
+    false
+}
+
 pub fn fuzz_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
     // We know nonnegative polynomials are always good.
     if is_polynomial_nonnegative(polynomial) {
         return true;
+    }
+    if are_first_last_negative(polynomial, size) {
+        return false;
+    }
+    if !check_structured_matrices(polynomial, size) {
+        return false;
     }
 
     let n_workers = 8;

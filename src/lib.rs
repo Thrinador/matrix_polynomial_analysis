@@ -15,7 +15,7 @@ pub fn print_polynomial(polynomial: DVector<f64>) {
     let mut i = polynomial.len();
     for term in polynomial.iter() {
         i -= 1;
-        print!("+ {}x^{} ", term, i);
+        print!("+ {:.3}x^{} ", term, i);
     }
 }
 
@@ -53,6 +53,24 @@ pub fn apply_polynomial(polynomial: &DVector<f64>, matrix: &DMatrix<f64>) -> DMa
     final_matrix
 }
 
+fn generate_mutated_polynomials(
+    base_polynomial: &DVector<f64>,
+    combination: &Vec<usize>,
+) -> Vec<DVector<f64>> {
+    let mut mutated_base_polynomials = Vec::new();
+    let mut rng = rand::thread_rng();
+    for _ in 0..RANDOM_POLYNOMIAL_MUTATIONS {
+        for j in combination.clone() {
+            let mut polynomial = base_polynomial.clone();
+            // Generates a float between 0 and 1 and subtracts it from the base polynomial of all 1's.
+            let random_number: f64 = rng.gen();
+            polynomial[j] -= random_number;
+            mutated_base_polynomials.push(polynomial);
+        }
+    }
+    mutated_base_polynomials
+}
+
 // Given a polynomial we want to mutate it by slowly changing the coefficients of the polynomial trying to keep it
 // preserving the nonnegativity of matrices of a given size. I want to do this to try and "map out" what the space of polynomials that preserve nonnegativity are.
 // This space should form a cone.
@@ -69,7 +87,7 @@ pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVe
         for combination in combinations_of_i {
             let start = Instant::now();
             vector.append(&mut mutate_coefficients(
-                &base_polynomial,
+                generate_mutated_polynomials(&base_polynomial, &combination),
                 size,
                 &combination,
             ));
@@ -138,60 +156,29 @@ pub fn collapse_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f
     polynomials
 }
 
-// TODO add more matrices to this function that do a good job removing problem polynomials.
-fn sanity_check_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
-    let identity = DMatrix::<f64>::identity(size, size);
-    if !is_matrix_nonnegative(&apply_polynomial(&polynomial, &identity)) {
-        return false;
-    }
-
-    true
-}
-
 // Given a base polynomial of all ones make random_polynomial_mutations number of mutated polynomials with reduced coefficients.
 // Then try and minimize the coefficients of those mutated polynomials.
 pub fn mutate_coefficients(
-    base_polynomial: &DVector<f64>,
+    base_polynomials: Vec<DVector<f64>>,
     size: usize,
     combination: &Vec<usize>,
 ) -> Vec<DVector<f64>> {
-    let mut mutated_base_polynomials = Vec::new();
-    let mut rng = rand::thread_rng();
-    for _ in 0..RANDOM_POLYNOMIAL_MUTATIONS {
-        let mut polynomial = base_polynomial.clone();
-        for j in combination {
-            // Generates a float between 0 and 1 and subtracts it from the base polynomial of all 1's.
-            let random_number: f64 = rng.gen();
-            polynomial[j.clone()] -= random_number;
-        }
-        mutated_base_polynomials.push(polynomial);
-    }
     let n_workers = 8;
     let pool = ThreadPool::new(n_workers);
     let (sender, receiver): (Sender<Option<DVector<f64>>>, Receiver<Option<DVector<f64>>>) =
         channel();
-
-    for polynomial in mutated_base_polynomials {
-        let combination_clone = combination.clone();
-        let size_clone = size.clone();
-        let polynomial_clone = polynomial.clone();
-        let sender_clone = sender.clone();
-
-        pool.execute(move || {
-            if !sanity_check_polynomial(&polynomial_clone, size_clone) {
-                sender_clone.send(None);
-            } else {
-                sender_clone.send(minimize_polynomial_coefficients(
-                    polynomial_clone,
-                    size_clone,
-                    &combination_clone,
-                ));
-            }
-        });
+    let number_of_polynomials = base_polynomials.len();
+    for polynomial in base_polynomials {
+        minimize_polynomial_coefficients_async(
+            polynomial.clone(),
+            size.clone(),
+            combination.clone(),
+            &pool,
+            sender.clone(),
+        );
     }
-
     let mut negative_polynomials = Vec::new();
-    for _ in 0..RANDOM_POLYNOMIAL_MUTATIONS {
+    for _ in 0..number_of_polynomials {
         if let Ok(Some(message)) = receiver.recv() {
             negative_polynomials.push(message);
         }
@@ -200,6 +187,24 @@ pub fn mutate_coefficients(
     collapse_polynomials(negative_polynomials)
 }
 
+pub fn minimize_polynomial_coefficients_async(
+    polynomial: DVector<f64>,
+    size: usize,
+    combination: Vec<usize>,
+    pool: &ThreadPool,
+    sender: Sender<Option<DVector<f64>>>,
+) {
+    pool.execute(move || {
+        sender.send(minimize_polynomial_coefficients(
+            polynomial,
+            size,
+            &combination,
+        ));
+    });
+}
+
+// TODO There is a bug where for some reason one polynomial of all negative coefficients except for the middle ones
+// gets through.
 pub fn minimize_polynomial_coefficients(
     mut polynomial: DVector<f64>,
     size: usize,
