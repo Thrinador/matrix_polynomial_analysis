@@ -71,4 +71,27 @@ mod tests {
         assert_eq!(apply_polynomial(&polynomial_1, &m1), m1_p1);
         assert_eq!(apply_polynomial(&polynomial_2, &m1), m1_p2);
     }
+
+    #[test]
+    fn test_collapse_polynomials() {
+        // All random matrices values should be between 0 and 1.
+        let mut polynomials = Vec::new();
+        polynomials.push(DVector::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]));
+        polynomials.push(DVector::from_vec(vec![2.0, 0.0, 1.0, 1.0, 1.0]));
+        polynomials.push(DVector::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0]));
+        polynomials.push(DVector::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]));
+        polynomials = collapse_polynomials(polynomials);
+
+        println!("Polynomials length {}", polynomials.len());
+
+        assert_eq!(polynomials.len(), 2);
+        assert_eq!(
+            polynomials[0],
+            DVector::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0])
+        );
+        assert_eq!(
+            polynomials[1],
+            DVector::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0])
+        );
+    }
 }

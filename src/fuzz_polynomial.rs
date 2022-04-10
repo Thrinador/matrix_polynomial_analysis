@@ -7,7 +7,7 @@ use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use threadpool::ThreadPool;
 
-const random_matrices_to_generate: usize = 10000;
+const RANDOM_MATRICES_TO_GENERATE: usize = 100;
 
 // TODO Fuzzing should have several different distributions that these random matrices are generated from.
 // The ones that come to mind are a distribution that favors the extremes much more then the middle and one that favors the
@@ -30,7 +30,7 @@ pub fn fuzz_polynomials_slow(polynomial: &DVector<f64>, size: usize) -> Option<D
 
     for distribution in distributions {
         let mut rng = thread_rng();
-        for _ in 1..random_matrices_to_generate {
+        for _ in 1..RANDOM_MATRICES_TO_GENERATE {
             let random_matrix =
                 DMatrix::<f64>::from_distribution(size, size, &distribution, &mut rng);
             let final_matrix = apply_polynomial(&polynomial, &random_matrix);
@@ -92,7 +92,7 @@ fn fuzz_polynomial_distribution_worker_uniform(
 ) {
     pool.execute(move || {
         let mut rng = thread_rng();
-        for _ in 1..random_matrices_to_generate {
+        for _ in 1..RANDOM_MATRICES_TO_GENERATE {
             let random_matrix = DMatrix::<f64>::from_distribution(size, size, &dist, &mut rng);
             let final_matrix = apply_polynomial(&polynomial, &random_matrix);
             if !is_matrix_nonnegative(&final_matrix) {

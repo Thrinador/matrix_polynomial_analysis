@@ -6,7 +6,7 @@ use rand::thread_rng;
 
 mod fuzz_polynomial;
 
-const random_polynomial_mutations: usize = 50;
+const RANDOM_POLYNOMIAL_MUTATIONS: usize = 50;
 
 pub fn print_polynomial(polynomial: DVector<f64>) {
     let mut i = polynomial.len();
@@ -72,9 +72,44 @@ pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVe
     vector
 }
 
-// One big issue with this function is that it tries to lower all the coefficients in lock step. I am not sure how to do this,
-// but it would be interesting to try and lower some of them. One way this could be done is by changing the starting polynomial.
-// This wouldn't give all possible variations, but might be a good place to start
+// Returns a subset of the vector containing the elementwise smallest polynomials.
+// TODO This function could use some work. It is very slow and quite long for what it is doing.
+pub fn collapse_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f64>> {
+    let mut i = 0;
+    while i < polynomials.len() {
+        let mut j = 0;
+        let mut was_removed = false;
+        while j < polynomials.len() {
+            if i == j {
+                j += 1;
+                if j == polynomials.len() {
+                    break;
+                };
+            }
+            let mut bool_is_smaller_polynomial = true;
+            for k in 0..polynomials[i].len() {
+                if polynomials[i][k] > polynomials[j][k] {
+                    bool_is_smaller_polynomial = false;
+                    break;
+                }
+            }
+            if bool_is_smaller_polynomial {
+                polynomials.remove(j);
+                was_removed = true;
+                break;
+            } else {
+                j += 1;
+            }
+        }
+        if !was_removed {
+            i += 1;
+        }
+    }
+    polynomials
+}
+
+// Given a base polynomial of all ones make random_polynomial_mutations number of mutated polynomials with reduced coefficients.
+// Then try and minimize the coefficients of those mutated polynomials.
 pub fn mutate_coefficients(
     base_polynomial: &DVector<f64>,
     size: usize,
@@ -82,7 +117,7 @@ pub fn mutate_coefficients(
 ) -> Vec<DVector<f64>> {
     let mut mutated_base_polynomials = Vec::new();
     let mut rng = rand::thread_rng();
-    for _ in 1..random_polynomial_mutations {
+    for _ in 1..RANDOM_POLYNOMIAL_MUTATIONS {
         let mut polynomial = base_polynomial.clone();
         for j in combination {
             // Generates a float between 0 and 1 and subtracts it from the base polynomial of all 1's.
@@ -92,22 +127,36 @@ pub fn mutate_coefficients(
         mutated_base_polynomials.push(polynomial);
     }
     let mut negative_polynomials = Vec::new();
-    for mut polynomial in mutated_base_polynomials {
-        let mut backoff = 0.5;
-        while backoff > 0.01 {
-            for i in combination {
-                polynomial[i.clone()] -= backoff;
-            }
-            if !fuzz_polynomial::fuzz_polynomial(&polynomial, size) {
-                for i in combination {
-                    polynomial[i.clone()] += backoff;
-                }
-                backoff /= 2.0;
-            }
-        }
-        if !is_polynomial_nonnegative(&polynomial) {
-            negative_polynomials.push(polynomial);
+    for polynomial in mutated_base_polynomials {
+        if let Some(negative_polynomial) =
+            minimize_polynomial_coefficients(polynomial, size, &combination)
+        {
+            negative_polynomials.push(negative_polynomial);
         }
     }
-    negative_polynomials
+    collapse_polynomials(negative_polynomials)
+}
+
+pub fn minimize_polynomial_coefficients(
+    mut polynomial: DVector<f64>,
+    size: usize,
+    combination: &Vec<usize>,
+) -> Option<DVector<f64>> {
+    let mut backoff = 0.5;
+    while backoff > 0.01 {
+        for i in combination {
+            polynomial[i.clone()] -= backoff;
+        }
+        if !fuzz_polynomial::fuzz_polynomial(&polynomial, size) {
+            for i in combination {
+                polynomial[i.clone()] += backoff;
+            }
+            backoff /= 2.0;
+        }
+    }
+    if !is_polynomial_nonnegative(&polynomial) {
+        Some(polynomial)
+    } else {
+        None
+    }
 }
