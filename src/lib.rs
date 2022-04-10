@@ -1,8 +1,7 @@
 use itertools::Itertools;
 use nalgebra::DMatrix;
 use nalgebra::DVector;
-use rand::prelude::*;
-use rand::thread_rng;
+use rand::prelude::Rng;
 
 mod fuzz_polynomial;
 
@@ -69,7 +68,7 @@ pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVe
             ));
         }
     }
-    vector
+    collapse_polynomials(vector)
 }
 
 // Returns a subset of the vector containing the elementwise smallest polynomials.

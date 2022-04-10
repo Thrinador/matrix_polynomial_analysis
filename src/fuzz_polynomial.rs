@@ -7,11 +7,11 @@ use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use threadpool::ThreadPool;
 
-const RANDOM_MATRICES_TO_GENERATE: usize = 100;
+const RANDOM_MATRICES_TO_GENERATE: usize = 100000;
 
 // TODO Fuzzing should have several different distributions that these random matrices are generated from.
 // The ones that come to mind are a distribution that favors the extremes much more then the middle and one that favors the
-// middle (maybe gaussian) more than the extremes
+// middle (maybe gaussian) more than the extremes.
 
 // Runs much slower than the other fuzz polynomial function, but allows for the matrix that caused the fuzz to fail to be returned.
 pub fn fuzz_polynomials_slow(polynomial: &DVector<f64>, size: usize) -> Option<DMatrix<f64>> {
@@ -60,7 +60,7 @@ pub fn fuzz_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
     distributions.push(Uniform::<f64>::new(10.0, 11.0));
     distributions.push(Uniform::<f64>::new(10.0, 100.0));
     distributions.push(Uniform::<f64>::new(10000.0, 100000.0));
-    distributions.push(Uniform::<f64>::new(1000000.0, 100000000.0));
+    //  distributions.push(Uniform::<f64>::new(1000000.0, 100000000.0));
 
     let number_of_distributions = distributions.len();
     for distribution in distributions {
