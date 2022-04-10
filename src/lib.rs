@@ -2,6 +2,9 @@ use itertools::Itertools;
 use nalgebra::DMatrix;
 use nalgebra::DVector;
 use rand::prelude::Rng;
+use std::time::{Duration, Instant};
+use fibers::{Spawn, Executor, ThreadPoolExecutor};
+use futures::Future;
 
 mod fuzz_polynomial;
 
@@ -61,11 +64,15 @@ pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVe
     for i in 1..base_polynomial.len() {
         let combinations_of_i = (0..base_polynomial.len()).combinations(i);
         for combination in combinations_of_i {
+            let start = Instant::now();
             vector.append(&mut mutate_coefficients(
                 &base_polynomial,
                 size,
                 &combination,
             ));
+            let duration = start.elapsed();
+            println!("Time elapsed in mutate_coefficients() with combination {} is: {:?}",combination ,duration);
+            println!("Finished operation {} out of {}", i, base_polynomial.len());
         }
     }
     collapse_polynomials(vector)
@@ -126,13 +133,17 @@ pub fn mutate_coefficients(
         mutated_base_polynomials.push(polynomial);
     }
     let mut negative_polynomials = Vec::new();
+    let mut executor = ThreadPoolExecutor::new().unwrap();
     for polynomial in mutated_base_polynomials {
-        if let Some(negative_polynomial) =
-            minimize_polynomial_coefficients(polynomial, size, &combination)
-        {
-            negative_polynomials.push(negative_polynomial);
-        }
+        executor.spawn(futures::lazy(|| {
+            if let Some(negative_polynomial) =
+                minimize_polynomial_coefficients(polynomial, size, &combination)
+            {
+                negative_polynomials.push(negative_polynomial);
+            }
+        }));
     }
+    executor.run().unwrap();
     collapse_polynomials(negative_polynomials)
 }
 

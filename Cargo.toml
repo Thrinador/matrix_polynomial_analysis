@@ -11,3 +11,4 @@ nalgebra = { version = "0.30.1", features = ["rand"] }
 itertools = "0.10.3"
 rand = "0.8.5"
 threadpool = "1.8.1"
+fibers = "0.1.13"
