@@ -1,8 +1,12 @@
 use itertools::Itertools;
 use nalgebra::DMatrix;
 use nalgebra::DVector;
+use rand::prelude::*;
+use rand::thread_rng;
 
 mod fuzz_polynomial;
+
+const random_polynomial_mutations: usize = 50;
 
 pub fn print_polynomial(polynomial: DVector<f64>) {
     let mut i = polynomial.len();
@@ -54,13 +58,15 @@ pub fn apply_polynomial(polynomial: &DVector<f64>, matrix: &DMatrix<f64>) -> DMa
 // Another idea is to write some machine learning algorithm that trys to minimize on certain criteria such as smallest
 // difference between largest and smallest coeffiecents, or lowest possible negative values.
 pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVector<f64>> {
-    let mut vector = Vec::new();
+    let mut vector: Vec<DVector<f64>> = Vec::new();
     for i in 1..base_polynomial.len() {
         let combinations_of_i = (0..base_polynomial.len()).combinations(i);
         for combination in combinations_of_i {
-            if let Some(polynomial) = mutate_coefficients(&base_polynomial, size, &combination) {
-                vector.push(polynomial);
-            }
+            vector.append(&mut mutate_coefficients(
+                &base_polynomial,
+                size,
+                &combination,
+            ));
         }
     }
     vector
@@ -73,23 +79,35 @@ pub fn mutate_coefficients(
     base_polynomial: &DVector<f64>,
     size: usize,
     combination: &Vec<usize>,
-) -> Option<DVector<f64>> {
-    let mut backoff = 0.5;
-    let mut polynomial = base_polynomial.clone();
-    while backoff > 0.01 {
-        for i in combination {
-            polynomial[i.clone()] -= backoff;
+) -> Vec<DVector<f64>> {
+    let mut mutated_base_polynomials = Vec::new();
+    let mut rng = rand::thread_rng();
+    for _ in 1..random_polynomial_mutations {
+        let mut polynomial = base_polynomial.clone();
+        for j in combination {
+            // Generates a float between 0 and 1 and subtracts it from the base polynomial of all 1's.
+            let random_number: f64 = rng.gen();
+            polynomial[j.clone()] -= random_number;
         }
-        if !fuzz_polynomial::fuzz_polynomial(&polynomial, size) {
+        mutated_base_polynomials.push(polynomial);
+    }
+    let mut negative_polynomials = Vec::new();
+    for mut polynomial in mutated_base_polynomials {
+        let mut backoff = 0.5;
+        while backoff > 0.01 {
             for i in combination {
-                polynomial[i.clone()] += backoff;
+                polynomial[i.clone()] -= backoff;
             }
-            backoff /= 2.0;
+            if !fuzz_polynomial::fuzz_polynomial(&polynomial, size) {
+                for i in combination {
+                    polynomial[i.clone()] += backoff;
+                }
+                backoff /= 2.0;
+            }
+        }
+        if !is_polynomial_nonnegative(&polynomial) {
+            negative_polynomials.push(polynomial);
         }
     }
-    if !is_polynomial_nonnegative(&polynomial) {
-        Some(polynomial)
-    } else {
-        None
-    }
+    negative_polynomials
 }
