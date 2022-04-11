@@ -9,7 +9,7 @@ use threadpool::ThreadPool;
 
 mod fuzz_polynomial;
 
-const RANDOM_POLYNOMIAL_MUTATIONS: usize = 50;
+const RANDOM_POLYNOMIAL_MUTATIONS: usize = 5;
 
 pub fn print_polynomial(polynomial: DVector<f64>) {
     let mut i = polynomial.len();
@@ -17,6 +17,32 @@ pub fn print_polynomial(polynomial: DVector<f64>) {
         i -= 1;
         print!("+ {:.3}x^{} ", term, i);
     }
+}
+
+// TODO This function is not quite working yet. I want to use an ordering where a polynomial is greater
+// then another if it is term by term greater with the highest priority being the largest term.
+fn polynomial_less_then(polynomial_1: &DVector<f64>, polynomial_2: &DVector<f64>) -> bool {
+    for i in 0..polynomial_1.len() {
+        if polynomial_1[i] >= polynomial_2[i] {
+            return false;
+        }
+    }
+    true
+}
+
+// TODO If the number of poylnomials gets to large consider a better sorting algorithm.
+pub fn sort_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f64>> {
+    for i in 0..polynomials.len() {
+        for j in i..polynomials.len() {
+            if polynomial_less_then(&polynomials[i], &polynomials[j]) {
+                let temp_polynomial = polynomials[i].clone();
+                polynomials[i] = polynomials[j].clone();
+                polynomials[j] = temp_polynomial;
+            }
+        }
+    }
+
+    polynomials
 }
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {

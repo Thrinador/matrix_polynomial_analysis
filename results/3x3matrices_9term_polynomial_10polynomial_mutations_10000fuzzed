@@ -1,0 +1,1411 @@
+Time elapsed in mutate_coefficients() with combination 0  is: 566.891µs
+Time elapsed in mutate_coefficients() with combination 1  is: 236.664µs
+Time elapsed in mutate_coefficients() with combination 2  is: 155.612µs
+Time elapsed in mutate_coefficients() with combination 3  is: 55.802705147s
+Time elapsed in mutate_coefficients() with combination 4  is: 59.408679227s
+Time elapsed in mutate_coefficients() with combination 5  is: 56.59941007s
+Time elapsed in mutate_coefficients() with combination 6  is: 286.713µs
+Time elapsed in mutate_coefficients() with combination 7  is: 308.81µs
+Time elapsed in mutate_coefficients() with combination 8  is: 173.665µs
+Finished operation 1 out of 9
+Time elapsed in mutate_coefficients() with combination 0 1  is: 157.904µs
+Time elapsed in mutate_coefficients() with combination 0 2  is: 176.043µs
+Time elapsed in mutate_coefficients() with combination 0 3  is: 13.705467466s
+Time elapsed in mutate_coefficients() with combination 0 4  is: 18.005776554s
+Time elapsed in mutate_coefficients() with combination 0 5  is: 9.103512745s
+Time elapsed in mutate_coefficients() with combination 0 6  is: 252.764µs
+Time elapsed in mutate_coefficients() with combination 0 7  is: 192.352µs
+Time elapsed in mutate_coefficients() with combination 0 8  is: 172.768µs
+Time elapsed in mutate_coefficients() with combination 1 2  is: 187.158µs
+Time elapsed in mutate_coefficients() with combination 1 3  is: 7.970162936s
+Time elapsed in mutate_coefficients() with combination 1 4  is: 16.396385984s
+Time elapsed in mutate_coefficients() with combination 1 5  is: 16.561266952s
+Time elapsed in mutate_coefficients() with combination 1 6  is: 294.907µs
+Time elapsed in mutate_coefficients() with combination 1 7  is: 284.891µs
+Time elapsed in mutate_coefficients() with combination 1 8  is: 173.006µs
+Time elapsed in mutate_coefficients() with combination 2 3  is: 11.90900016s
+Time elapsed in mutate_coefficients() with combination 2 4  is: 9.462822847s
+Time elapsed in mutate_coefficients() with combination 2 5  is: 23.932433292s
+Time elapsed in mutate_coefficients() with combination 2 6  is: 270.163µs
+Time elapsed in mutate_coefficients() with combination 2 7  is: 197.43µs
+Time elapsed in mutate_coefficients() with combination 2 8  is: 199.577µs
+Time elapsed in mutate_coefficients() with combination 3 4  is: 58.198789838s
+Time elapsed in mutate_coefficients() with combination 3 5  is: 42.730696707s
+Time elapsed in mutate_coefficients() with combination 3 6  is: 8.958384916s
+Time elapsed in mutate_coefficients() with combination 3 7  is: 7.520593201s
+Time elapsed in mutate_coefficients() with combination 3 8  is: 23.459702694s
+Time elapsed in mutate_coefficients() with combination 4 5  is: 105.275709225s
+Time elapsed in mutate_coefficients() with combination 4 6  is: 16.872298027s
+Time elapsed in mutate_coefficients() with combination 4 7  is: 13.516723107s
+Time elapsed in mutate_coefficients() with combination 4 8  is: 23.217511959s
+Time elapsed in mutate_coefficients() with combination 5 6  is: 14.961961715s
+Time elapsed in mutate_coefficients() with combination 5 7  is: 8.746434246s
+Time elapsed in mutate_coefficients() with combination 5 8  is: 20.042775171s
+Time elapsed in mutate_coefficients() with combination 6 7  is: 300.527µs
+Time elapsed in mutate_coefficients() with combination 6 8  is: 267.487µs
+Time elapsed in mutate_coefficients() with combination 7 8  is: 207.32µs
+Finished operation 2 out of 9
+Time elapsed in mutate_coefficients() with combination 0 1 2  is: 174.587µs
+Time elapsed in mutate_coefficients() with combination 0 1 3  is: 15.727038158s
+Time elapsed in mutate_coefficients() with combination 0 1 4  is: 8.821706347s
+Time elapsed in mutate_coefficients() with combination 0 1 5  is: 2.036070163s
+Time elapsed in mutate_coefficients() with combination 0 1 6  is: 237.47µs
+Time elapsed in mutate_coefficients() with combination 0 1 7  is: 267.351µs
+Time elapsed in mutate_coefficients() with combination 0 1 8  is: 190.003µs
+Time elapsed in mutate_coefficients() with combination 0 2 3  is: 4.070982434s
+Time elapsed in mutate_coefficients() with combination 0 2 4  is: 9.146127196s
+Time elapsed in mutate_coefficients() with combination 0 2 5  is: 6.121636657s
+Time elapsed in mutate_coefficients() with combination 0 2 6  is: 236.201µs
+Time elapsed in mutate_coefficients() with combination 0 2 7  is: 305.996µs
+Time elapsed in mutate_coefficients() with combination 0 2 8  is: 179.595µs
+Time elapsed in mutate_coefficients() with combination 0 3 4  is: 24.279748275s
+Time elapsed in mutate_coefficients() with combination 0 3 5  is: 27.26310505s
+Time elapsed in mutate_coefficients() with combination 0 3 6  is: 8.377166772s
+Time elapsed in mutate_coefficients() with combination 0 3 7  is: 12.579261775s
+Time elapsed in mutate_coefficients() with combination 0 3 8  is: 2.527706033s
+Time elapsed in mutate_coefficients() with combination 0 4 5  is: 19.083641512s
+Time elapsed in mutate_coefficients() with combination 0 4 6  is: 8.298452666s
+Time elapsed in mutate_coefficients() with combination 0 4 7  is: 39.95230083s
+Time elapsed in mutate_coefficients() with combination 0 4 8  is: 4.428066167s
+Time elapsed in mutate_coefficients() with combination 0 5 6  is: 15.075069474s
+Time elapsed in mutate_coefficients() with combination 0 5 7  is: 6.059109623s
+Time elapsed in mutate_coefficients() with combination 0 5 8  is: 11.738625688s
+Time elapsed in mutate_coefficients() with combination 0 6 7  is: 241.764µs
+Time elapsed in mutate_coefficients() with combination 0 6 8  is: 237.305µs
+Time elapsed in mutate_coefficients() with combination 0 7 8  is: 189.053µs
+Time elapsed in mutate_coefficients() with combination 1 2 3  is: 7.857532782s
+Time elapsed in mutate_coefficients() with combination 1 2 4  is: 8.827809498s
+Time elapsed in mutate_coefficients() with combination 1 2 5  is: 25.35494014s
+Time elapsed in mutate_coefficients() with combination 1 2 6  is: 790.934µs
+Time elapsed in mutate_coefficients() with combination 1 2 7  is: 225.493µs
+Time elapsed in mutate_coefficients() with combination 1 2 8  is: 198.995µs
+Time elapsed in mutate_coefficients() with combination 1 3 4  is: 18.077961871s
+Time elapsed in mutate_coefficients() with combination 1 3 5  is: 20.041066422s
+Time elapsed in mutate_coefficients() with combination 1 3 6  is: 15.053694121s
+Time elapsed in mutate_coefficients() with combination 1 3 7  is: 8.360490998s
+Time elapsed in mutate_coefficients() with combination 1 3 8  is: 8.515486043s
+Time elapsed in mutate_coefficients() with combination 1 4 5  is: 21.221215308s
+Time elapsed in mutate_coefficients() with combination 1 4 6  is: 14.037820715s
+Time elapsed in mutate_coefficients() with combination 1 4 7  is: 10.490676405s
+Time elapsed in mutate_coefficients() with combination 1 4 8  is: 8.789664133s
+Time elapsed in mutate_coefficients() with combination 1 5 6  is: 6.118271745s
+Time elapsed in mutate_coefficients() with combination 1 5 7  is: 11.250389516s
+Time elapsed in mutate_coefficients() with combination 1 5 8  is: 26.142553712s
+Time elapsed in mutate_coefficients() with combination 1 6 7  is: 457.553µs
+Time elapsed in mutate_coefficients() with combination 1 6 8  is: 249.848µs
+Time elapsed in mutate_coefficients() with combination 1 7 8  is: 228.955µs
+Time elapsed in mutate_coefficients() with combination 2 3 4  is: 21.85226121s
+Time elapsed in mutate_coefficients() with combination 2 3 5  is: 24.505516023s
+Time elapsed in mutate_coefficients() with combination 2 3 6  is: 3.773147265s
+Time elapsed in mutate_coefficients() with combination 2 3 7  is: 5.320915673s
+Time elapsed in mutate_coefficients() with combination 2 3 8  is: 12.256934174s
+Time elapsed in mutate_coefficients() with combination 2 4 5  is: 15.562704459s
+Time elapsed in mutate_coefficients() with combination 2 4 6  is: 7.568089814s
+Time elapsed in mutate_coefficients() with combination 2 4 7  is: 16.481585459s
+Time elapsed in mutate_coefficients() with combination 2 4 8  is: 2.253788239s
+Time elapsed in mutate_coefficients() with combination 2 5 6  is: 15.849888119s
+Time elapsed in mutate_coefficients() with combination 2 5 7  is: 36.602825984s
+Time elapsed in mutate_coefficients() with combination 2 5 8  is: 5.698432503s
+Time elapsed in mutate_coefficients() with combination 2 6 7  is: 449.095µs
+Time elapsed in mutate_coefficients() with combination 2 6 8  is: 257.596µs
+Time elapsed in mutate_coefficients() with combination 2 7 8  is: 192.419µs
+Time elapsed in mutate_coefficients() with combination 3 4 5  is: 82.51419504s
+Time elapsed in mutate_coefficients() with combination 3 4 6  is: 10.817628836s
+Time elapsed in mutate_coefficients() with combination 3 4 7  is: 25.977664288s
+Time elapsed in mutate_coefficients() with combination 3 4 8  is: 20.156058951s
+Time elapsed in mutate_coefficients() with combination 3 5 6  is: 23.114710685s
+Time elapsed in mutate_coefficients() with combination 3 5 7  is: 8.503172842s
+Time elapsed in mutate_coefficients() with combination 3 5 8  is: 12.772929264s
+Time elapsed in mutate_coefficients() with combination 3 6 7  is: 13.444182861s
+Time elapsed in mutate_coefficients() with combination 3 6 8  is: 6.051938887s
+Time elapsed in mutate_coefficients() with combination 3 7 8  is: 6.841680376s
+Time elapsed in mutate_coefficients() with combination 4 5 6  is: 30.564485129s
+Time elapsed in mutate_coefficients() with combination 4 5 7  is: 15.487723488s
+Time elapsed in mutate_coefficients() with combination 4 5 8  is: 21.645256686s
+Time elapsed in mutate_coefficients() with combination 4 6 7  is: 13.258960153s
+Time elapsed in mutate_coefficients() with combination 4 6 8  is: 7.243393755s
+Time elapsed in mutate_coefficients() with combination 4 7 8  is: 3.337505087s
+Time elapsed in mutate_coefficients() with combination 5 6 7  is: 9.47430302s
+Time elapsed in mutate_coefficients() with combination 5 6 8  is: 10.877526674s
+Time elapsed in mutate_coefficients() with combination 5 7 8  is: 11.76683494s
+Time elapsed in mutate_coefficients() with combination 6 7 8  is: 561.253µs
+Finished operation 3 out of 9
+Time elapsed in mutate_coefficients() with combination 0 1 2 3  is: 12.691960181s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4  is: 15.691001755s
+Time elapsed in mutate_coefficients() with combination 0 1 2 5  is: 20.157156857s
+Time elapsed in mutate_coefficients() with combination 0 1 2 6  is: 281.581µs
+Time elapsed in mutate_coefficients() with combination 0 1 2 7  is: 253.174µs
+Time elapsed in mutate_coefficients() with combination 0 1 2 8  is: 276.092µs
+Time elapsed in mutate_coefficients() with combination 0 1 3 4  is: 41.850292009s
+Time elapsed in mutate_coefficients() with combination 0 1 3 5  is: 19.58167969s
+Time elapsed in mutate_coefficients() with combination 0 1 3 6  is: 9.65074712s
+Time elapsed in mutate_coefficients() with combination 0 1 3 7  is: 9.800771788s
+Time elapsed in mutate_coefficients() with combination 0 1 3 8  is: 13.831132473s
+Time elapsed in mutate_coefficients() with combination 0 1 4 5  is: 12.04374741s
+Time elapsed in mutate_coefficients() with combination 0 1 4 6  is: 8.459776857s
+Time elapsed in mutate_coefficients() with combination 0 1 4 7  is: 20.549325728s
+Time elapsed in mutate_coefficients() with combination 0 1 4 8  is: 25.736349246s
+Time elapsed in mutate_coefficients() with combination 0 1 5 6  is: 12.663637073s
+Time elapsed in mutate_coefficients() with combination 0 1 5 7  is: 4.165950381s
+Time elapsed in mutate_coefficients() with combination 0 1 5 8  is: 3.879866839s
+Time elapsed in mutate_coefficients() with combination 0 1 6 7  is: 282.869µs
+Time elapsed in mutate_coefficients() with combination 0 1 6 8  is: 281.7µs
+Time elapsed in mutate_coefficients() with combination 0 1 7 8  is: 238.617µs
+Time elapsed in mutate_coefficients() with combination 0 2 3 4  is: 14.147244748s
+Time elapsed in mutate_coefficients() with combination 0 2 3 5  is: 13.155476892s
+Time elapsed in mutate_coefficients() with combination 0 2 3 6  is: 8.459715082s
+Time elapsed in mutate_coefficients() with combination 0 2 3 7  is: 15.003345773s
+Time elapsed in mutate_coefficients() with combination 0 2 3 8  is: 2.541840305s
+Time elapsed in mutate_coefficients() with combination 0 2 4 5  is: 9.703944331s
+Time elapsed in mutate_coefficients() with combination 0 2 4 6  is: 2.514948497s
+Time elapsed in mutate_coefficients() with combination 0 2 4 7  is: 7.912857747s
+Time elapsed in mutate_coefficients() with combination 0 2 4 8  is: 11.877136928s
+Time elapsed in mutate_coefficients() with combination 0 2 5 6  is: 9.497273742s
+Time elapsed in mutate_coefficients() with combination 0 2 5 7  is: 4.769036722s
+Time elapsed in mutate_coefficients() with combination 0 2 5 8  is: 3.781973062s
+Time elapsed in mutate_coefficients() with combination 0 2 6 7  is: 264.583µs
+Time elapsed in mutate_coefficients() with combination 0 2 6 8  is: 260.122µs
+Time elapsed in mutate_coefficients() with combination 0 2 7 8  is: 225.487µs
+Time elapsed in mutate_coefficients() with combination 0 3 4 5  is: 27.723087544s
+Time elapsed in mutate_coefficients() with combination 0 3 4 6  is: 10.858252042s
+Time elapsed in mutate_coefficients() with combination 0 3 4 7  is: 18.930148076s
+Time elapsed in mutate_coefficients() with combination 0 3 4 8  is: 10.014364034s
+Time elapsed in mutate_coefficients() with combination 0 3 5 6  is: 19.917906757s
+Time elapsed in mutate_coefficients() with combination 0 3 5 7  is: 24.562651855s
+Time elapsed in mutate_coefficients() with combination 0 3 5 8  is: 17.74750113s
+Time elapsed in mutate_coefficients() with combination 0 3 6 7  is: 10.370701944s
+Time elapsed in mutate_coefficients() with combination 0 3 6 8  is: 7.415130832s
+Time elapsed in mutate_coefficients() with combination 0 3 7 8  is: 9.520917445s
+Time elapsed in mutate_coefficients() with combination 0 4 5 6  is: 15.395041087s
+Time elapsed in mutate_coefficients() with combination 0 4 5 7  is: 14.851344471s
+Time elapsed in mutate_coefficients() with combination 0 4 5 8  is: 11.442993985s
+Time elapsed in mutate_coefficients() with combination 0 4 6 7  is: 13.505598298s
+Time elapsed in mutate_coefficients() with combination 0 4 6 8  is: 1.951977ms
+Time elapsed in mutate_coefficients() with combination 0 4 7 8  is: 12.664425288s
+Time elapsed in mutate_coefficients() with combination 0 5 6 7  is: 5.338086169s
+Time elapsed in mutate_coefficients() with combination 0 5 6 8  is: 8.5820508s
+Time elapsed in mutate_coefficients() with combination 0 5 7 8  is: 11.943749942s
+Time elapsed in mutate_coefficients() with combination 0 6 7 8  is: 254.53µs
+Time elapsed in mutate_coefficients() with combination 1 2 3 4  is: 19.839108072s
+Time elapsed in mutate_coefficients() with combination 1 2 3 5  is: 26.781957969s
+Time elapsed in mutate_coefficients() with combination 1 2 3 6  is: 16.933355175s
+Time elapsed in mutate_coefficients() with combination 1 2 3 7  is: 6.770384946s
+Time elapsed in mutate_coefficients() with combination 1 2 3 8  is: 4.096653657s
+Time elapsed in mutate_coefficients() with combination 1 2 4 5  is: 45.650421819s
+Time elapsed in mutate_coefficients() with combination 1 2 4 6  is: 13.341852086s
+Time elapsed in mutate_coefficients() with combination 1 2 4 7  is: 11.520663895s
+Time elapsed in mutate_coefficients() with combination 1 2 4 8  is: 21.175635937s
+Time elapsed in mutate_coefficients() with combination 1 2 5 6  is: 13.271942712s
+Time elapsed in mutate_coefficients() with combination 1 2 5 7  is: 12.465636923s
+Time elapsed in mutate_coefficients() with combination 1 2 5 8  is: 20.871635193s
+Time elapsed in mutate_coefficients() with combination 1 2 6 7  is: 321.99µs
+Time elapsed in mutate_coefficients() with combination 1 2 6 8  is: 325.223µs
+Time elapsed in mutate_coefficients() with combination 1 2 7 8  is: 330.386µs
+Time elapsed in mutate_coefficients() with combination 1 3 4 5  is: 17.323839607s
+Time elapsed in mutate_coefficients() with combination 1 3 4 6  is: 25.713087902s
+Time elapsed in mutate_coefficients() with combination 1 3 4 7  is: 7.292294255s
+Time elapsed in mutate_coefficients() with combination 1 3 4 8  is: 23.945462247s
+Time elapsed in mutate_coefficients() with combination 1 3 5 6  is: 6.167441998s
+Time elapsed in mutate_coefficients() with combination 1 3 5 7  is: 17.94937846s
+Time elapsed in mutate_coefficients() with combination 1 3 5 8  is: 24.987731273s
+Time elapsed in mutate_coefficients() with combination 1 3 6 7  is: 6.9082934s
+Time elapsed in mutate_coefficients() with combination 1 3 6 8  is: 10.038929192s
+Time elapsed in mutate_coefficients() with combination 1 3 7 8  is: 6.558258389s
+Time elapsed in mutate_coefficients() with combination 1 4 5 6  is: 18.680337565s
+Time elapsed in mutate_coefficients() with combination 1 4 5 7  is: 14.647470826s
+Time elapsed in mutate_coefficients() with combination 1 4 5 8  is: 38.594323287s
+Time elapsed in mutate_coefficients() with combination 1 4 6 7  is: 12.125840594s
+Time elapsed in mutate_coefficients() with combination 1 4 6 8  is: 9.161963578s
+Time elapsed in mutate_coefficients() with combination 1 4 7 8  is: 14.921701646s
+Time elapsed in mutate_coefficients() with combination 1 5 6 7  is: 8.783688874s
+Time elapsed in mutate_coefficients() with combination 1 5 6 8  is: 9.429908099s
+Time elapsed in mutate_coefficients() with combination 1 5 7 8  is: 18.060915969s
+Time elapsed in mutate_coefficients() with combination 1 6 7 8  is: 262.969µs
+Time elapsed in mutate_coefficients() with combination 2 3 4 5  is: 37.228999005s
+Time elapsed in mutate_coefficients() with combination 2 3 4 6  is: 11.156901308s
+Time elapsed in mutate_coefficients() with combination 2 3 4 7  is: 24.680493988s
+Time elapsed in mutate_coefficients() with combination 2 3 4 8  is: 9.294024218s
+Time elapsed in mutate_coefficients() with combination 2 3 5 6  is: 27.940044112s
+Time elapsed in mutate_coefficients() with combination 2 3 5 7  is: 25.075659069s
+Time elapsed in mutate_coefficients() with combination 2 3 5 8  is: 30.365657872s
+Time elapsed in mutate_coefficients() with combination 2 3 6 7  is: 10.834145485s
+Time elapsed in mutate_coefficients() with combination 2 3 6 8  is: 7.411038168s
+Time elapsed in mutate_coefficients() with combination 2 3 7 8  is: 4.067632044s
+Time elapsed in mutate_coefficients() with combination 2 4 5 6  is: 13.08109965s
+Time elapsed in mutate_coefficients() with combination 2 4 5 7  is: 33.222878537s
+Time elapsed in mutate_coefficients() with combination 2 4 5 8  is: 11.31236612s
+Time elapsed in mutate_coefficients() with combination 2 4 6 7  is: 19.018987295s
+Time elapsed in mutate_coefficients() with combination 2 4 6 8  is: 10.934038931s
+Time elapsed in mutate_coefficients() with combination 2 4 7 8  is: 5.284635883s
+Time elapsed in mutate_coefficients() with combination 2 5 6 7  is: 8.201736843s
+Time elapsed in mutate_coefficients() with combination 2 5 6 8  is: 3.261844531s
+Time elapsed in mutate_coefficients() with combination 2 5 7 8  is: 25.570744501s
+Time elapsed in mutate_coefficients() with combination 2 6 7 8  is: 242.523µs
+Time elapsed in mutate_coefficients() with combination 3 4 5 6  is: 32.883740124s
+Time elapsed in mutate_coefficients() with combination 3 4 5 7  is: 25.189891149s
+Time elapsed in mutate_coefficients() with combination 3 4 5 8  is: 19.207288544s
+Time elapsed in mutate_coefficients() with combination 3 4 6 7  is: 28.70534602s
+Time elapsed in mutate_coefficients() with combination 3 4 6 8  is: 18.354505758s
+Time elapsed in mutate_coefficients() with combination 3 4 7 8  is: 12.037117138s
+Time elapsed in mutate_coefficients() with combination 3 5 6 7  is: 24.005884753s
+Time elapsed in mutate_coefficients() with combination 3 5 6 8  is: 24.474237488s
+Time elapsed in mutate_coefficients() with combination 3 5 7 8  is: 31.320679909s
+Time elapsed in mutate_coefficients() with combination 3 6 7 8  is: 10.982674928s
+Time elapsed in mutate_coefficients() with combination 4 5 6 7  is: 26.095718688s
+Time elapsed in mutate_coefficients() with combination 4 5 6 8  is: 11.861068573s
+Time elapsed in mutate_coefficients() with combination 4 5 7 8  is: 19.30785261s
+Time elapsed in mutate_coefficients() with combination 4 6 7 8  is: 13.505976636s
+Time elapsed in mutate_coefficients() with combination 5 6 7 8  is: 8.195836045s
+Finished operation 4 out of 9
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4  is: 13.54483436s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 5  is: 23.533842084s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 6  is: 8.363510336s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 7  is: 3.370016127s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 8  is: 12.922902094s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 5  is: 13.539803086s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 6  is: 18.516231841s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 7  is: 10.418346217s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 8  is: 13.580071777s
+Time elapsed in mutate_coefficients() with combination 0 1 2 5 6  is: 11.9216103s
+Time elapsed in mutate_coefficients() with combination 0 1 2 5 7  is: 6.766371499s
+Time elapsed in mutate_coefficients() with combination 0 1 2 5 8  is: 18.329684166s
+Time elapsed in mutate_coefficients() with combination 0 1 2 6 7  is: 375.995µs
+Time elapsed in mutate_coefficients() with combination 0 1 2 6 8  is: 252.129µs
+Time elapsed in mutate_coefficients() with combination 0 1 2 7 8  is: 228.326µs
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 5  is: 12.806468761s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 6  is: 17.918028464s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 7  is: 23.433151049s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 8  is: 24.504960586s
+Time elapsed in mutate_coefficients() with combination 0 1 3 5 6  is: 15.965388712s
+Time elapsed in mutate_coefficients() with combination 0 1 3 5 7  is: 16.214830085s
+Time elapsed in mutate_coefficients() with combination 0 1 3 5 8  is: 19.07446248s
+Time elapsed in mutate_coefficients() with combination 0 1 3 6 7  is: 6.156262092s
+Time elapsed in mutate_coefficients() with combination 0 1 3 6 8  is: 10.277532303s
+Time elapsed in mutate_coefficients() with combination 0 1 3 7 8  is: 6.494984109s
+Time elapsed in mutate_coefficients() with combination 0 1 4 5 6  is: 11.481997959s
+Time elapsed in mutate_coefficients() with combination 0 1 4 5 7  is: 16.85874498s
+Time elapsed in mutate_coefficients() with combination 0 1 4 5 8  is: 34.630930506s
+Time elapsed in mutate_coefficients() with combination 0 1 4 6 7  is: 9.826943065s
+Time elapsed in mutate_coefficients() with combination 0 1 4 6 8  is: 9.96875806s
+Time elapsed in mutate_coefficients() with combination 0 1 4 7 8  is: 5.93464171s
+Time elapsed in mutate_coefficients() with combination 0 1 5 6 7  is: 9.760322796s
+Time elapsed in mutate_coefficients() with combination 0 1 5 6 8  is: 1.279639114s
+Time elapsed in mutate_coefficients() with combination 0 1 5 7 8  is: 8.086934658s
+Time elapsed in mutate_coefficients() with combination 0 1 6 7 8  is: 747.948µs
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 5  is: 17.539325014s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 6  is: 14.042555889s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 7  is: 20.344798696s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 8  is: 15.651281001s
+Time elapsed in mutate_coefficients() with combination 0 2 3 5 6  is: 14.203391728s
+Time elapsed in mutate_coefficients() with combination 0 2 3 5 7  is: 12.864751804s
+Time elapsed in mutate_coefficients() with combination 0 2 3 5 8  is: 22.453879445s
+Time elapsed in mutate_coefficients() with combination 0 2 3 6 7  is: 9.382010826s
+Time elapsed in mutate_coefficients() with combination 0 2 3 6 8  is: 7.112433075s
+Time elapsed in mutate_coefficients() with combination 0 2 3 7 8  is: 5.215933133s
+Time elapsed in mutate_coefficients() with combination 0 2 4 5 6  is: 11.644393253s
+Time elapsed in mutate_coefficients() with combination 0 2 4 5 7  is: 11.310781982s
+Time elapsed in mutate_coefficients() with combination 0 2 4 5 8  is: 9.638305106s
+Time elapsed in mutate_coefficients() with combination 0 2 4 6 7  is: 1.262373543s
+Time elapsed in mutate_coefficients() with combination 0 2 4 6 8  is: 4.561005404s
+Time elapsed in mutate_coefficients() with combination 0 2 4 7 8  is: 15.508829418s
+Time elapsed in mutate_coefficients() with combination 0 2 5 6 7  is: 279.533µs
+Time elapsed in mutate_coefficients() with combination 0 2 5 6 8  is: 5.415870852s
+Time elapsed in mutate_coefficients() with combination 0 2 5 7 8  is: 16.266238327s
+Time elapsed in mutate_coefficients() with combination 0 2 6 7 8  is: 355.637µs
+Time elapsed in mutate_coefficients() with combination 0 3 4 5 6  is: 22.022779612s
+Time elapsed in mutate_coefficients() with combination 0 3 4 5 7  is: 18.613189779s
+Time elapsed in mutate_coefficients() with combination 0 3 4 5 8  is: 24.243843572s
+Time elapsed in mutate_coefficients() with combination 0 3 4 6 7  is: 14.569388347s
+Time elapsed in mutate_coefficients() with combination 0 3 4 6 8  is: 3.25204007s
+Time elapsed in mutate_coefficients() with combination 0 3 4 7 8  is: 17.410484126s
+Time elapsed in mutate_coefficients() with combination 0 3 5 6 7  is: 9.80800224s
+Time elapsed in mutate_coefficients() with combination 0 3 5 6 8  is: 22.116158156s
+Time elapsed in mutate_coefficients() with combination 0 3 5 7 8  is: 19.23643404s
+Time elapsed in mutate_coefficients() with combination 0 3 6 7 8  is: 4.416117988s
+Time elapsed in mutate_coefficients() with combination 0 4 5 6 7  is: 20.897337576s
+Time elapsed in mutate_coefficients() with combination 0 4 5 6 8  is: 14.904877626s
+Time elapsed in mutate_coefficients() with combination 0 4 5 7 8  is: 9.419380786s
+Time elapsed in mutate_coefficients() with combination 0 4 6 7 8  is: 8.178581594s
+Time elapsed in mutate_coefficients() with combination 0 5 6 7 8  is: 8.029539957s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 5  is: 32.267846662s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 6  is: 15.318189208s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 7  is: 21.076332636s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 8  is: 7.016635781s
+Time elapsed in mutate_coefficients() with combination 1 2 3 5 6  is: 20.374560088s
+Time elapsed in mutate_coefficients() with combination 1 2 3 5 7  is: 20.676405532s
+Time elapsed in mutate_coefficients() with combination 1 2 3 5 8  is: 26.065230321s
+Time elapsed in mutate_coefficients() with combination 1 2 3 6 7  is: 8.876659632s
+Time elapsed in mutate_coefficients() with combination 1 2 3 6 8  is: 5.625704552s
+Time elapsed in mutate_coefficients() with combination 1 2 3 7 8  is: 7.091538103s
+Time elapsed in mutate_coefficients() with combination 1 2 4 5 6  is: 15.017949465s
+Time elapsed in mutate_coefficients() with combination 1 2 4 5 7  is: 16.302332257s
+Time elapsed in mutate_coefficients() with combination 1 2 4 5 8  is: 23.626621793s
+Time elapsed in mutate_coefficients() with combination 1 2 4 6 7  is: 15.499342699s
+Time elapsed in mutate_coefficients() with combination 1 2 4 6 8  is: 7.570670644s
+Time elapsed in mutate_coefficients() with combination 1 2 4 7 8  is: 17.71886185s
+Time elapsed in mutate_coefficients() with combination 1 2 5 6 7  is: 12.823003051s
+Time elapsed in mutate_coefficients() with combination 1 2 5 6 8  is: 6.365531371s
+Time elapsed in mutate_coefficients() with combination 1 2 5 7 8  is: 5.467248411s
+Time elapsed in mutate_coefficients() with combination 1 2 6 7 8  is: 446.57µs
+Time elapsed in mutate_coefficients() with combination 1 3 4 5 6  is: 19.941605313s
+Time elapsed in mutate_coefficients() with combination 1 3 4 5 7  is: 20.416506216s
+Time elapsed in mutate_coefficients() with combination 1 3 4 5 8  is: 27.265888635s
+Time elapsed in mutate_coefficients() with combination 1 3 4 6 7  is: 23.073079178s
+Time elapsed in mutate_coefficients() with combination 1 3 4 6 8  is: 10.238233979s
+Time elapsed in mutate_coefficients() with combination 1 3 4 7 8  is: 15.600806552s
+Time elapsed in mutate_coefficients() with combination 1 3 5 6 7  is: 16.649698847s
+Time elapsed in mutate_coefficients() with combination 1 3 5 6 8  is: 12.780515616s
+Time elapsed in mutate_coefficients() with combination 1 3 5 7 8  is: 19.746908368s
+Time elapsed in mutate_coefficients() with combination 1 3 6 7 8  is: 5.093087839s
+Time elapsed in mutate_coefficients() with combination 1 4 5 6 7  is: 5.30587079s
+Time elapsed in mutate_coefficients() with combination 1 4 5 6 8  is: 20.050965199s
+Time elapsed in mutate_coefficients() with combination 1 4 5 7 8  is: 24.411311501s
+Time elapsed in mutate_coefficients() with combination 1 4 6 7 8  is: 11.232039463s
+Time elapsed in mutate_coefficients() with combination 1 5 6 7 8  is: 9.999578083s
+Time elapsed in mutate_coefficients() with combination 2 3 4 5 6  is: 45.582470766s
+Time elapsed in mutate_coefficients() with combination 2 3 4 5 7  is: 32.496544718s
+Time elapsed in mutate_coefficients() with combination 2 3 4 5 8  is: 37.959925784s
+Time elapsed in mutate_coefficients() with combination 2 3 4 6 7  is: 21.760835199s
+Time elapsed in mutate_coefficients() with combination 2 3 4 6 8  is: 15.247906658s
+Time elapsed in mutate_coefficients() with combination 2 3 4 7 8  is: 17.12551231s
+Time elapsed in mutate_coefficients() with combination 2 3 5 6 7  is: 29.414899405s
+Time elapsed in mutate_coefficients() with combination 2 3 5 6 8  is: 14.524734649s
+Time elapsed in mutate_coefficients() with combination 2 3 5 7 8  is: 7.724373881s
+Time elapsed in mutate_coefficients() with combination 2 3 6 7 8  is: 17.401144717s
+Time elapsed in mutate_coefficients() with combination 2 4 5 6 7  is: 33.460738622s
+Time elapsed in mutate_coefficients() with combination 2 4 5 6 8  is: 7.351997667s
+Time elapsed in mutate_coefficients() with combination 2 4 5 7 8  is: 18.834208488s
+Time elapsed in mutate_coefficients() with combination 2 4 6 7 8  is: 13.262623084s
+Time elapsed in mutate_coefficients() with combination 2 5 6 7 8  is: 9.268369757s
+Time elapsed in mutate_coefficients() with combination 3 4 5 6 7  is: 26.345098192s
+Time elapsed in mutate_coefficients() with combination 3 4 5 6 8  is: 15.17223107s
+Time elapsed in mutate_coefficients() with combination 3 4 5 7 8  is: 28.256334871s
+Time elapsed in mutate_coefficients() with combination 3 4 6 7 8  is: 16.635363984s
+Time elapsed in mutate_coefficients() with combination 3 5 6 7 8  is: 13.918803566s
+Time elapsed in mutate_coefficients() with combination 4 5 6 7 8  is: 7.245822262s
+Finished operation 5 out of 9
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 5  is: 19.886991946s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 6  is: 20.920504013s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 7  is: 17.066483534s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 8  is: 9.720866268s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 5 6  is: 10.883100957s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 5 7  is: 12.82335122s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 5 8  is: 9.001510642s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 6 7  is: 8.366989727s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 6 8  is: 5.032712619s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 7 8  is: 10.396858734s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 5 6  is: 12.995676724s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 5 7  is: 11.891487906s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 5 8  is: 24.972207125s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 6 7  is: 7.602292885s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 6 8  is: 6.81775786s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 7 8  is: 4.977961587s
+Time elapsed in mutate_coefficients() with combination 0 1 2 5 6 7  is: 11.865613926s
+Time elapsed in mutate_coefficients() with combination 0 1 2 5 6 8  is: 3.291815335s
+Time elapsed in mutate_coefficients() with combination 0 1 2 5 7 8  is: 18.265553203s
+Time elapsed in mutate_coefficients() with combination 0 1 2 6 7 8  is: 299.641µs
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 5 6  is: 26.360389675s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 5 7  is: 14.607412044s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 5 8  is: 26.224688002s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 6 7  is: 9.253696485s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 6 8  is: 9.536152243s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 7 8  is: 44.415521503s
+Time elapsed in mutate_coefficients() with combination 0 1 3 5 6 7  is: 5.402125223s
+Time elapsed in mutate_coefficients() with combination 0 1 3 5 6 8  is: 18.912894624s
+Time elapsed in mutate_coefficients() with combination 0 1 3 5 7 8  is: 23.062174235s
+Time elapsed in mutate_coefficients() with combination 0 1 3 6 7 8  is: 5.225171015s
+Time elapsed in mutate_coefficients() with combination 0 1 4 5 6 7  is: 10.344109563s
+Time elapsed in mutate_coefficients() with combination 0 1 4 5 6 8  is: 15.611160976s
+Time elapsed in mutate_coefficients() with combination 0 1 4 5 7 8  is: 6.567780203s
+Time elapsed in mutate_coefficients() with combination 0 1 4 6 7 8  is: 7.678626294s
+Time elapsed in mutate_coefficients() with combination 0 1 5 6 7 8  is: 1.266187785s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 5 6  is: 17.908386761s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 5 7  is: 25.230478135s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 5 8  is: 25.576341041s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 6 7  is: 14.452870934s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 6 8  is: 8.676269289s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 7 8  is: 5.603499139s
+Time elapsed in mutate_coefficients() with combination 0 2 3 5 6 7  is: 12.084114262s
+Time elapsed in mutate_coefficients() with combination 0 2 3 5 6 8  is: 12.323209319s
+Time elapsed in mutate_coefficients() with combination 0 2 3 5 7 8  is: 21.517032738s
+Time elapsed in mutate_coefficients() with combination 0 2 3 6 7 8  is: 13.225732436s
+Time elapsed in mutate_coefficients() with combination 0 2 4 5 6 7  is: 17.318552395s
+Time elapsed in mutate_coefficients() with combination 0 2 4 5 6 8  is: 9.524669552s
+Time elapsed in mutate_coefficients() with combination 0 2 4 5 7 8  is: 11.912870802s
+Time elapsed in mutate_coefficients() with combination 0 2 4 6 7 8  is: 7.303551283s
+Time elapsed in mutate_coefficients() with combination 0 2 5 6 7 8  is: 5.334825664s
+Time elapsed in mutate_coefficients() with combination 0 3 4 5 6 7  is: 5.763131838s
+Time elapsed in mutate_coefficients() with combination 0 3 4 5 6 8  is: 11.230300789s
+Time elapsed in mutate_coefficients() with combination 0 3 4 5 7 8  is: 26.478557165s
+Time elapsed in mutate_coefficients() with combination 0 3 4 6 7 8  is: 9.338938302s
+Time elapsed in mutate_coefficients() with combination 0 3 5 6 7 8  is: 15.577237329s
+Time elapsed in mutate_coefficients() with combination 0 4 5 6 7 8  is: 11.517277492s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 5 6  is: 16.094238228s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 5 7  is: 16.618183929s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 5 8  is: 23.491260297s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 6 7  is: 15.337111831s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 6 8  is: 7.533788789s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 7 8  is: 7.554142434s
+Time elapsed in mutate_coefficients() with combination 1 2 3 5 6 7  is: 13.219907463s
+Time elapsed in mutate_coefficients() with combination 1 2 3 5 6 8  is: 6.982576294s
+Time elapsed in mutate_coefficients() with combination 1 2 3 5 7 8  is: 17.600349844s
+Time elapsed in mutate_coefficients() with combination 1 2 3 6 7 8  is: 7.135343379s
+Time elapsed in mutate_coefficients() with combination 1 2 4 5 6 7  is: 16.958957311s
+Time elapsed in mutate_coefficients() with combination 1 2 4 5 6 8  is: 9.401280091s
+Time elapsed in mutate_coefficients() with combination 1 2 4 5 7 8  is: 14.965581245s
+Time elapsed in mutate_coefficients() with combination 1 2 4 6 7 8  is: 5.977544684s
+Time elapsed in mutate_coefficients() with combination 1 2 5 6 7 8  is: 8.727629394s
+Time elapsed in mutate_coefficients() with combination 1 3 4 5 6 7  is: 14.734844924s
+Time elapsed in mutate_coefficients() with combination 1 3 4 5 6 8  is: 29.119541559s
+Time elapsed in mutate_coefficients() with combination 1 3 4 5 7 8  is: 13.76272406s
+Time elapsed in mutate_coefficients() with combination 1 3 4 6 7 8  is: 9.257390384s
+Time elapsed in mutate_coefficients() with combination 1 3 5 6 7 8  is: 11.989643613s
+Time elapsed in mutate_coefficients() with combination 1 4 5 6 7 8  is: 9.803911407s
+Time elapsed in mutate_coefficients() with combination 2 3 4 5 6 7  is: 19.890423943s
+Time elapsed in mutate_coefficients() with combination 2 3 4 5 6 8  is: 15.338210401s
+Time elapsed in mutate_coefficients() with combination 2 3 4 5 7 8  is: 9.388701543s
+Time elapsed in mutate_coefficients() with combination 2 3 4 6 7 8  is: 4.553635316s
+Time elapsed in mutate_coefficients() with combination 2 3 5 6 7 8  is: 9.850490567s
+Time elapsed in mutate_coefficients() with combination 2 4 5 6 7 8  is: 13.632225925s
+Time elapsed in mutate_coefficients() with combination 3 4 5 6 7 8  is: 14.502367243s
+Finished operation 6 out of 9
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 5 6  is: 15.814645159s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 5 7  is: 27.531900786s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 5 8  is: 20.199787966s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 6 7  is: 8.991271154s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 6 8  is: 4.741278074s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 7 8  is: 9.109609728s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 5 6 7  is: 15.104027051s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 5 6 8  is: 12.218869703s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 5 7 8  is: 19.977480624s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 6 7 8  is: 3.759005475s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 5 6 7  is: 13.508043331s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 5 6 8  is: 16.363404819s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 5 7 8  is: 9.021285882s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 6 7 8  is: 736.55µs
+Time elapsed in mutate_coefficients() with combination 0 1 2 5 6 7 8  is: 5.620953567s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 5 6 7  is: 11.237463172s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 5 6 8  is: 17.481069773s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 5 7 8  is: 21.271758935s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 6 7 8  is: 4.11860466s
+Time elapsed in mutate_coefficients() with combination 0 1 3 5 6 7 8  is: 7.510056162s
+Time elapsed in mutate_coefficients() with combination 0 1 4 5 6 7 8  is: 12.89600231s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 5 6 7  is: 16.494551501s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 5 6 8  is: 9.165022233s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 5 7 8  is: 16.209893189s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 6 7 8  is: 16.884326191s
+Time elapsed in mutate_coefficients() with combination 0 2 3 5 6 7 8  is: 12.741712641s
+Time elapsed in mutate_coefficients() with combination 0 2 4 5 6 7 8  is: 15.65974904s
+Time elapsed in mutate_coefficients() with combination 0 3 4 5 6 7 8  is: 21.641029365s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 5 6 7  is: 18.181687362s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 5 6 8  is: 27.335969794s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 5 7 8  is: 17.578964176s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 6 7 8  is: 12.494757843s
+Time elapsed in mutate_coefficients() with combination 1 2 3 5 6 7 8  is: 15.971471779s
+Time elapsed in mutate_coefficients() with combination 1 2 4 5 6 7 8  is: 12.35190953s
+Time elapsed in mutate_coefficients() with combination 1 3 4 5 6 7 8  is: 25.507325033s
+Time elapsed in mutate_coefficients() with combination 2 3 4 5 6 7 8  is: 30.788174607s
+Finished operation 7 out of 9
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 5 6 7  is: 9.656543199s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 5 6 8  is: 12.756040986s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 5 7 8  is: 19.972662497s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 4 6 7 8  is: 14.731325995s
+Time elapsed in mutate_coefficients() with combination 0 1 2 3 5 6 7 8  is: 8.42185939s
+Time elapsed in mutate_coefficients() with combination 0 1 2 4 5 6 7 8  is: 6.530210787s
+Time elapsed in mutate_coefficients() with combination 0 1 3 4 5 6 7 8  is: 19.928992319s
+Time elapsed in mutate_coefficients() with combination 0 2 3 4 5 6 7 8  is: 16.767092283s
+Time elapsed in mutate_coefficients() with combination 1 2 3 4 5 6 7 8  is: 23.364804582s
+Finished operation 8 out of 9
+---------------------------------------------------
+Total time elapsed generating polynomials 6855.947297373s
+Total number of interesting polynomials found 917 (29 from bug removed)
+---------------------------------------------------
+
++ 0.006x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.691x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.687x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.005x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.657x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.015x^7 + 1.000x^6 + 1.000x^5 + -0.360x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.013x^7 + 1.000x^6 + 1.000x^5 + -0.642x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.009x^7 + 1.000x^6 + 1.000x^5 + -0.757x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.001x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.383x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.002x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.322x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.001x^6 + -0.275x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.003x^6 + 1.000x^5 + -0.671x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.001x^6 + 1.000x^5 + 1.000x^4 + -0.312x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.013x^6 + 1.000x^5 + 1.000x^4 + -0.785x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.005x^6 + 1.000x^5 + 1.000x^4 + -0.929x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.989x^5 + 1.000x^4 + -0.984x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.673x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.010x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.637x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.007x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.780x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.747x^4 + 1.000x^3 + 0.013x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.441x^3 + 0.004x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.601x^3 + 0.003x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.820x^3 + 0.009x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.368x^3 + 1.000x^2 + 0.014x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.455x^3 + 1.000x^2 + 1.000x^1 + 0.010x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.441x^3 + 1.000x^2 + 1.000x^1 + 0.000x^0 
++ 0.003x^8 + 0.001x^7 + 1.000x^6 + -0.480x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.031x^8 + 1.000x^7 + 0.014x^6 + -0.280x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.024x^8 + 1.000x^7 + 0.004x^6 + -0.273x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.038x^8 + 1.000x^7 + 0.006x^6 + 1.000x^5 + -0.214x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.342x^8 + 1.000x^7 + 0.001x^6 + 1.000x^5 + 1.000x^4 + -0.525x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.261x^8 + 1.000x^7 + 0.014x^6 + 1.000x^5 + 1.000x^4 + -0.374x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.010x^8 + 1.000x^7 + 1.000x^6 + 0.005x^5 + -0.743x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.009x^8 + 1.000x^7 + 1.000x^6 + -0.762x^5 + -0.161x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.012x^8 + 1.000x^7 + 1.000x^6 + -0.745x^5 + -0.249x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.006x^8 + 1.000x^7 + 1.000x^6 + -0.802x^5 + -0.306x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.000x^8 + 1.000x^7 + 1.000x^6 + -0.164x^5 + 1.000x^4 + -0.203x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.013x^8 + 1.000x^7 + 1.000x^6 + -0.396x^5 + 1.000x^4 + 0.038x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.007x^8 + 1.000x^7 + 1.000x^6 + -0.151x^5 + 1.000x^4 + -0.264x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.004x^8 + 1.000x^7 + 1.000x^6 + -0.573x^5 + 1.000x^4 + 0.064x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.192x^8 + 1.000x^7 + 1.000x^6 + -0.232x^5 + 1.000x^4 + 1.000x^3 + 0.049x^2 + 1.000x^1 + 1.000x^0 
++ 0.064x^8 + 1.000x^7 + 1.000x^6 + -0.742x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.015x^1 + 1.000x^0 
++ 0.001x^8 + 1.000x^7 + 1.000x^6 + -0.205x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.206x^0 
++ 0.002x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.547x^4 + -0.296x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.002x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.530x^4 + -0.487x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.007x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.285x^4 + -0.386x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.006x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.318x^4 + -0.355x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.382x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.272x^4 + 1.000x^3 + 0.009x^2 + 1.000x^1 + 1.000x^0 
++ 0.005x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.669x^4 + 1.000x^3 + 0.067x^2 + 1.000x^1 + 1.000x^0 
++ 0.105x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.344x^4 + 1.000x^3 + 1.000x^2 + 0.001x^1 + 1.000x^0 
++ 0.119x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.375x^4 + 1.000x^3 + 1.000x^2 + 0.003x^1 + 1.000x^0 
++ 0.014x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.270x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.254x^0 
++ 0.001x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.276x^3 + 0.251x^2 + 1.000x^1 + 1.000x^0 
++ 0.011x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.482x^3 + 0.121x^2 + 1.000x^1 + 1.000x^0 
++ 0.003x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.302x^3 + 1.000x^2 + 0.560x^1 + 1.000x^0 
++ 1.000x^8 + 0.032x^7 + 0.009x^6 + -0.594x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.011x^7 + 0.317x^6 + 1.000x^5 + 1.000x^4 + -0.187x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.010x^7 + 0.073x^6 + 1.000x^5 + 1.000x^4 + -0.476x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.009x^7 + 1.000x^6 + -0.750x^5 + -0.062x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.009x^7 + 1.000x^6 + -0.507x^5 + 0.005x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.008x^7 + 1.000x^6 + -0.282x^5 + -0.255x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.003x^7 + 1.000x^6 + -0.202x^5 + -0.392x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.013x^7 + 1.000x^6 + -0.308x^5 + 1.000x^4 + -0.239x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.007x^7 + 1.000x^6 + -0.525x^5 + 1.000x^4 + 0.017x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.004x^7 + 1.000x^6 + -0.290x^5 + 1.000x^4 + -0.355x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.011x^7 + 1.000x^6 + -0.390x^5 + 1.000x^4 + -0.236x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.366x^7 + 1.000x^6 + -0.379x^5 + 1.000x^4 + 1.000x^3 + 0.015x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.155x^7 + 1.000x^6 + -0.612x^5 + 1.000x^4 + 1.000x^3 + 0.003x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.064x^7 + 1.000x^6 + -0.900x^5 + 1.000x^4 + 1.000x^3 + 0.011x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.009x^7 + 1.000x^6 + -0.492x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.186x^1 + 1.000x^0 
++ 1.000x^8 + 0.001x^7 + 1.000x^6 + -0.630x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.217x^1 + 1.000x^0 
++ 1.000x^8 + 0.006x^7 + 1.000x^6 + -0.371x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.186x^1 + 1.000x^0 
++ 1.000x^8 + 0.005x^7 + 1.000x^6 + -0.835x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.051x^0 
++ 1.000x^8 + 0.000x^7 + 1.000x^6 + 1.000x^5 + -0.584x^4 + -0.012x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.001x^7 + 1.000x^6 + 1.000x^5 + -0.789x^4 + -0.221x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.006x^7 + 1.000x^6 + 1.000x^5 + -0.253x^4 + -0.426x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.012x^7 + 1.000x^6 + 1.000x^5 + -0.406x^4 + -0.677x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.000x^7 + 1.000x^6 + 1.000x^5 + -0.454x^4 + 1.000x^3 + 0.273x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.243x^7 + 1.000x^6 + 1.000x^5 + -0.581x^4 + 1.000x^3 + 1.000x^2 + 0.368x^1 + 1.000x^0 
++ 1.000x^8 + 0.305x^7 + 1.000x^6 + 1.000x^5 + -0.224x^4 + 1.000x^3 + 1.000x^2 + 0.008x^1 + 1.000x^0 
++ 1.000x^8 + 0.026x^7 + 1.000x^6 + 1.000x^5 + -0.347x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.013x^0 
++ 1.000x^8 + 0.006x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.430x^3 + 0.497x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.013x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.257x^3 + 1.000x^2 + 0.015x^1 + 1.000x^0 
++ 1.000x^8 + 0.114x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.263x^3 + 1.000x^2 + 0.014x^1 + 1.000x^0 
++ 1.000x^8 + 0.075x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.197x^3 + 1.000x^2 + 0.007x^1 + 1.000x^0 
++ 1.000x^8 + 0.015x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.413x^3 + 1.000x^2 + 1.000x^1 + 0.164x^0 
++ 1.000x^8 + 0.002x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.199x^3 + 1.000x^2 + 1.000x^1 + 0.048x^0 
++ 1.000x^8 + 1.000x^7 + 0.006x^6 + -0.361x^5 + 0.035x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.011x^6 + -0.159x^5 + -0.007x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.010x^6 + -0.653x^5 + 1.000x^4 + -0.226x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.002x^6 + -0.156x^5 + 1.000x^4 + -0.101x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.011x^6 + -0.465x^5 + 1.000x^4 + -0.366x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.013x^6 + -0.764x^5 + 1.000x^4 + 1.000x^3 + 0.047x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.250x^6 + -0.377x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.014x^0 
++ 1.000x^8 + 1.000x^7 + 0.015x^6 + -0.197x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.154x^0 
++ 1.000x^8 + 1.000x^7 + 0.013x^6 + -0.481x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.123x^0 
++ 1.000x^8 + 1.000x^7 + 0.000x^6 + 1.000x^5 + -0.121x^4 + 0.437x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.000x^6 + 1.000x^5 + 0.254x^4 + -0.625x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.009x^6 + 1.000x^5 + -0.473x^4 + -0.078x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.005x^6 + 1.000x^5 + 0.047x^4 + -0.506x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.113x^6 + 1.000x^5 + -0.474x^4 + 1.000x^3 + 0.002x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.007x^6 + 1.000x^5 + -0.390x^4 + 1.000x^3 + 0.166x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.056x^6 + 1.000x^5 + -0.226x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.003x^0 
++ 1.000x^8 + 1.000x^7 + 0.012x^6 + 1.000x^5 + 1.000x^4 + -0.315x^3 + 0.016x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.058x^6 + 1.000x^5 + 1.000x^4 + -0.325x^3 + 0.001x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.134x^6 + 1.000x^5 + 1.000x^4 + -0.669x^3 + 0.002x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.031x^6 + 1.000x^5 + 1.000x^4 + -0.470x^3 + 0.005x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.118x^6 + 1.000x^5 + 1.000x^4 + -0.237x^3 + 1.000x^2 + 0.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.680x^5 + -0.766x^4 + -0.940x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.572x^5 + -0.956x^4 + -0.924x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.272x^5 + -0.474x^4 + 1.000x^3 + 0.006x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.158x^5 + -0.541x^4 + 1.000x^3 + 0.005x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.650x^5 + -0.410x^4 + 1.000x^3 + 1.000x^2 + 0.009x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.411x^5 + -0.725x^4 + 1.000x^3 + 1.000x^2 + 0.006x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.473x^5 + -0.692x^4 + 1.000x^3 + 1.000x^2 + 0.005x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.622x^5 + -0.402x^4 + 1.000x^3 + 1.000x^2 + 0.010x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.505x^5 + -0.657x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.013x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.485x^5 + -0.077x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.240x^5 + 1.000x^4 + -0.283x^3 + 0.008x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.295x^5 + 1.000x^4 + -0.519x^3 + 0.011x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.042x^5 + 1.000x^4 + -0.521x^3 + 0.015x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.638x^5 + 1.000x^4 + -0.635x^3 + 1.000x^2 + 0.310x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.550x^5 + 1.000x^4 + -0.396x^3 + 1.000x^2 + 0.036x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.010x^5 + 1.000x^4 + -0.386x^3 + 1.000x^2 + 1.000x^1 + 0.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.265x^5 + 1.000x^4 + -0.356x^3 + 1.000x^2 + 1.000x^1 + 0.011x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.887x^5 + 1.000x^4 + -0.209x^3 + 1.000x^2 + 1.000x^1 + 0.013x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.428x^5 + 1.000x^4 + 1.000x^3 + 0.106x^2 + 0.013x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.765x^5 + 1.000x^4 + 1.000x^3 + 0.011x^2 + 0.004x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.290x^5 + 1.000x^4 + 1.000x^3 + 0.005x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.302x^4 + -0.228x^3 + 0.011x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.586x^4 + 0.061x^3 + 0.014x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.430x^4 + -0.744x^3 + 0.031x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.499x^4 + -0.295x^3 + 0.003x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.677x^4 + -0.541x^3 + 0.044x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.615x^4 + -0.399x^3 + 0.008x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.295x^4 + 0.135x^3 + 1.000x^2 + 0.001x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.286x^4 + -0.362x^3 + 1.000x^2 + 0.006x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.171x^4 + -0.286x^3 + 1.000x^2 + 0.009x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.390x^4 + -0.208x^3 + 1.000x^2 + 1.000x^1 + 0.006x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.062x^4 + -0.572x^3 + 1.000x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.915x^4 + -0.236x^3 + 1.000x^2 + 1.000x^1 + 0.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.425x^4 + -0.683x^3 + 1.000x^2 + 1.000x^1 + 0.007x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.113x^4 + 1.000x^3 + 0.186x^2 + 0.001x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.195x^4 + 1.000x^3 + 0.011x^2 + 0.411x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.133x^4 + 1.000x^3 + 0.001x^2 + 0.106x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.199x^4 + 1.000x^3 + 0.074x^2 + 1.000x^1 + 0.005x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.211x^4 + 1.000x^3 + 0.120x^2 + 1.000x^1 + 0.006x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.270x^3 + 0.434x^2 + 0.016x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.682x^3 + 0.048x^2 + 0.005x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.404x^3 + 0.006x^2 + 0.334x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.248x^3 + 0.017x^2 + 1.000x^1 + 0.001x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.342x^3 + 0.004x^2 + 1.000x^1 + 0.096x^0 
++ 0.008x^8 + 0.167x^7 + 0.183x^6 + -0.344x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.083x^8 + 0.005x^7 + 0.141x^6 + 1.000x^5 + -0.168x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.006x^8 + 0.014x^7 + 0.007x^6 + 1.000x^5 + 1.000x^4 + -0.391x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.142x^8 + 0.001x^7 + 1.000x^6 + -0.148x^5 + -0.274x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.055x^8 + 0.007x^7 + 1.000x^6 + -0.366x^5 + 0.078x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.014x^8 + 0.012x^7 + 1.000x^6 + -0.310x^5 + -0.403x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.014x^8 + 0.023x^7 + 1.000x^6 + -0.388x^5 + 0.257x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.008x^8 + 0.031x^7 + 1.000x^6 + -0.201x^5 + -0.597x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.008x^8 + 0.061x^7 + 1.000x^6 + -0.029x^5 + -0.632x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.003x^8 + 0.007x^7 + 1.000x^6 + 0.108x^5 + 1.000x^4 + -0.728x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.110x^8 + 0.005x^7 + 1.000x^6 + -0.645x^5 + 1.000x^4 + 0.172x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.015x^8 + 0.011x^7 + 1.000x^6 + -0.040x^5 + 1.000x^4 + -0.207x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.095x^8 + 0.075x^7 + 1.000x^6 + -0.403x^5 + 1.000x^4 + 1.000x^3 + 0.318x^2 + 1.000x^1 + 1.000x^0 
++ 0.136x^8 + 0.271x^7 + 1.000x^6 + -0.455x^5 + 1.000x^4 + 1.000x^3 + 0.339x^2 + 1.000x^1 + 1.000x^0 
++ 0.268x^8 + 0.575x^7 + 1.000x^6 + -0.231x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.001x^1 + 1.000x^0 
++ 0.146x^8 + 0.014x^7 + 1.000x^6 + 1.000x^5 + -0.036x^4 + -0.526x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.004x^8 + 0.363x^7 + 1.000x^6 + 1.000x^5 + 0.011x^4 + -0.442x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.003x^8 + 0.049x^7 + 1.000x^6 + 1.000x^5 + -0.257x^4 + 1.000x^3 + 1.000x^2 + 0.301x^1 + 1.000x^0 
++ 0.154x^8 + 0.006x^7 + 1.000x^6 + 1.000x^5 + -0.286x^4 + 1.000x^3 + 1.000x^2 + 0.625x^1 + 1.000x^0 
++ 0.366x^8 + 0.006x^7 + 1.000x^6 + 1.000x^5 + -0.613x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.243x^0 
++ 0.009x^8 + 0.343x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.284x^3 + 0.007x^2 + 1.000x^1 + 1.000x^0 
++ 0.009x^8 + 0.127x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.344x^3 + 0.266x^2 + 1.000x^1 + 1.000x^0 
++ 0.066x^8 + 0.011x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.169x^3 + 0.070x^2 + 1.000x^1 + 1.000x^0 
++ 0.133x^8 + 0.648x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.137x^3 + 1.000x^2 + 0.012x^1 + 1.000x^0 
++ 0.292x^8 + 1.000x^7 + 0.004x^6 + -0.255x^5 + 0.357x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.002x^8 + 1.000x^7 + 0.403x^6 + 0.188x^5 + -0.173x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.006x^8 + 1.000x^7 + 0.026x^6 + -0.150x^5 + -0.144x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.008x^8 + 1.000x^7 + 0.215x^6 + -0.132x^5 + 1.000x^4 + -0.109x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.378x^8 + 1.000x^7 + 0.004x^6 + -0.350x^5 + 1.000x^4 + -0.076x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.227x^8 + 1.000x^7 + 0.002x^6 + -0.142x^5 + 1.000x^4 + 1.000x^3 + 0.447x^2 + 1.000x^1 + 1.000x^0 
++ 0.014x^8 + 1.000x^7 + 0.340x^6 + 1.000x^5 + 0.252x^4 + -0.283x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.010x^8 + 1.000x^7 + 0.007x^6 + 1.000x^5 + -0.010x^4 + -0.642x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.084x^8 + 1.000x^7 + 0.145x^6 + 1.000x^5 + -0.407x^4 + 1.000x^3 + 1.000x^2 + 0.003x^1 + 1.000x^0 
++ 0.105x^8 + 1.000x^7 + 0.308x^6 + 1.000x^5 + -0.605x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.000x^0 
++ 0.153x^8 + 1.000x^7 + 0.187x^6 + 1.000x^5 + -0.613x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.012x^0 
++ 0.297x^8 + 1.000x^7 + 0.007x^6 + 1.000x^5 + -0.390x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.255x^0 
++ 0.340x^8 + 1.000x^7 + 0.013x^6 + 1.000x^5 + 1.000x^4 + -0.462x^3 + 0.134x^2 + 1.000x^1 + 1.000x^0 
++ 0.326x^8 + 1.000x^7 + 0.010x^6 + 1.000x^5 + 1.000x^4 + -0.478x^3 + 1.000x^2 + 0.274x^1 + 1.000x^0 
++ 0.006x^8 + 1.000x^7 + 0.398x^6 + 1.000x^5 + 1.000x^4 + -0.368x^3 + 1.000x^2 + 1.000x^1 + 0.072x^0 
++ 0.009x^8 + 1.000x^7 + 1.000x^6 + -0.031x^5 + 0.350x^4 + -0.133x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.001x^8 + 1.000x^7 + 1.000x^6 + 0.166x^5 + 0.431x^4 + -0.409x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.006x^8 + 1.000x^7 + 1.000x^6 + -0.275x^5 + -0.088x^4 + -0.719x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.015x^8 + 1.000x^7 + 1.000x^6 + -0.259x^5 + -0.205x^4 + 0.041x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.005x^8 + 1.000x^7 + 1.000x^6 + -0.003x^5 + -0.347x^4 + -0.545x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.015x^8 + 1.000x^7 + 1.000x^6 + -0.415x^5 + -0.743x^4 + -0.199x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.015x^8 + 1.000x^7 + 1.000x^6 + -0.151x^5 + 0.255x^4 + 1.000x^3 + 0.325x^2 + 1.000x^1 + 1.000x^0 
++ 0.212x^8 + 1.000x^7 + 1.000x^6 + -0.303x^5 + -0.152x^4 + 1.000x^3 + 0.127x^2 + 1.000x^1 + 1.000x^0 
++ 0.012x^8 + 1.000x^7 + 1.000x^6 + -0.295x^5 + 0.116x^4 + 1.000x^3 + 1.000x^2 + 0.301x^1 + 1.000x^0 
++ 0.011x^8 + 1.000x^7 + 1.000x^6 + -0.681x^5 + -0.875x^4 + 1.000x^3 + 1.000x^2 + 0.116x^1 + 1.000x^0 
++ 0.246x^8 + 1.000x^7 + 1.000x^6 + -0.371x^5 + -0.176x^4 + 1.000x^3 + 1.000x^2 + 0.004x^1 + 1.000x^0 
++ 0.011x^8 + 1.000x^7 + 1.000x^6 + 0.347x^5 + -0.254x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.088x^0 
++ 0.013x^8 + 1.000x^7 + 1.000x^6 + -0.224x^5 + -0.506x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.266x^0 
++ 0.482x^8 + 1.000x^7 + 1.000x^6 + -0.205x^5 + 1.000x^4 + 0.462x^3 + 0.005x^2 + 1.000x^1 + 1.000x^0 
++ 0.161x^8 + 1.000x^7 + 1.000x^6 + 0.250x^5 + 1.000x^4 + -0.200x^3 + 0.012x^2 + 1.000x^1 + 1.000x^0 
++ 0.126x^8 + 1.000x^7 + 1.000x^6 + -0.225x^5 + 1.000x^4 + -0.237x^3 + 0.104x^2 + 1.000x^1 + 1.000x^0 
++ 0.003x^8 + 1.000x^7 + 1.000x^6 + -0.077x^5 + 1.000x^4 + -0.216x^3 + 0.157x^2 + 1.000x^1 + 1.000x^0 
++ 0.126x^8 + 1.000x^7 + 1.000x^6 + -0.176x^5 + 1.000x^4 + 0.260x^3 + 1.000x^2 + 0.015x^1 + 1.000x^0 
++ 0.000x^8 + 1.000x^7 + 1.000x^6 + 0.131x^5 + 1.000x^4 + -0.320x^3 + 1.000x^2 + 0.285x^1 + 1.000x^0 
++ 0.281x^8 + 1.000x^7 + 1.000x^6 + -0.112x^5 + 1.000x^4 + -0.147x^3 + 1.000x^2 + 0.013x^1 + 1.000x^0 
++ 0.007x^8 + 1.000x^7 + 1.000x^6 + -0.129x^5 + 1.000x^4 + -0.611x^3 + 1.000x^2 + 0.118x^1 + 1.000x^0 
++ 0.013x^8 + 1.000x^7 + 1.000x^6 + -0.134x^5 + 1.000x^4 + -0.236x^3 + 1.000x^2 + 0.478x^1 + 1.000x^0 
++ 0.082x^8 + 1.000x^7 + 1.000x^6 + -0.237x^5 + 1.000x^4 + 1.000x^3 + 0.161x^2 + 1.000x^1 + 0.105x^0 
++ 0.539x^8 + 1.000x^7 + 1.000x^6 + -0.273x^5 + 1.000x^4 + 1.000x^3 + 0.001x^2 + 1.000x^1 + 0.260x^0 
++ 0.006x^8 + 1.000x^7 + 1.000x^6 + -0.182x^5 + 1.000x^4 + 1.000x^3 + 0.189x^2 + 1.000x^1 + 0.373x^0 
++ 0.008x^8 + 1.000x^7 + 1.000x^6 + -0.449x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.043x^1 + 0.055x^0 
++ 0.006x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.115x^4 + -0.541x^3 + 0.079x^2 + 1.000x^1 + 1.000x^0 
++ 0.033x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.097x^4 + -0.120x^3 + 0.001x^2 + 1.000x^1 + 1.000x^0 
++ 0.009x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.396x^4 + 0.031x^3 + 0.274x^2 + 1.000x^1 + 1.000x^0 
++ 0.229x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.288x^4 + -0.013x^3 + 1.000x^2 + 0.008x^1 + 1.000x^0 
++ 0.468x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.424x^4 + 0.403x^3 + 1.000x^2 + 1.000x^1 + 0.004x^0 
++ 0.006x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.240x^4 + 0.334x^3 + 1.000x^2 + 1.000x^1 + 0.392x^0 
++ 0.015x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.245x^4 + -0.527x^3 + 1.000x^2 + 1.000x^1 + 0.357x^0 
++ 0.154x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.283x^4 + 0.226x^3 + 1.000x^2 + 1.000x^1 + 0.014x^0 
++ 0.006x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.117x^4 + 1.000x^3 + 1.000x^2 + 0.440x^1 + 0.198x^0 
++ 0.303x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.150x^4 + 1.000x^3 + 1.000x^2 + 0.093x^1 + 0.002x^0 
++ 0.167x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.554x^3 + 0.326x^2 + 0.012x^1 + 1.000x^0 
++ 0.101x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.302x^3 + 0.544x^2 + 1.000x^1 + 0.013x^0 
++ 0.008x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.281x^3 + 0.217x^2 + 1.000x^1 + 0.305x^0 
++ 0.008x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.286x^3 + 1.000x^2 + 0.479x^1 + 0.361x^0 
++ 0.404x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.226x^3 + 1.000x^2 + 0.006x^1 + 0.207x^0 
++ 1.000x^8 + 0.265x^7 + 0.008x^6 + -0.295x^5 + -0.163x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.571x^7 + 0.007x^6 + 0.037x^5 + -0.259x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.136x^7 + 0.014x^6 + -0.475x^5 + -0.256x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.006x^7 + 0.199x^6 + -0.366x^5 + 1.000x^4 + -0.294x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.200x^7 + 0.003x^6 + 0.187x^5 + 1.000x^4 + -0.479x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.047x^7 + 0.223x^6 + -0.520x^5 + 1.000x^4 + -0.496x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.256x^7 + 0.011x^6 + 0.003x^5 + 1.000x^4 + -0.236x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.124x^7 + 0.012x^6 + 0.323x^5 + 1.000x^4 + -0.427x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.213x^7 + 0.198x^6 + -0.209x^5 + 1.000x^4 + 1.000x^3 + 0.002x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.334x^7 + 0.068x^6 + -0.258x^5 + 1.000x^4 + 1.000x^3 + 0.005x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.251x^7 + 0.012x^6 + -0.134x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.239x^1 + 1.000x^0 
++ 1.000x^8 + 0.151x^7 + 0.235x^6 + -0.254x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.005x^0 
++ 1.000x^8 + 0.010x^7 + 0.314x^6 + 1.000x^5 + -0.420x^4 + -0.437x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.011x^7 + 0.001x^6 + 1.000x^5 + -0.271x^4 + -0.782x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.243x^7 + 0.001x^6 + 1.000x^5 + -0.230x^4 + -0.134x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.141x^7 + 0.007x^6 + 1.000x^5 + -0.326x^4 + -0.031x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.360x^7 + 0.014x^6 + 1.000x^5 + -0.373x^4 + 1.000x^3 + 0.250x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.008x^7 + 0.170x^6 + 1.000x^5 + -0.523x^4 + 1.000x^3 + 0.112x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.156x^7 + 0.009x^6 + 1.000x^5 + -0.382x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.140x^0 
++ 1.000x^8 + 0.035x^7 + 0.019x^6 + 1.000x^5 + -0.763x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.013x^0 
++ 1.000x^8 + 0.205x^7 + 0.153x^6 + 1.000x^5 + 1.000x^4 + -0.242x^3 + 1.000x^2 + 1.000x^1 + 0.100x^0 
++ 1.000x^8 + 0.015x^7 + 1.000x^6 + -0.320x^5 + 0.413x^4 + 0.031x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.005x^7 + 1.000x^6 + -0.602x^5 + -0.225x^4 + -0.074x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.010x^7 + 1.000x^6 + 0.068x^5 + -0.442x^4 + 0.259x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.083x^7 + 1.000x^6 + -0.213x^5 + -0.897x^4 + -0.783x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.008x^7 + 1.000x^6 + -0.075x^5 + 0.317x^4 + -0.593x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.243x^7 + 1.000x^6 + -0.474x^5 + 0.187x^4 + 1.000x^3 + 0.012x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.008x^7 + 1.000x^6 + -0.198x^5 + 0.421x^4 + 1.000x^3 + 0.110x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.064x^7 + 1.000x^6 + 0.406x^5 + -0.110x^4 + 1.000x^3 + 0.006x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.114x^7 + 1.000x^6 + 0.091x^5 + -0.117x^4 + 1.000x^3 + 0.008x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.117x^7 + 1.000x^6 + -0.258x^5 + 0.153x^4 + 1.000x^3 + 1.000x^2 + 0.001x^1 + 1.000x^0 
++ 1.000x^8 + 0.516x^7 + 1.000x^6 + 0.181x^5 + -0.239x^4 + 1.000x^3 + 1.000x^2 + 0.012x^1 + 1.000x^0 
++ 1.000x^8 + 0.038x^7 + 1.000x^6 + -0.013x^5 + -0.730x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.007x^0 
++ 1.000x^8 + 0.066x^7 + 1.000x^6 + -0.545x^5 + -0.370x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.003x^0 
++ 1.000x^8 + 0.044x^7 + 1.000x^6 + -0.488x^5 + 0.074x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.000x^0 
++ 1.000x^8 + 0.011x^7 + 1.000x^6 + -0.501x^5 + 0.067x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.109x^0 
++ 1.000x^8 + 0.184x^7 + 1.000x^6 + -0.133x^5 + 1.000x^4 + -0.178x^3 + 1.000x^2 + 0.187x^1 + 1.000x^0 
++ 1.000x^8 + 0.257x^7 + 1.000x^6 + -0.181x^5 + 1.000x^4 + -0.152x^3 + 1.000x^2 + 0.087x^1 + 1.000x^0 
++ 1.000x^8 + 0.007x^7 + 1.000x^6 + -0.284x^5 + 1.000x^4 + 0.268x^3 + 1.000x^2 + 0.361x^1 + 1.000x^0 
++ 1.000x^8 + 0.204x^7 + 1.000x^6 + -0.184x^5 + 1.000x^4 + 0.066x^3 + 1.000x^2 + 0.007x^1 + 1.000x^0 
++ 1.000x^8 + 0.137x^7 + 1.000x^6 + -0.630x^5 + 1.000x^4 + -0.474x^3 + 1.000x^2 + 1.000x^1 + 0.133x^0 
++ 1.000x^8 + 0.091x^7 + 1.000x^6 + -0.279x^5 + 1.000x^4 + -0.779x^3 + 1.000x^2 + 1.000x^1 + 0.004x^0 
++ 1.000x^8 + 0.406x^7 + 1.000x^6 + -0.303x^5 + 1.000x^4 + 0.167x^3 + 1.000x^2 + 1.000x^1 + 0.000x^0 
++ 1.000x^8 + 0.013x^7 + 1.000x^6 + 0.139x^5 + 1.000x^4 + -0.588x^3 + 1.000x^2 + 1.000x^1 + 0.009x^0 
++ 1.000x^8 + 0.150x^7 + 1.000x^6 + -0.222x^5 + 1.000x^4 + 1.000x^3 + 0.170x^2 + 0.010x^1 + 1.000x^0 
++ 1.000x^8 + 0.326x^7 + 1.000x^6 + -0.341x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.450x^1 + 0.002x^0 
++ 1.000x^8 + 0.334x^7 + 1.000x^6 + 1.000x^5 + -0.404x^4 + -0.442x^3 + 0.008x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.129x^7 + 1.000x^6 + 1.000x^5 + -0.110x^4 + -0.587x^3 + 0.015x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.076x^7 + 1.000x^6 + 1.000x^5 + -0.044x^4 + -0.679x^3 + 1.000x^2 + 0.007x^1 + 1.000x^0 
++ 1.000x^8 + 0.251x^7 + 1.000x^6 + 1.000x^5 + -0.388x^4 + 0.204x^3 + 1.000x^2 + 0.157x^1 + 1.000x^0 
++ 1.000x^8 + 0.085x^7 + 1.000x^6 + 1.000x^5 + -0.119x^4 + -0.394x^3 + 1.000x^2 + 0.049x^1 + 1.000x^0 
++ 1.000x^8 + 0.290x^7 + 1.000x^6 + 1.000x^5 + -0.293x^4 + 0.245x^3 + 1.000x^2 + 0.035x^1 + 1.000x^0 
++ 1.000x^8 + 0.315x^7 + 1.000x^6 + 1.000x^5 + -0.451x^4 + -0.340x^3 + 1.000x^2 + 1.000x^1 + 0.014x^0 
++ 1.000x^8 + 0.004x^7 + 1.000x^6 + 1.000x^5 + -0.464x^4 + -0.492x^3 + 1.000x^2 + 1.000x^1 + 0.264x^0 
++ 1.000x^8 + 0.062x^7 + 1.000x^6 + 1.000x^5 + -0.209x^4 + -0.488x^3 + 1.000x^2 + 1.000x^1 + 0.006x^0 
++ 1.000x^8 + 0.344x^7 + 1.000x^6 + 1.000x^5 + -0.491x^4 + 1.000x^3 + 0.260x^2 + 1.000x^1 + 0.007x^0 
++ 1.000x^8 + 0.007x^7 + 1.000x^6 + 1.000x^5 + -0.111x^4 + 1.000x^3 + 1.000x^2 + 0.626x^1 + 0.008x^0 
++ 1.000x^8 + 0.001x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.244x^3 + 0.241x^2 + 0.066x^1 + 1.000x^0 
++ 1.000x^8 + 0.287x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.253x^3 + 0.004x^2 + 0.236x^1 + 1.000x^0 
++ 1.000x^8 + 0.380x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.590x^3 + 0.088x^2 + 1.000x^1 + 0.004x^0 
++ 1.000x^8 + 0.013x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.570x^3 + 0.082x^2 + 1.000x^1 + 0.037x^0 
++ 1.000x^8 + 1.000x^7 + 0.012x^6 + -0.240x^5 + -0.472x^4 + 0.056x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.004x^6 + -0.147x^5 + -0.202x^4 + -0.189x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.004x^6 + 0.099x^5 + 0.084x^4 + -0.480x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.007x^6 + -0.298x^5 + 0.120x^4 + 0.026x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.007x^6 + -0.118x^5 + -0.785x^4 + -0.823x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.001x^6 + 0.155x^5 + -0.131x^4 + -0.435x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.003x^6 + 0.027x^5 + -0.267x^4 + 1.000x^3 + 0.048x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.014x^6 + -0.232x^5 + 0.274x^4 + 1.000x^3 + 0.331x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.003x^6 + -0.467x^5 + -0.374x^4 + 1.000x^3 + 0.242x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.129x^6 + -0.026x^5 + -0.180x^4 + 1.000x^3 + 1.000x^2 + 0.008x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.008x^6 + -0.337x^5 + -0.179x^4 + 1.000x^3 + 1.000x^2 + 0.516x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.012x^6 + -0.255x^5 + -0.332x^4 + 1.000x^3 + 1.000x^2 + 0.222x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.011x^6 + -0.163x^5 + -0.294x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.341x^0 
++ 1.000x^8 + 1.000x^7 + 0.025x^6 + -0.296x^5 + 0.470x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.002x^0 
++ 1.000x^8 + 1.000x^7 + 0.010x^6 + -0.421x^5 + 0.261x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.102x^0 
++ 1.000x^8 + 1.000x^7 + 0.052x^6 + 0.354x^5 + 1.000x^4 + -0.226x^3 + 0.001x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.015x^6 + 0.180x^5 + 1.000x^4 + -0.694x^3 + 0.019x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.330x^6 + -0.050x^5 + 1.000x^4 + -0.510x^3 + 0.006x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.003x^6 + -0.199x^5 + 1.000x^4 + -0.165x^3 + 0.197x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.004x^6 + 0.333x^5 + 1.000x^4 + -0.231x^3 + 0.108x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.295x^6 + 0.054x^5 + 1.000x^4 + -0.330x^3 + 0.010x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.012x^6 + -0.742x^5 + 1.000x^4 + -0.225x^3 + 1.000x^2 + 0.022x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.014x^6 + -0.277x^5 + 1.000x^4 + 0.418x^3 + 1.000x^2 + 0.236x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.167x^6 + 0.268x^5 + 1.000x^4 + -0.311x^3 + 1.000x^2 + 0.013x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.008x^6 + -0.230x^5 + 1.000x^4 + 0.014x^3 + 1.000x^2 + 0.010x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.014x^6 + 0.019x^5 + 1.000x^4 + -0.478x^3 + 1.000x^2 + 0.071x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.076x^6 + -0.069x^5 + 1.000x^4 + -0.259x^3 + 1.000x^2 + 1.000x^1 + 0.188x^0 
++ 1.000x^8 + 1.000x^7 + 0.352x^6 + -0.027x^5 + 1.000x^4 + -0.270x^3 + 1.000x^2 + 1.000x^1 + 0.009x^0 
++ 1.000x^8 + 1.000x^7 + 0.315x^6 + 0.249x^5 + 1.000x^4 + -0.328x^3 + 1.000x^2 + 1.000x^1 + 0.058x^0 
++ 1.000x^8 + 1.000x^7 + 0.101x^6 + -0.735x^5 + 1.000x^4 + -0.124x^3 + 1.000x^2 + 1.000x^1 + 0.052x^0 
++ 1.000x^8 + 1.000x^7 + 0.012x^6 + -0.462x^5 + 1.000x^4 + 1.000x^3 + 0.239x^2 + 0.006x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.002x^6 + -0.294x^5 + 1.000x^4 + 1.000x^3 + 0.023x^2 + 1.000x^1 + 0.150x^0 
++ 1.000x^8 + 1.000x^7 + 0.013x^6 + -0.375x^5 + 1.000x^4 + 1.000x^3 + 0.292x^2 + 1.000x^1 + 0.288x^0 
++ 1.000x^8 + 1.000x^7 + 0.114x^6 + -0.563x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.300x^1 + 0.014x^0 
++ 1.000x^8 + 1.000x^7 + 0.158x^6 + 1.000x^5 + -0.401x^4 + 0.076x^3 + 0.011x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.024x^6 + 1.000x^5 + -0.002x^4 + -0.194x^3 + 0.004x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.003x^6 + 1.000x^5 + -0.250x^4 + 0.220x^3 + 0.204x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.013x^6 + 1.000x^5 + -0.400x^4 + -0.433x^3 + 1.000x^2 + 0.205x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.004x^6 + 1.000x^5 + -0.276x^4 + -0.525x^3 + 1.000x^2 + 0.055x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.277x^6 + 1.000x^5 + 0.081x^4 + -0.404x^3 + 1.000x^2 + 0.009x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.263x^6 + 1.000x^5 + -0.169x^4 + -0.289x^3 + 1.000x^2 + 1.000x^1 + 0.062x^0 
++ 1.000x^8 + 1.000x^7 + 0.184x^6 + 1.000x^5 + -0.604x^4 + 0.024x^3 + 1.000x^2 + 1.000x^1 + 0.008x^0 
++ 1.000x^8 + 1.000x^7 + 0.350x^6 + 1.000x^5 + -0.327x^4 + 1.000x^3 + 0.111x^2 + 0.014x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.156x^6 + 1.000x^5 + -0.216x^4 + 1.000x^3 + 0.048x^2 + 0.014x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.129x^6 + 1.000x^5 + -0.142x^4 + 1.000x^3 + 0.008x^2 + 0.354x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.713x^6 + 1.000x^5 + -0.188x^4 + 1.000x^3 + 0.195x^2 + 1.000x^1 + 0.014x^0 
++ 1.000x^8 + 1.000x^7 + 0.006x^6 + 1.000x^5 + -0.258x^4 + 1.000x^3 + 0.387x^2 + 1.000x^1 + 0.151x^0 
++ 1.000x^8 + 1.000x^7 + 0.046x^6 + 1.000x^5 + -0.422x^4 + 1.000x^3 + 0.024x^2 + 1.000x^1 + 0.003x^0 
++ 1.000x^8 + 1.000x^7 + 0.223x^6 + 1.000x^5 + 1.000x^4 + -0.310x^3 + 0.562x^2 + 0.015x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.539x^6 + 1.000x^5 + 1.000x^4 + -0.110x^3 + 1.000x^2 + 0.006x^1 + 0.197x^0 
++ 1.000x^8 + 1.000x^7 + 0.345x^6 + 1.000x^5 + 1.000x^4 + -0.552x^3 + 1.000x^2 + 0.161x^1 + 0.221x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.055x^5 + -0.228x^4 + -0.302x^3 + 0.016x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.053x^5 + -0.262x^4 + -0.316x^3 + 0.064x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.283x^5 + 0.109x^4 + 0.042x^3 + 0.005x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.324x^5 + -0.372x^4 + 0.201x^3 + 0.003x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.504x^5 + 0.111x^4 + -0.340x^3 + 0.014x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.273x^5 + -0.406x^4 + -0.140x^3 + 0.015x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.291x^5 + -0.044x^4 + 0.039x^3 + 1.000x^2 + 0.009x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.063x^5 + -0.353x^4 + 0.272x^3 + 1.000x^2 + 0.012x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.206x^5 + 0.381x^4 + -0.371x^3 + 1.000x^2 + 0.013x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.195x^5 + -0.312x^4 + -0.077x^3 + 1.000x^2 + 0.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.073x^5 + -0.061x^4 + -0.732x^3 + 1.000x^2 + 0.064x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.470x^5 + -0.622x^4 + -0.352x^3 + 1.000x^2 + 0.003x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.063x^5 + -0.340x^4 + 0.027x^3 + 1.000x^2 + 1.000x^1 + 0.007x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.518x^5 + 0.041x^4 + 0.070x^3 + 1.000x^2 + 1.000x^1 + 0.007x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.565x^5 + -0.468x^4 + -0.276x^3 + 1.000x^2 + 1.000x^1 + 0.010x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.299x^5 + -0.492x^4 + -0.657x^3 + 1.000x^2 + 1.000x^1 + 0.007x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.242x^5 + -0.155x^4 + 1.000x^3 + 0.000x^2 + 0.243x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.228x^5 + -0.424x^4 + 1.000x^3 + 0.086x^2 + 0.015x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.079x^5 + -0.631x^4 + 1.000x^3 + 0.005x^2 + 1.000x^1 + 0.019x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.192x^5 + -0.306x^4 + 1.000x^3 + 0.008x^2 + 1.000x^1 + 0.078x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.396x^5 + -0.647x^4 + 1.000x^3 + 0.001x^2 + 1.000x^1 + 0.112x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.485x^5 + -0.307x^4 + 1.000x^3 + 1.000x^2 + 0.376x^1 + 0.006x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.001x^5 + -0.169x^4 + 1.000x^3 + 1.000x^2 + 0.288x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.031x^5 + 1.000x^4 + -0.341x^3 + 0.001x^2 + 0.122x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.425x^5 + 1.000x^4 + -0.208x^3 + 0.003x^2 + 0.115x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.159x^5 + 1.000x^4 + 0.672x^3 + 0.244x^2 + 0.010x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.413x^5 + 1.000x^4 + 0.056x^3 + 0.082x^2 + 0.009x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.115x^5 + 1.000x^4 + -0.045x^3 + 0.276x^2 + 1.000x^1 + 0.010x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.543x^5 + 1.000x^4 + -0.351x^3 + 1.000x^2 + 0.007x^1 + 0.044x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.575x^5 + 1.000x^4 + 0.059x^3 + 1.000x^2 + 0.150x^1 + 0.002x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.305x^5 + 1.000x^4 + -0.075x^3 + 1.000x^2 + 0.135x^1 + 0.006x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.321x^5 + 1.000x^4 + -0.055x^3 + 1.000x^2 + 0.426x^1 + 0.008x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.563x^5 + 1.000x^4 + 0.140x^3 + 1.000x^2 + 0.005x^1 + 0.136x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.151x^5 + 1.000x^4 + -0.191x^3 + 1.000x^2 + 0.011x^1 + 0.044x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.179x^4 + -0.339x^3 + 0.008x^2 + 0.347x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.398x^4 + -0.024x^3 + 0.130x^2 + 0.008x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.308x^4 + -0.653x^3 + 0.102x^2 + 0.248x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.251x^4 + -0.432x^3 + 0.136x^2 + 1.000x^1 + 0.005x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.168x^4 + 0.013x^3 + 0.300x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.213x^4 + 0.026x^3 + 1.000x^2 + 0.354x^1 + 0.010x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.122x^4 + -0.255x^3 + 1.000x^2 + 0.008x^1 + 0.600x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.483x^4 + -0.322x^3 + 1.000x^2 + 0.001x^1 + 0.178x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.140x^4 + 1.000x^3 + 0.072x^2 + 0.661x^1 + 0.013x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.287x^4 + 1.000x^3 + 0.278x^2 + 0.015x^1 + 0.476x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.324x^3 + 0.569x^2 + 0.114x^1 + 0.005x^0 
++ 0.409x^8 + 0.011x^7 + 0.356x^6 + 0.140x^5 + -0.136x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.181x^8 + 0.135x^7 + 0.001x^6 + -0.254x^5 + 0.062x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.010x^8 + 0.698x^7 + 0.135x^6 + 0.366x^5 + 1.000x^4 + -0.237x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.009x^8 + 0.306x^7 + 0.290x^6 + -0.229x^5 + 1.000x^4 + -0.101x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.359x^8 + 0.009x^7 + 0.402x^6 + -0.243x^5 + 1.000x^4 + 0.402x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.312x^8 + 0.006x^7 + 0.342x^6 + 0.384x^5 + 1.000x^4 + -0.192x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.164x^8 + 0.076x^7 + 0.007x^6 + -0.130x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.521x^0 
++ 0.316x^8 + 0.365x^7 + 0.008x^6 + 1.000x^5 + -0.320x^4 + -0.407x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.258x^8 + 0.422x^7 + 0.004x^6 + 1.000x^5 + -0.233x^4 + 0.238x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.004x^8 + 0.147x^7 + 0.439x^6 + 1.000x^5 + -0.110x^4 + 1.000x^3 + 0.567x^2 + 1.000x^1 + 1.000x^0 
++ 0.136x^8 + 0.379x^7 + 0.002x^6 + 1.000x^5 + -0.338x^4 + 1.000x^3 + 0.395x^2 + 1.000x^1 + 1.000x^0 
++ 0.585x^8 + 0.013x^7 + 0.494x^6 + 1.000x^5 + -0.138x^4 + 1.000x^3 + 1.000x^2 + 0.192x^1 + 1.000x^0 
++ 0.009x^8 + 0.620x^7 + 0.045x^6 + 1.000x^5 + -0.203x^4 + 1.000x^3 + 1.000x^2 + 0.392x^1 + 1.000x^0 
++ 0.333x^8 + 0.311x^7 + 0.093x^6 + 1.000x^5 + -0.426x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.004x^0 
++ 0.283x^8 + 0.083x^7 + 0.548x^6 + 1.000x^5 + -0.266x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.002x^0 
++ 0.175x^8 + 0.119x^7 + 0.009x^6 + 1.000x^5 + 1.000x^4 + -0.433x^3 + 0.011x^2 + 1.000x^1 + 1.000x^0 
++ 0.163x^8 + 0.006x^7 + 0.641x^6 + 1.000x^5 + 1.000x^4 + -0.158x^3 + 0.179x^2 + 1.000x^1 + 1.000x^0 
++ 0.036x^8 + 0.063x^7 + 0.508x^6 + 1.000x^5 + 1.000x^4 + -0.372x^3 + 0.012x^2 + 1.000x^1 + 1.000x^0 
++ 0.191x^8 + 0.002x^7 + 0.116x^6 + 1.000x^5 + 1.000x^4 + -0.192x^3 + 0.173x^2 + 1.000x^1 + 1.000x^0 
++ 0.005x^8 + 0.137x^7 + 0.341x^6 + 1.000x^5 + 1.000x^4 + -0.243x^3 + 1.000x^2 + 1.000x^1 + 0.036x^0 
++ 0.069x^8 + 0.001x^7 + 0.265x^6 + 1.000x^5 + 1.000x^4 + -0.291x^3 + 1.000x^2 + 1.000x^1 + 0.548x^0 
++ 0.142x^8 + 0.015x^7 + 1.000x^6 + 0.243x^5 + -0.135x^4 + 0.095x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.005x^8 + 0.209x^7 + 1.000x^6 + 0.419x^5 + -0.415x^4 + 1.000x^3 + 0.022x^2 + 1.000x^1 + 1.000x^0 
++ 0.006x^8 + 0.166x^7 + 1.000x^6 + 0.532x^5 + -0.148x^4 + 1.000x^3 + 1.000x^2 + 0.417x^1 + 1.000x^0 
++ 0.056x^8 + 0.007x^7 + 1.000x^6 + -0.147x^5 + 0.274x^4 + 1.000x^3 + 1.000x^2 + 0.307x^1 + 1.000x^0 
++ 0.264x^8 + 0.175x^7 + 1.000x^6 + -0.060x^5 + -0.106x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.002x^0 
++ 0.011x^8 + 0.416x^7 + 1.000x^6 + -0.354x^5 + 0.141x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.245x^0 
++ 0.010x^8 + 0.109x^7 + 1.000x^6 + -0.158x^5 + 0.319x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.176x^0 
++ 0.244x^8 + 0.328x^7 + 1.000x^6 + -0.058x^5 + 1.000x^4 + -0.642x^3 + 0.003x^2 + 1.000x^1 + 1.000x^0 
++ 0.533x^8 + 0.355x^7 + 1.000x^6 + 0.068x^5 + 1.000x^4 + -0.173x^3 + 0.011x^2 + 1.000x^1 + 1.000x^0 
++ 0.381x^8 + 0.513x^7 + 1.000x^6 + -0.034x^5 + 1.000x^4 + -0.204x^3 + 0.008x^2 + 1.000x^1 + 1.000x^0 
++ 0.004x^8 + 0.101x^7 + 1.000x^6 + -0.034x^5 + 1.000x^4 + -0.333x^3 + 1.000x^2 + 0.375x^1 + 1.000x^0 
++ 0.570x^8 + 0.117x^7 + 1.000x^6 + -0.310x^5 + 1.000x^4 + -0.312x^3 + 1.000x^2 + 0.530x^1 + 1.000x^0 
++ 0.005x^8 + 0.567x^7 + 1.000x^6 + 0.235x^5 + 1.000x^4 + -0.123x^3 + 1.000x^2 + 0.181x^1 + 1.000x^0 
++ 0.021x^8 + 0.538x^7 + 1.000x^6 + 0.101x^5 + 1.000x^4 + -0.248x^3 + 1.000x^2 + 0.004x^1 + 1.000x^0 
++ 0.322x^8 + 0.013x^7 + 1.000x^6 + -0.205x^5 + 1.000x^4 + -0.127x^3 + 1.000x^2 + 1.000x^1 + 0.017x^0 
++ 0.012x^8 + 0.148x^7 + 1.000x^6 + 0.095x^5 + 1.000x^4 + -0.135x^3 + 1.000x^2 + 1.000x^1 + 0.029x^0 
++ 0.005x^8 + 0.449x^7 + 1.000x^6 + -0.174x^5 + 1.000x^4 + 1.000x^3 + 0.515x^2 + 0.240x^1 + 1.000x^0 
++ 0.074x^8 + 0.146x^7 + 1.000x^6 + -0.401x^5 + 1.000x^4 + 1.000x^3 + 0.334x^2 + 1.000x^1 + 0.153x^0 
++ 0.000x^8 + 0.633x^7 + 1.000x^6 + -0.261x^5 + 1.000x^4 + 1.000x^3 + 0.551x^2 + 1.000x^1 + 0.626x^0 
++ 0.014x^8 + 0.261x^7 + 1.000x^6 + 1.000x^5 + -0.444x^4 + -0.485x^3 + 0.209x^2 + 1.000x^1 + 1.000x^0 
++ 0.058x^8 + 0.457x^7 + 1.000x^6 + 1.000x^5 + -0.167x^4 + 0.541x^3 + 1.000x^2 + 0.012x^1 + 1.000x^0 
++ 0.011x^8 + 0.007x^7 + 1.000x^6 + 1.000x^5 + -0.224x^4 + 0.145x^3 + 1.000x^2 + 0.379x^1 + 1.000x^0 
++ 0.001x^8 + 0.086x^7 + 1.000x^6 + 1.000x^5 + 0.186x^4 + -0.271x^3 + 1.000x^2 + 0.485x^1 + 1.000x^0 
++ 0.470x^8 + 0.002x^7 + 1.000x^6 + 1.000x^5 + 0.314x^4 + -0.270x^3 + 1.000x^2 + 0.111x^1 + 1.000x^0 
++ 0.245x^8 + 0.138x^7 + 1.000x^6 + 1.000x^5 + -0.207x^4 + -0.344x^3 + 1.000x^2 + 0.098x^1 + 1.000x^0 
++ 0.190x^8 + 0.126x^7 + 1.000x^6 + 1.000x^5 + -0.003x^4 + -0.619x^3 + 1.000x^2 + 1.000x^1 + 0.004x^0 
++ 0.098x^8 + 0.165x^7 + 1.000x^6 + 1.000x^5 + -0.448x^4 + -0.174x^3 + 1.000x^2 + 1.000x^1 + 0.012x^0 
++ 0.157x^8 + 0.587x^7 + 1.000x^6 + 1.000x^5 + -0.338x^4 + 1.000x^3 + 0.156x^2 + 0.015x^1 + 1.000x^0 
++ 0.161x^8 + 0.350x^7 + 1.000x^6 + 1.000x^5 + -0.166x^4 + 1.000x^3 + 0.005x^2 + 1.000x^1 + 0.114x^0 
++ 0.427x^8 + 0.408x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.152x^3 + 0.291x^2 + 0.012x^1 + 1.000x^0 
++ 0.540x^8 + 0.319x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.162x^3 + 0.010x^2 + 0.147x^1 + 1.000x^0 
++ 0.034x^8 + 1.000x^7 + 0.006x^6 + 0.112x^5 + -0.213x^4 + -0.299x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.003x^8 + 1.000x^7 + 0.019x^6 + 0.238x^5 + 0.380x^4 + -0.448x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.008x^8 + 1.000x^7 + 0.143x^6 + -0.420x^5 + -0.170x^4 + 0.043x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.365x^8 + 1.000x^7 + 0.004x^6 + -0.425x^5 + -0.255x^4 + 1.000x^3 + 0.303x^2 + 1.000x^1 + 1.000x^0 
++ 0.011x^8 + 1.000x^7 + 0.427x^6 + 0.371x^5 + -0.150x^4 + 1.000x^3 + 0.581x^2 + 1.000x^1 + 1.000x^0 
++ 0.340x^8 + 1.000x^7 + 0.011x^6 + 0.043x^5 + -0.258x^4 + 1.000x^3 + 0.407x^2 + 1.000x^1 + 1.000x^0 
++ 0.268x^8 + 1.000x^7 + 0.169x^6 + -0.254x^5 + 0.477x^4 + 1.000x^3 + 0.011x^2 + 1.000x^1 + 1.000x^0 
++ 0.087x^8 + 1.000x^7 + 0.012x^6 + -0.423x^5 + -0.093x^4 + 1.000x^3 + 1.000x^2 + 0.042x^1 + 1.000x^0 
++ 0.004x^8 + 1.000x^7 + 0.026x^6 + -0.144x^5 + 0.278x^4 + 1.000x^3 + 1.000x^2 + 0.467x^1 + 1.000x^0 
++ 0.346x^8 + 1.000x^7 + 0.013x^6 + 0.219x^5 + -0.445x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.332x^0 
++ 0.122x^8 + 1.000x^7 + 0.010x^6 + -0.285x^5 + 0.184x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.467x^0 
++ 0.134x^8 + 1.000x^7 + 0.368x^6 + -0.238x^5 + 0.044x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.006x^0 
++ 0.519x^8 + 1.000x^7 + 0.063x^6 + -0.294x^5 + 0.191x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.012x^0 
++ 0.005x^8 + 1.000x^7 + 0.260x^6 + 0.039x^5 + -0.369x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.558x^0 
++ 0.215x^8 + 1.000x^7 + 0.222x^6 + -0.397x^5 + 1.000x^4 + 0.014x^3 + 0.214x^2 + 1.000x^1 + 1.000x^0 
++ 0.469x^8 + 1.000x^7 + 0.011x^6 + 0.064x^5 + 1.000x^4 + -0.112x^3 + 1.000x^2 + 0.003x^1 + 1.000x^0 
++ 0.210x^8 + 1.000x^7 + 0.001x^6 + -0.222x^5 + 1.000x^4 + 0.184x^3 + 1.000x^2 + 1.000x^1 + 0.190x^0 
++ 0.366x^8 + 1.000x^7 + 0.052x^6 + -0.241x^5 + 1.000x^4 + -0.483x^3 + 1.000x^2 + 1.000x^1 + 0.436x^0 
++ 0.176x^8 + 1.000x^7 + 0.329x^6 + -0.409x^5 + 1.000x^4 + -0.412x^3 + 1.000x^2 + 1.000x^1 + 0.108x^0 
++ 0.410x^8 + 1.000x^7 + 0.320x^6 + -0.393x^5 + 1.000x^4 + 1.000x^3 + 0.010x^2 + 0.370x^1 + 1.000x^0 
++ 0.105x^8 + 1.000x^7 + 0.450x^6 + -0.337x^5 + 1.000x^4 + 1.000x^3 + 0.237x^2 + 0.177x^1 + 1.000x^0 
++ 0.072x^8 + 1.000x^7 + 0.017x^6 + -0.282x^5 + 1.000x^4 + 1.000x^3 + 0.236x^2 + 1.000x^1 + 0.339x^0 
++ 0.174x^8 + 1.000x^7 + 0.006x^6 + -0.199x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.615x^1 + 0.580x^0 
++ 0.013x^8 + 1.000x^7 + 0.070x^6 + 1.000x^5 + -0.086x^4 + -0.269x^3 + 0.159x^2 + 1.000x^1 + 1.000x^0 
++ 0.308x^8 + 1.000x^7 + 0.642x^6 + 1.000x^5 + -0.202x^4 + 0.363x^3 + 0.006x^2 + 1.000x^1 + 1.000x^0 
++ 0.060x^8 + 1.000x^7 + 0.009x^6 + 1.000x^5 + -0.242x^4 + -0.337x^3 + 0.202x^2 + 1.000x^1 + 1.000x^0 
++ 0.008x^8 + 1.000x^7 + 0.164x^6 + 1.000x^5 + 0.555x^4 + -0.211x^3 + 1.000x^2 + 0.157x^1 + 1.000x^0 
++ 0.105x^8 + 1.000x^7 + 0.111x^6 + 1.000x^5 + -0.161x^4 + -0.513x^3 + 1.000x^2 + 0.006x^1 + 1.000x^0 
++ 0.228x^8 + 1.000x^7 + 0.013x^6 + 1.000x^5 + -0.127x^4 + 0.269x^3 + 1.000x^2 + 1.000x^1 + 0.218x^0 
++ 0.184x^8 + 1.000x^7 + 0.126x^6 + 1.000x^5 + 0.005x^4 + -0.380x^3 + 1.000x^2 + 1.000x^1 + 0.270x^0 
++ 0.010x^8 + 1.000x^7 + 0.182x^6 + 1.000x^5 + -0.282x^4 + -0.221x^3 + 1.000x^2 + 1.000x^1 + 0.517x^0 
++ 0.526x^8 + 1.000x^7 + 0.014x^6 + 1.000x^5 + -0.122x^4 + 1.000x^3 + 0.058x^2 + 1.000x^1 + 0.285x^0 
++ 0.604x^8 + 1.000x^7 + 0.011x^6 + 1.000x^5 + -0.121x^4 + 1.000x^3 + 0.140x^2 + 1.000x^1 + 0.144x^0 
++ 0.470x^8 + 1.000x^7 + 0.004x^6 + 1.000x^5 + -0.495x^4 + 1.000x^3 + 1.000x^2 + 0.109x^1 + 0.163x^0 
++ 0.014x^8 + 1.000x^7 + 0.364x^6 + 1.000x^5 + -0.201x^4 + 1.000x^3 + 1.000x^2 + 0.214x^1 + 0.148x^0 
++ 0.006x^8 + 1.000x^7 + 0.164x^6 + 1.000x^5 + -0.120x^4 + 1.000x^3 + 1.000x^2 + 0.365x^1 + 0.236x^0 
++ 0.365x^8 + 1.000x^7 + 0.290x^6 + 1.000x^5 + 1.000x^4 + -0.330x^3 + 0.050x^2 + 1.000x^1 + 0.074x^0 
++ 0.563x^8 + 1.000x^7 + 0.002x^6 + 1.000x^5 + 1.000x^4 + -0.212x^3 + 1.000x^2 + 0.322x^1 + 0.236x^0 
++ 0.014x^8 + 1.000x^7 + 0.095x^6 + 1.000x^5 + 1.000x^4 + -0.289x^3 + 1.000x^2 + 0.110x^1 + 0.228x^0 
++ 0.007x^8 + 1.000x^7 + 1.000x^6 + 0.599x^5 + 0.705x^4 + -0.181x^3 + 0.057x^2 + 1.000x^1 + 1.000x^0 
++ 0.577x^8 + 1.000x^7 + 1.000x^6 + -0.306x^5 + 0.591x^4 + 0.452x^3 + 0.009x^2 + 1.000x^1 + 1.000x^0 
++ 0.014x^8 + 1.000x^7 + 1.000x^6 + 0.042x^5 + 0.626x^4 + -0.295x^3 + 0.522x^2 + 1.000x^1 + 1.000x^0 
++ 0.100x^8 + 1.000x^7 + 1.000x^6 + 0.157x^5 + -0.258x^4 + 0.249x^3 + 0.002x^2 + 1.000x^1 + 1.000x^0 
++ 0.219x^8 + 1.000x^7 + 1.000x^6 + -0.422x^5 + -0.109x^4 + -0.118x^3 + 0.204x^2 + 1.000x^1 + 1.000x^0 
++ 0.281x^8 + 1.000x^7 + 1.000x^6 + -0.193x^5 + 0.133x^4 + -0.308x^3 + 0.006x^2 + 1.000x^1 + 1.000x^0 
++ 0.384x^8 + 1.000x^7 + 1.000x^6 + -0.337x^5 + -0.027x^4 + -0.202x^3 + 1.000x^2 + 0.015x^1 + 1.000x^0 
++ 0.005x^8 + 1.000x^7 + 1.000x^6 + -0.229x^5 + 0.138x^4 + -0.200x^3 + 1.000x^2 + 0.542x^1 + 1.000x^0 
++ 0.233x^8 + 1.000x^7 + 1.000x^6 + -0.637x^5 + -0.280x^4 + 0.132x^3 + 1.000x^2 + 0.001x^1 + 1.000x^0 
++ 0.051x^8 + 1.000x^7 + 1.000x^6 + -0.516x^5 + -0.161x^4 + -0.517x^3 + 1.000x^2 + 0.063x^1 + 1.000x^0 
++ 0.003x^8 + 1.000x^7 + 1.000x^6 + 0.363x^5 + -0.309x^4 + -0.164x^3 + 1.000x^2 + 1.000x^1 + 0.009x^0 
++ 0.153x^8 + 1.000x^7 + 1.000x^6 + 0.049x^5 + -0.352x^4 + -0.391x^3 + 1.000x^2 + 1.000x^1 + 0.009x^0 
++ 0.012x^8 + 1.000x^7 + 1.000x^6 + 0.294x^5 + 0.645x^4 + -0.235x^3 + 1.000x^2 + 1.000x^1 + 0.158x^0 
++ 0.004x^8 + 1.000x^7 + 1.000x^6 + -0.416x^5 + -0.146x^4 + -0.647x^3 + 1.000x^2 + 1.000x^1 + 0.081x^0 
++ 0.336x^8 + 1.000x^7 + 1.000x^6 + -0.220x^5 + 0.738x^4 + 1.000x^3 + 0.002x^2 + 0.508x^1 + 1.000x^0 
++ 0.232x^8 + 1.000x^7 + 1.000x^6 + -0.146x^5 + -0.362x^4 + 1.000x^3 + 0.044x^2 + 1.000x^1 + 0.012x^0 
++ 0.011x^8 + 1.000x^7 + 1.000x^6 + -0.292x^5 + 0.174x^4 + 1.000x^3 + 1.000x^2 + 0.213x^1 + 0.111x^0 
++ 0.214x^8 + 1.000x^7 + 1.000x^6 + -0.137x^5 + -0.189x^4 + 1.000x^3 + 1.000x^2 + 0.008x^1 + 0.236x^0 
++ 0.618x^8 + 1.000x^7 + 1.000x^6 + 0.539x^5 + 1.000x^4 + -0.139x^3 + 0.004x^2 + 0.016x^1 + 1.000x^0 
++ 0.300x^8 + 1.000x^7 + 1.000x^6 + -0.476x^5 + 1.000x^4 + 0.139x^3 + 0.217x^2 + 1.000x^1 + 0.017x^0 
++ 0.126x^8 + 1.000x^7 + 1.000x^6 + -0.225x^5 + 1.000x^4 + -0.214x^3 + 0.300x^2 + 1.000x^1 + 0.000x^0 
++ 0.007x^8 + 1.000x^7 + 1.000x^6 + 0.192x^5 + 1.000x^4 + -0.289x^3 + 0.599x^2 + 1.000x^1 + 0.262x^0 
++ 0.245x^8 + 1.000x^7 + 1.000x^6 + 0.312x^5 + 1.000x^4 + -0.247x^3 + 1.000x^2 + 0.010x^1 + 0.243x^0 
++ 0.277x^8 + 1.000x^7 + 1.000x^6 + -0.200x^5 + 1.000x^4 + 0.747x^3 + 1.000x^2 + 0.006x^1 + 0.128x^0 
++ 0.295x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.306x^4 + -0.289x^3 + 0.012x^2 + 0.086x^1 + 1.000x^0 
++ 0.007x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.214x^4 + -0.114x^3 + 0.106x^2 + 0.163x^1 + 1.000x^0 
++ 0.308x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.463x^4 + 0.182x^3 + 0.323x^2 + 0.011x^1 + 1.000x^0 
++ 0.338x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.016x^4 + -0.621x^3 + 0.224x^2 + 0.036x^1 + 1.000x^0 
++ 0.224x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.204x^4 + 0.099x^3 + 0.013x^2 + 1.000x^1 + 0.357x^0 
++ 0.519x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.243x^4 + -0.060x^3 + 0.000x^2 + 1.000x^1 + 0.180x^0 
++ 0.014x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.040x^4 + -0.166x^3 + 0.227x^2 + 1.000x^1 + 0.137x^0 
++ 0.047x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.013x^4 + -0.355x^3 + 0.014x^2 + 1.000x^1 + 0.041x^0 
++ 0.189x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.169x^4 + -0.407x^3 + 0.343x^2 + 1.000x^1 + 0.006x^0 
++ 0.069x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.605x^4 + -0.130x^3 + 1.000x^2 + 0.003x^1 + 0.509x^0 
++ 0.010x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.213x^4 + -0.144x^3 + 1.000x^2 + 0.109x^1 + 0.711x^0 
++ 0.169x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 0.088x^4 + -0.113x^3 + 1.000x^2 + 0.005x^1 + 0.126x^0 
++ 0.409x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.102x^4 + 1.000x^3 + 0.006x^2 + 0.554x^1 + 0.122x^0 
++ 0.005x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.215x^3 + 0.069x^2 + 0.350x^1 + 0.204x^0 
++ 0.307x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.387x^3 + 0.377x^2 + 0.178x^1 + 0.010x^0 
++ 1.000x^8 + 0.007x^7 + 0.309x^6 + -0.047x^5 + 0.633x^4 + -0.131x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.163x^7 + 0.012x^6 + -0.145x^5 + 0.195x^4 + 0.065x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.528x^7 + 0.012x^6 + -0.230x^5 + 0.110x^4 + 0.621x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.487x^7 + 0.002x^6 + -0.410x^5 + -0.184x^4 + -0.075x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.238x^7 + 0.001x^6 + -0.204x^5 + -0.014x^4 + 0.482x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.014x^7 + 0.014x^6 + 0.235x^5 + -0.203x^4 + 1.000x^3 + 0.155x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.391x^7 + 0.492x^6 + 0.421x^5 + -0.400x^4 + 1.000x^3 + 1.000x^2 + 0.026x^1 + 1.000x^0 
++ 1.000x^8 + 0.204x^7 + 0.028x^6 + -0.341x^5 + -0.039x^4 + 1.000x^3 + 1.000x^2 + 0.014x^1 + 1.000x^0 
++ 1.000x^8 + 0.269x^7 + 0.025x^6 + 0.509x^5 + -0.222x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.011x^0 
++ 1.000x^8 + 0.016x^7 + 0.580x^6 + 0.167x^5 + -0.117x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.118x^0 
++ 1.000x^8 + 0.151x^7 + 0.084x^6 + -0.200x^5 + 0.372x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.005x^0 
++ 1.000x^8 + 0.011x^7 + 0.436x^6 + 0.837x^5 + 1.000x^4 + -0.150x^3 + 0.548x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.441x^7 + 0.165x^6 + -0.155x^5 + 1.000x^4 + 0.363x^3 + 0.004x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.234x^7 + 0.013x^6 + 0.757x^5 + 1.000x^4 + -0.137x^3 + 0.084x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.534x^7 + 0.217x^6 + -0.148x^5 + 1.000x^4 + 0.306x^3 + 0.012x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.160x^7 + 0.279x^6 + -0.124x^5 + 1.000x^4 + 0.353x^3 + 1.000x^2 + 0.001x^1 + 1.000x^0 
++ 1.000x^8 + 0.179x^7 + 0.233x^6 + -0.183x^5 + 1.000x^4 + -0.142x^3 + 1.000x^2 + 0.168x^1 + 1.000x^0 
++ 1.000x^8 + 0.212x^7 + 0.064x^6 + 0.152x^5 + 1.000x^4 + -0.451x^3 + 1.000x^2 + 1.000x^1 + 0.426x^0 
++ 1.000x^8 + 0.058x^7 + 0.007x^6 + 0.212x^5 + 1.000x^4 + -0.204x^3 + 1.000x^2 + 1.000x^1 + 0.400x^0 
++ 1.000x^8 + 0.002x^7 + 0.218x^6 + -0.437x^5 + 1.000x^4 + 0.032x^3 + 1.000x^2 + 1.000x^1 + 0.235x^0 
++ 1.000x^8 + 0.467x^7 + 0.002x^6 + -0.162x^5 + 1.000x^4 + 1.000x^3 + 0.022x^2 + 0.183x^1 + 1.000x^0 
++ 1.000x^8 + 0.360x^7 + 0.026x^6 + -0.183x^5 + 1.000x^4 + 1.000x^3 + 0.007x^2 + 1.000x^1 + 0.463x^0 
++ 1.000x^8 + 0.643x^7 + 0.396x^6 + -0.267x^5 + 1.000x^4 + 1.000x^3 + 0.671x^2 + 1.000x^1 + 0.001x^0 
++ 1.000x^8 + 0.109x^7 + 0.011x^6 + -0.197x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.164x^1 + 0.440x^0 
++ 1.000x^8 + 0.034x^7 + 0.068x^6 + -0.540x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.013x^1 + 0.215x^0 
++ 1.000x^8 + 0.217x^7 + 0.094x^6 + 1.000x^5 + 0.346x^4 + -0.145x^3 + 0.003x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.188x^7 + 0.015x^6 + 1.000x^5 + 0.416x^4 + -0.416x^3 + 0.254x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.006x^7 + 0.214x^6 + 1.000x^5 + 0.381x^4 + -0.526x^3 + 1.000x^2 + 0.389x^1 + 1.000x^0 
++ 1.000x^8 + 0.006x^7 + 0.462x^6 + 1.000x^5 + 0.225x^4 + -0.480x^3 + 1.000x^2 + 1.000x^1 + 0.178x^0 
++ 1.000x^8 + 0.006x^7 + 0.344x^6 + 1.000x^5 + -0.184x^4 + 0.011x^3 + 1.000x^2 + 1.000x^1 + 0.273x^0 
++ 1.000x^8 + 0.207x^7 + 0.302x^6 + 1.000x^5 + -0.149x^4 + 0.616x^3 + 1.000x^2 + 1.000x^1 + 0.011x^0 
++ 1.000x^8 + 0.534x^7 + 0.530x^6 + 1.000x^5 + -0.398x^4 + 0.236x^3 + 1.000x^2 + 1.000x^1 + 0.009x^0 
++ 1.000x^8 + 0.025x^7 + 0.014x^6 + 1.000x^5 + 0.192x^4 + -0.298x^3 + 1.000x^2 + 1.000x^1 + 0.313x^0 
++ 1.000x^8 + 0.381x^7 + 0.209x^6 + 1.000x^5 + -0.460x^4 + 1.000x^3 + 0.329x^2 + 0.115x^1 + 1.000x^0 
++ 1.000x^8 + 0.014x^7 + 0.079x^6 + 1.000x^5 + -0.228x^4 + 1.000x^3 + 0.024x^2 + 0.217x^1 + 1.000x^0 
++ 1.000x^8 + 0.203x^7 + 0.214x^6 + 1.000x^5 + -0.382x^4 + 1.000x^3 + 0.175x^2 + 0.205x^1 + 1.000x^0 
++ 1.000x^8 + 0.404x^7 + 0.005x^6 + 1.000x^5 + -0.196x^4 + 1.000x^3 + 1.000x^2 + 0.357x^1 + 0.151x^0 
++ 1.000x^8 + 0.012x^7 + 0.163x^6 + 1.000x^5 + -0.200x^4 + 1.000x^3 + 1.000x^2 + 0.489x^1 + 0.161x^0 
++ 1.000x^8 + 0.572x^7 + 0.013x^6 + 1.000x^5 + 1.000x^4 + -0.140x^3 + 0.243x^2 + 0.010x^1 + 1.000x^0 
++ 1.000x^8 + 0.003x^7 + 0.011x^6 + 1.000x^5 + 1.000x^4 + -0.190x^3 + 0.043x^2 + 0.118x^1 + 1.000x^0 
++ 1.000x^8 + 0.128x^7 + 0.051x^6 + 1.000x^5 + 1.000x^4 + -0.213x^3 + 0.013x^2 + 1.000x^1 + 0.192x^0 
++ 1.000x^8 + 0.007x^7 + 1.000x^6 + -0.023x^5 + -0.265x^4 + -0.092x^3 + 0.296x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.013x^7 + 1.000x^6 + -0.535x^5 + 0.421x^4 + 0.129x^3 + 0.007x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.010x^7 + 1.000x^6 + -0.137x^5 + -0.273x^4 + -0.397x^3 + 0.258x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.092x^7 + 1.000x^6 + -0.052x^5 + -0.252x^4 + -0.294x^3 + 1.000x^2 + 0.273x^1 + 1.000x^0 
++ 1.000x^8 + 0.122x^7 + 1.000x^6 + -0.486x^5 + 0.040x^4 + 0.135x^3 + 1.000x^2 + 0.273x^1 + 1.000x^0 
++ 1.000x^8 + 0.141x^7 + 1.000x^6 + 0.055x^5 + -0.177x^4 + -0.177x^3 + 1.000x^2 + 0.080x^1 + 1.000x^0 
++ 1.000x^8 + 0.181x^7 + 1.000x^6 + -0.431x^5 + 0.051x^4 + 0.093x^3 + 1.000x^2 + 0.207x^1 + 1.000x^0 
++ 1.000x^8 + 0.012x^7 + 1.000x^6 + 0.215x^5 + -0.460x^4 + 0.341x^3 + 1.000x^2 + 1.000x^1 + 0.260x^0 
++ 1.000x^8 + 0.015x^7 + 1.000x^6 + -0.249x^5 + -0.242x^4 + -0.273x^3 + 1.000x^2 + 1.000x^1 + 0.170x^0 
++ 1.000x^8 + 0.008x^7 + 1.000x^6 + -0.224x^5 + -0.508x^4 + -0.290x^3 + 1.000x^2 + 1.000x^1 + 0.016x^0 
++ 1.000x^8 + 0.106x^7 + 1.000x^6 + -0.428x^5 + 0.332x^4 + -0.282x^3 + 1.000x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 0.009x^7 + 1.000x^6 + -0.385x^5 + -0.016x^4 + 1.000x^3 + 0.391x^2 + 0.252x^1 + 1.000x^0 
++ 1.000x^8 + 0.464x^7 + 1.000x^6 + -0.228x^5 + 0.329x^4 + 1.000x^3 + 0.221x^2 + 0.015x^1 + 1.000x^0 
++ 1.000x^8 + 0.196x^7 + 1.000x^6 + -0.464x^5 + 0.229x^4 + 1.000x^3 + 0.266x^2 + 1.000x^1 + 0.011x^0 
++ 1.000x^8 + 0.222x^7 + 1.000x^6 + -0.183x^5 + -0.395x^4 + 1.000x^3 + 0.014x^2 + 1.000x^1 + 0.262x^0 
++ 1.000x^8 + 0.124x^7 + 1.000x^6 + 0.250x^5 + -0.309x^4 + 1.000x^3 + 1.000x^2 + 0.449x^1 + 0.007x^0 
++ 1.000x^8 + 0.096x^7 + 1.000x^6 + -0.626x^5 + -0.384x^4 + 1.000x^3 + 1.000x^2 + 0.320x^1 + 0.213x^0 
++ 1.000x^8 + 0.108x^7 + 1.000x^6 + 0.507x^5 + -0.123x^4 + 1.000x^3 + 1.000x^2 + 0.049x^1 + 0.240x^0 
++ 1.000x^8 + 0.092x^7 + 1.000x^6 + 0.228x^5 + 1.000x^4 + -0.448x^3 + 0.047x^2 + 0.155x^1 + 1.000x^0 
++ 1.000x^8 + 0.136x^7 + 1.000x^6 + 0.066x^5 + 1.000x^4 + -0.207x^3 + 0.038x^2 + 0.052x^1 + 1.000x^0 
++ 1.000x^8 + 0.300x^7 + 1.000x^6 + -0.028x^5 + 1.000x^4 + -0.148x^3 + 0.011x^2 + 0.426x^1 + 1.000x^0 
++ 1.000x^8 + 0.427x^7 + 1.000x^6 + -0.401x^5 + 1.000x^4 + -0.091x^3 + 0.303x^2 + 0.111x^1 + 1.000x^0 
++ 1.000x^8 + 0.080x^7 + 1.000x^6 + -0.441x^5 + 1.000x^4 + 0.118x^3 + 1.000x^2 + 0.319x^1 + 0.013x^0 
++ 1.000x^8 + 0.003x^7 + 1.000x^6 + 0.350x^5 + 1.000x^4 + -0.152x^3 + 1.000x^2 + 0.022x^1 + 0.711x^0 
++ 1.000x^8 + 0.321x^7 + 1.000x^6 + -0.221x^5 + 1.000x^4 + 1.000x^3 + 0.207x^2 + 0.453x^1 + 0.015x^0 
++ 1.000x^8 + 0.548x^7 + 1.000x^6 + 1.000x^5 + -0.155x^4 + -0.053x^3 + 0.669x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 0.014x^7 + 1.000x^6 + 1.000x^5 + -0.050x^4 + -0.177x^3 + 0.189x^2 + 1.000x^1 + 0.081x^0 
++ 1.000x^8 + 0.022x^7 + 1.000x^6 + 1.000x^5 + -0.642x^4 + 0.278x^3 + 0.014x^2 + 1.000x^1 + 0.221x^0 
++ 1.000x^8 + 0.262x^7 + 1.000x^6 + 1.000x^5 + -0.300x^4 + 1.000x^3 + 0.174x^2 + 0.045x^1 + 0.219x^0 
++ 1.000x^8 + 0.376x^7 + 1.000x^6 + 1.000x^5 + -0.192x^4 + 1.000x^3 + 0.420x^2 + 0.013x^1 + 0.291x^0 
++ 1.000x^8 + 0.511x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.234x^3 + 0.010x^2 + 0.372x^1 + 0.577x^0 
++ 1.000x^8 + 0.025x^7 + 1.000x^6 + 1.000x^5 + 1.000x^4 + -0.102x^3 + 0.176x^2 + 0.011x^1 + 0.158x^0 
++ 1.000x^8 + 1.000x^7 + 0.469x^6 + -0.085x^5 + -0.196x^4 + -0.107x^3 + 0.015x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.477x^6 + 0.044x^5 + -0.193x^4 + 0.716x^3 + 0.003x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.011x^6 + -0.104x^5 + -0.563x^4 + -0.325x^3 + 0.327x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.138x^6 + 0.048x^5 + -0.143x^4 + -0.508x^3 + 0.138x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.090x^6 + -0.339x^5 + -0.387x^4 + -0.344x^3 + 0.241x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.144x^6 + 0.219x^5 + -0.192x^4 + 0.270x^3 + 1.000x^2 + 0.007x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.214x^6 + -0.439x^5 + 0.098x^4 + -0.549x^3 + 1.000x^2 + 0.058x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.104x^6 + 0.258x^5 + -0.513x^4 + -0.288x^3 + 1.000x^2 + 0.001x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.273x^6 + 0.507x^5 + -0.202x^4 + 0.391x^3 + 1.000x^2 + 0.010x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.219x^6 + -0.303x^5 + 0.038x^4 + -0.344x^3 + 1.000x^2 + 1.000x^1 + 0.154x^0 
++ 1.000x^8 + 1.000x^7 + 0.004x^6 + -0.155x^5 + -0.020x^4 + 0.401x^3 + 1.000x^2 + 1.000x^1 + 0.066x^0 
++ 1.000x^8 + 1.000x^7 + 0.034x^6 + 0.029x^5 + 0.195x^4 + -0.286x^3 + 1.000x^2 + 1.000x^1 + 0.293x^0 
++ 1.000x^8 + 1.000x^7 + 0.561x^6 + -0.158x^5 + -0.259x^4 + 0.053x^3 + 1.000x^2 + 1.000x^1 + 0.012x^0 
++ 1.000x^8 + 1.000x^7 + 0.229x^6 + 0.325x^5 + -0.152x^4 + -0.182x^3 + 1.000x^2 + 1.000x^1 + 0.007x^0 
++ 1.000x^8 + 1.000x^7 + 0.014x^6 + -0.468x^5 + 0.106x^4 + 0.036x^3 + 1.000x^2 + 1.000x^1 + 0.064x^0 
++ 1.000x^8 + 1.000x^7 + 0.386x^6 + 0.271x^5 + -0.451x^4 + -0.477x^3 + 1.000x^2 + 1.000x^1 + 0.104x^0 
++ 1.000x^8 + 1.000x^7 + 0.075x^6 + 0.102x^5 + -0.218x^4 + 1.000x^3 + 0.014x^2 + 0.090x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.130x^6 + 0.245x^5 + -0.133x^4 + 1.000x^3 + 0.014x^2 + 0.619x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.000x^6 + -0.133x^5 + 0.645x^4 + 1.000x^3 + 0.437x^2 + 1.000x^1 + 0.251x^0 
++ 1.000x^8 + 1.000x^7 + 0.224x^6 + -0.137x^5 + 0.088x^4 + 1.000x^3 + 0.486x^2 + 1.000x^1 + 0.008x^0 
++ 1.000x^8 + 1.000x^7 + 0.324x^6 + -0.130x^5 + -0.267x^4 + 1.000x^3 + 0.392x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 0.014x^6 + -0.214x^5 + 0.070x^4 + 1.000x^3 + 0.464x^2 + 1.000x^1 + 0.638x^0 
++ 1.000x^8 + 1.000x^7 + 0.329x^6 + -0.484x^5 + 0.041x^4 + 1.000x^3 + 0.010x^2 + 1.000x^1 + 0.114x^0 
++ 1.000x^8 + 1.000x^7 + 0.240x^6 + 0.190x^5 + -0.492x^4 + 1.000x^3 + 0.014x^2 + 1.000x^1 + 0.127x^0 
++ 1.000x^8 + 1.000x^7 + 0.021x^6 + -0.199x^5 + 0.024x^4 + 1.000x^3 + 1.000x^2 + 0.014x^1 + 0.432x^0 
++ 1.000x^8 + 1.000x^7 + 0.002x^6 + -0.357x^5 + -0.226x^4 + 1.000x^3 + 1.000x^2 + 0.073x^1 + 0.187x^0 
++ 1.000x^8 + 1.000x^7 + 0.283x^6 + -0.626x^5 + -0.549x^4 + 1.000x^3 + 1.000x^2 + 0.228x^1 + 0.012x^0 
++ 1.000x^8 + 1.000x^7 + 0.246x^6 + -0.196x^5 + -0.465x^4 + 1.000x^3 + 1.000x^2 + 0.003x^1 + 0.101x^0 
++ 1.000x^8 + 1.000x^7 + 0.101x^6 + -0.474x^5 + 1.000x^4 + -0.668x^3 + 0.096x^2 + 0.159x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.315x^6 + 0.253x^5 + 1.000x^4 + -0.217x^3 + 0.001x^2 + 0.246x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.003x^6 + 0.458x^5 + 1.000x^4 + -0.246x^3 + 0.234x^2 + 0.036x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.010x^6 + 0.066x^5 + 1.000x^4 + -0.242x^3 + 0.129x^2 + 1.000x^1 + 0.396x^0 
++ 1.000x^8 + 1.000x^7 + 0.117x^6 + -0.213x^5 + 1.000x^4 + 0.367x^3 + 0.438x^2 + 1.000x^1 + 0.004x^0 
++ 1.000x^8 + 1.000x^7 + 0.058x^6 + -0.182x^5 + 1.000x^4 + -0.067x^3 + 0.006x^2 + 1.000x^1 + 0.518x^0 
++ 1.000x^8 + 1.000x^7 + 0.187x^6 + 0.136x^5 + 1.000x^4 + -0.146x^3 + 1.000x^2 + 0.700x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 0.398x^6 + -0.194x^5 + 1.000x^4 + 0.062x^3 + 1.000x^2 + 0.041x^1 + 0.010x^0 
++ 1.000x^8 + 1.000x^7 + 0.032x^6 + -0.549x^5 + 1.000x^4 + 1.000x^3 + 0.012x^2 + 0.018x^1 + 0.007x^0 
++ 1.000x^8 + 1.000x^7 + 0.449x^6 + 1.000x^5 + -0.305x^4 + -0.321x^3 + 0.187x^2 + 0.013x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.012x^6 + 1.000x^5 + 0.043x^4 + -0.555x^3 + 0.253x^2 + 0.266x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.269x^6 + 1.000x^5 + -0.429x^4 + -0.440x^3 + 0.261x^2 + 1.000x^1 + 0.173x^0 
++ 1.000x^8 + 1.000x^7 + 0.090x^6 + 1.000x^5 + 0.279x^4 + -0.248x^3 + 1.000x^2 + 0.112x^1 + 0.191x^0 
++ 1.000x^8 + 1.000x^7 + 0.321x^6 + 1.000x^5 + -0.057x^4 + -0.349x^3 + 1.000x^2 + 0.318x^1 + 0.040x^0 
++ 1.000x^8 + 1.000x^7 + 0.526x^6 + 1.000x^5 + 0.287x^4 + -0.371x^3 + 1.000x^2 + 0.542x^1 + 0.013x^0 
++ 1.000x^8 + 1.000x^7 + 0.243x^6 + 1.000x^5 + -0.258x^4 + 1.000x^3 + 0.424x^2 + 0.039x^1 + 0.005x^0 
++ 1.000x^8 + 1.000x^7 + 0.451x^6 + 1.000x^5 + 1.000x^4 + -0.205x^3 + 0.459x^2 + 0.148x^1 + 0.016x^0 
++ 1.000x^8 + 1.000x^7 + 0.418x^6 + 1.000x^5 + 1.000x^4 + -0.242x^3 + 0.573x^2 + 0.002x^1 + 0.075x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.334x^5 + -0.184x^4 + -0.180x^3 + 0.564x^2 + 0.014x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.067x^5 + -0.140x^4 + 0.222x^3 + 0.130x^2 + 0.002x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.034x^5 + -0.119x^4 + -0.237x^3 + 0.044x^2 + 0.124x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.234x^5 + -0.096x^4 + -0.207x^3 + 0.309x^2 + 0.009x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.538x^5 + -0.193x^4 + 0.085x^3 + 0.003x^2 + 0.195x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.419x^5 + 0.296x^4 + -0.568x^3 + 0.091x^2 + 0.259x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.225x^5 + -0.417x^4 + 0.124x^3 + 0.383x^2 + 1.000x^1 + 0.015x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.408x^5 + 0.029x^4 + -0.405x^3 + 0.027x^2 + 1.000x^1 + 0.264x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.104x^5 + 0.411x^4 + -0.510x^3 + 0.449x^2 + 1.000x^1 + 0.009x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.421x^5 + 0.233x^4 + -0.217x^3 + 1.000x^2 + 0.080x^1 + 0.004x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.646x^5 + -0.144x^4 + 0.208x^3 + 1.000x^2 + 0.086x^1 + 0.010x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.172x^5 + -0.031x^4 + -0.274x^3 + 1.000x^2 + 0.114x^1 + 0.006x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.095x^5 + -0.120x^4 + 1.000x^3 + 0.288x^2 + 0.005x^1 + 0.492x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.439x^5 + 0.356x^4 + 1.000x^3 + 0.085x^2 + 0.061x^1 + 0.009x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.188x^5 + 1.000x^4 + 0.552x^3 + 0.260x^2 + 0.008x^1 + 0.465x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.187x^5 + 1.000x^4 + -0.319x^3 + 0.013x^2 + 0.160x^1 + 0.221x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.141x^4 + -0.195x^3 + 0.013x^2 + 0.622x^1 + 0.060x^0 
++ 0.656x^8 + 0.000x^7 + 0.330x^6 + 0.601x^5 + -0.118x^4 + 0.303x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.005x^8 + 0.329x^7 + 0.649x^6 + -0.127x^5 + 0.367x^4 + 0.001x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.002x^8 + 0.170x^7 + 0.112x^6 + -0.294x^5 + 0.210x^4 + 0.250x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.606x^8 + 0.002x^7 + 0.424x^6 + 0.643x^5 + -0.183x^4 + 0.231x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.406x^8 + 0.011x^7 + 0.561x^6 + -0.365x^5 + 0.122x^4 + 0.116x^3 + 1.000x^2 + 1.000x^1 + 1.000x^0 
++ 0.136x^8 + 0.490x^7 + 0.653x^6 + -0.126x^5 + 0.781x^4 + 1.000x^3 + 0.003x^2 + 1.000x^1 + 1.000x^0 
++ 0.524x^8 + 0.009x^7 + 0.477x^6 + -0.317x^5 + 0.340x^4 + 1.000x^3 + 0.216x^2 + 1.000x^1 + 1.000x^0 
++ 0.572x^8 + 0.381x^7 + 0.556x^6 + -0.138x^5 + -0.009x^4 + 1.000x^3 + 1.000x^2 + 0.005x^1 + 1.000x^0 
++ 0.519x^8 + 0.012x^7 + 0.065x^6 + 0.056x^5 + -0.122x^4 + 1.000x^3 + 1.000x^2 + 0.287x^1 + 1.000x^0 
++ 0.000x^8 + 0.389x^7 + 0.284x^6 + 0.431x^5 + -0.173x^4 + 1.000x^3 + 1.000x^2 + 0.042x^1 + 1.000x^0 
++ 0.147x^8 + 0.186x^7 + 0.547x^6 + -0.129x^5 + 0.617x^4 + 1.000x^3 + 1.000x^2 + 1.000x^1 + 0.008x^0 
++ 0.065x^8 + 0.464x^7 + 0.266x^6 + -0.270x^5 + 1.000x^4 + -0.312x^3 + 1.000x^2 + 0.175x^1 + 1.000x^0 
++ 0.152x^8 + 0.734x^7 + 0.485x^6 + -0.166x^5 + 1.000x^4 + 0.167x^3 + 1.000x^2 + 0.008x^1 + 1.000x^0 
++ 0.305x^8 + 0.336x^7 + 0.249x^6 + -0.508x^5 + 1.000x^4 + 0.153x^3 + 1.000x^2 + 0.029x^1 + 1.000x^0 
++ 0.002x^8 + 0.015x^7 + 0.238x^6 + 0.290x^5 + 1.000x^4 + -0.241x^3 + 1.000x^2 + 0.006x^1 + 1.000x^0 
++ 0.277x^8 + 0.139x^7 + 0.603x^6 + 0.630x^5 + 1.000x^4 + -0.247x^3 + 1.000x^2 + 0.012x^1 + 1.000x^0 
++ 0.630x^8 + 0.618x^7 + 0.013x^6 + -0.136x^5 + 1.000x^4 + 1.000x^3 + 0.300x^2 + 0.177x^1 + 1.000x^0 
++ 0.066x^8 + 0.275x^7 + 0.657x^6 + -0.210x^5 + 1.000x^4 + 1.000x^3 + 0.146x^2 + 1.000x^1 + 0.443x^0 
++ 0.015x^8 + 0.026x^7 + 0.227x^6 + -0.155x^5 + 1.000x^4 + 1.000x^3 + 1.000x^2 + 0.184x^1 + 0.061x^0 
++ 0.008x^8 + 0.222x^7 + 0.095x^6 + 1.000x^5 + -0.103x^4 + 0.215x^3 + 0.374x^2 + 1.000x^1 + 1.000x^0 
++ 0.259x^8 + 0.396x^7 + 0.262x^6 + 1.000x^5 + 0.553x^4 + -0.100x^3 + 1.000x^2 + 0.010x^1 + 1.000x^0 
++ 0.004x^8 + 0.549x^7 + 0.112x^6 + 1.000x^5 + -0.078x^4 + -0.147x^3 + 1.000x^2 + 1.000x^1 + 0.155x^0 
++ 0.218x^8 + 0.132x^7 + 0.043x^6 + 1.000x^5 + -0.287x^4 + 1.000x^3 + 0.227x^2 + 0.155x^1 + 1.000x^0 
++ 0.243x^8 + 0.231x^7 + 0.001x^6 + 1.000x^5 + -0.212x^4 + 1.000x^3 + 0.181x^2 + 1.000x^1 + 0.168x^0 
++ 0.639x^8 + 0.009x^7 + 0.375x^6 + 1.000x^5 + 1.000x^4 + -0.137x^3 + 0.396x^2 + 0.613x^1 + 1.000x^0 
++ 0.002x^8 + 0.358x^7 + 0.052x^6 + 1.000x^5 + 1.000x^4 + -0.111x^3 + 0.531x^2 + 0.326x^1 + 1.000x^0 
++ 0.263x^8 + 0.251x^7 + 0.351x^6 + 1.000x^5 + 1.000x^4 + -0.378x^3 + 0.361x^2 + 0.004x^1 + 1.000x^0 
++ 0.690x^8 + 0.004x^7 + 1.000x^6 + -0.108x^5 + -0.127x^4 + 0.596x^3 + 0.482x^2 + 1.000x^1 + 1.000x^0 
++ 0.320x^8 + 0.002x^7 + 1.000x^6 + -0.283x^5 + -0.061x^4 + 0.241x^3 + 0.166x^2 + 1.000x^1 + 1.000x^0 
++ 0.564x^8 + 0.014x^7 + 1.000x^6 + 0.271x^5 + -0.297x^4 + 0.489x^3 + 0.344x^2 + 1.000x^1 + 1.000x^0 
++ 0.367x^8 + 0.005x^7 + 1.000x^6 + -0.297x^5 + 0.197x^4 + -0.219x^3 + 0.136x^2 + 1.000x^1 + 1.000x^0 
++ 0.032x^8 + 0.583x^7 + 1.000x^6 + -0.103x^5 + -0.215x^4 + 0.665x^3 + 0.109x^2 + 1.000x^1 + 1.000x^0 
++ 0.205x^8 + 0.445x^7 + 1.000x^6 + -0.259x^5 + -0.104x^4 + -0.466x^3 + 1.000x^2 + 0.314x^1 + 1.000x^0 
++ 0.205x^8 + 0.011x^7 + 1.000x^6 + -0.285x^5 + 0.196x^4 + 0.440x^3 + 1.000x^2 + 0.306x^1 + 1.000x^0 
++ 0.635x^8 + 0.396x^7 + 1.000x^6 + 0.575x^5 + -0.136x^4 + 0.057x^3 + 1.000x^2 + 0.010x^1 + 1.000x^0 
++ 0.396x^8 + 0.265x^7 + 1.000x^6 + -0.158x^5 + -0.045x^4 + 0.170x^3 + 1.000x^2 + 1.000x^1 + 0.006x^0 
++ 0.007x^8 + 0.183x^7 + 1.000x^6 + 0.340x^5 + -0.275x^4 + 0.450x^3 + 1.000x^2 + 1.000x^1 + 0.470x^0 
++ 0.164x^8 + 0.012x^7 + 1.000x^6 + 0.431x^5 + 0.378x^4 + -0.216x^3 + 1.000x^2 + 1.000x^1 + 0.288x^0 
++ 0.406x^8 + 0.008x^7 + 1.000x^6 + -0.377x^5 + -0.462x^4 + 0.151x^3 + 1.000x^2 + 1.000x^1 + 0.168x^0 
++ 0.452x^8 + 0.013x^7 + 1.000x^6 + 0.371x^5 + 0.476x^4 + -0.204x^3 + 1.000x^2 + 1.000x^1 + 0.087x^0 
++ 0.446x^8 + 0.005x^7 + 1.000x^6 + -0.338x^5 + 0.156x^4 + 0.120x^3 + 1.000x^2 + 1.000x^1 + 0.479x^0 
++ 0.184x^8 + 0.201x^7 + 1.000x^6 + -0.277x^5 + -0.025x^4 + 1.000x^3 + 0.367x^2 + 0.002x^1 + 1.000x^0 
++ 0.375x^8 + 0.001x^7 + 1.000x^6 + -0.233x^5 + 0.291x^4 + 1.000x^3 + 1.000x^2 + 0.313x^1 + 0.222x^0 
++ 0.576x^8 + 0.296x^7 + 1.000x^6 + 0.553x^5 + 1.000x^4 + -0.110x^3 + 0.247x^2 + 0.007x^1 + 1.000x^0 
++ 0.009x^8 + 0.554x^7 + 1.000x^6 + 0.507x^5 + 1.000x^4 + -0.156x^3 + 0.015x^2 + 1.000x^1 + 0.463x^0 
++ 0.306x^8 + 0.018x^7 + 1.000x^6 + 0.052x^5 + 1.000x^4 + -0.135x^3 + 0.006x^2 + 1.000x^1 + 0.526x^0 
++ 0.519x^8 + 0.013x^7 + 1.000x^6 + -0.111x^5 + 1.000x^4 + 0.053x^3 + 0.687x^2 + 1.000x^1 + 0.039x^0 
++ 0.357x^8 + 0.311x^7 + 1.000x^6 + -0.397x^5 + 1.000x^4 + -0.321x^3 + 0.074x^2 + 1.000x^1 + 0.531x^0 
++ 0.003x^8 + 0.626x^7 + 1.000x^6 + -0.211x^5 + 1.000x^4 + -0.186x^3 + 1.000x^2 + 0.696x^1 + 0.715x^0 
++ 0.349x^8 + 0.259x^7 + 1.000x^6 + 0.050x^5 + 1.000x^4 + -0.434x^3 + 1.000x^2 + 0.177x^1 + 0.536x^0 
++ 0.379x^8 + 0.030x^7 + 1.000x^6 + -0.276x^5 + 1.000x^4 + 1.000x^3 + 0.013x^2 + 0.229x^1 + 0.422x^0 
++ 0.255x^8 + 0.334x^7 + 1.000x^6 + 1.000x^5 + -0.108x^4 + -0.007x^3 + 0.271x^2 + 0.014x^1 + 1.000x^0 
++ 0.015x^8 + 0.414x^7 + 1.000x^6 + 1.000x^5 + 0.263x^4 + -0.387x^3 + 0.300x^2 + 0.155x^1 + 1.000x^0 
++ 0.076x^8 + 0.472x^7 + 1.000x^6 + 1.000x^5 + -0.191x^4 + 0.027x^3 + 0.011x^2 + 1.000x^1 + 0.393x^0 
++ 0.538x^8 + 0.156x^7 + 1.000x^6 + 1.000x^5 + -0.353x^4 + 0.412x^3 + 0.191x^2 + 1.000x^1 + 0.006x^0 
++ 0.146x^8 + 0.004x^7 + 1.000x^6 + 1.000x^5 + -0.316x^4 + 0.296x^3 + 1.000x^2 + 0.386x^1 + 0.317x^0 
++ 0.012x^8 + 0.390x^7 + 1.000x^6 + 1.000x^5 + -0.199x^4 + 1.000x^3 + 0.301x^2 + 0.109x^1 + 0.191x^0 
++ 0.015x^8 + 1.000x^7 + 0.445x^6 + 0.440x^5 + -0.263x^4 + 0.200x^3 + 0.291x^2 + 1.000x^1 + 1.000x^0 
++ 0.002x^8 + 1.000x^7 + 0.254x^6 + -0.171x^5 + 0.288x^4 + 0.034x^3 + 0.180x^2 + 1.000x^1 + 1.000x^0 
++ 0.639x^8 + 1.000x^7 + 0.659x^6 + -0.198x^5 + 0.697x^4 + 0.399x^3 + 0.006x^2 + 1.000x^1 + 1.000x^0 
++ 0.309x^8 + 1.000x^7 + 0.007x^6 + -0.303x^5 + -0.171x^4 + 0.446x^3 + 0.264x^2 + 1.000x^1 + 1.000x^0 
++ 0.264x^8 + 1.000x^7 + 0.371x^6 + -0.193x^5 + -0.338x^4 + -0.286x^3 + 0.115x^2 + 1.000x^1 + 1.000x^0 
++ 0.008x^8 + 1.000x^7 + 0.197x^6 + 0.255x^5 + -0.163x^4 + 0.392x^3 + 1.000x^2 + 0.102x^1 + 1.000x^0 
++ 0.289x^8 + 1.000x^7 + 0.025x^6 + -0.141x^5 + -0.579x^4 + -0.304x^3 + 1.000x^2 + 0.078x^1 + 1.000x^0 
++ 0.372x^8 + 1.000x^7 + 0.010x^6 + -0.187x^5 + 0.355x^4 + -0.076x^3 + 1.000x^2 + 0.510x^1 + 1.000x^0 
++ 0.011x^8 + 1.000x^7 + 0.323x^6 + -0.362x^5 + -0.197x^4 + 0.107x^3 + 1.000x^2 + 0.386x^1 + 1.000x^0 
++ 0.575x^8 + 1.000x^7 + 0.012x^6 + 0.402x^5 + 0.441x^4 + -0.126x^3 + 1.000x^2 + 1.000x^1 + 0.162x^0 
++ 0.261x^8 + 1.000x^7 + 0.008x^6 + -0.261x^5 + 0.182x^4 + 0.691x^3 + 1.000x^2 + 1.000x^1 + 0.413x^0 
++ 0.008x^8 + 1.000x^7 + 0.418x^6 + -0.150x^5 + 0.348x^4 + 0.344x^3 + 1.000x^2 + 1.000x^1 + 0.284x^0 
++ 0.102x^8 + 1.000x^7 + 0.098x^6 + 0.420x^5 + 0.372x^4 + -0.123x^3 + 1.000x^2 + 1.000x^1 + 0.026x^0 
++ 0.029x^8 + 1.000x^7 + 0.257x^6 + 0.582x^5 + -0.124x^4 + 1.000x^3 + 0.083x^2 + 0.003x^1 + 1.000x^0 
++ 0.632x^8 + 1.000x^7 + 0.004x^6 + 0.529x^5 + -0.231x^4 + 1.000x^3 + 0.399x^2 + 0.508x^1 + 1.000x^0 
++ 0.012x^8 + 1.000x^7 + 0.553x^6 + 0.618x^5 + -0.301x^4 + 1.000x^3 + 0.197x^2 + 1.000x^1 + 0.114x^0 
++ 0.533x^8 + 1.000x^7 + 0.371x^6 + -0.221x^5 + 0.269x^4 + 1.000x^3 + 0.424x^2 + 1.000x^1 + 0.002x^0 
++ 0.441x^8 + 1.000x^7 + 0.482x^6 + -0.144x^5 + 0.498x^4 + 1.000x^3 + 1.000x^2 + 0.381x^1 + 0.009x^0 
++ 0.124x^8 + 1.000x^7 + 0.458x^6 + -0.294x^5 + 1.000x^4 + 0.198x^3 + 0.201x^2 + 0.215x^1 + 1.000x^0 
++ 0.156x^8 + 1.000x^7 + 0.470x^6 + -0.260x^5 + 1.000x^4 + 0.473x^3 + 0.129x^2 + 0.034x^1 + 1.000x^0 
++ 0.045x^8 + 1.000x^7 + 0.012x^6 + 0.520x^5 + 1.000x^4 + -0.284x^3 + 0.399x^2 + 0.516x^1 + 1.000x^0 
++ 0.008x^8 + 1.000x^7 + 0.528x^6 + 0.440x^5 + 1.000x^4 + -0.314x^3 + 0.379x^2 + 1.000x^1 + 0.156x^0 
++ 0.182x^8 + 1.000x^7 + 0.516x^6 + -0.198x^5 + 1.000x^4 + -0.346x^3 + 0.057x^2 + 1.000x^1 + 0.187x^0 
++ 0.008x^8 + 1.000x^7 + 0.600x^6 + 0.482x^5 + 1.000x^4 + -0.100x^3 + 1.000x^2 + 0.508x^1 + 0.545x^0 
++ 0.058x^8 + 1.000x^7 + 0.177x^6 + -0.729x^5 + 1.000x^4 + -0.057x^3 + 1.000x^2 + 0.025x^1 + 0.006x^0 
++ 0.354x^8 + 1.000x^7 + 0.500x^6 + -0.297x^5 + 1.000x^4 + 1.000x^3 + 0.326x^2 + 0.007x^1 + 0.309x^0 
++ 0.295x^8 + 1.000x^7 + 0.016x^6 + 1.000x^5 + -0.197x^4 + 0.193x^3 + 0.293x^2 + 0.156x^1 + 1.000x^0 
++ 0.242x^8 + 1.000x^7 + 0.469x^6 + 1.000x^5 + 0.049x^4 + -0.328x^3 + 0.299x^2 + 0.003x^1 + 1.000x^0 
++ 0.124x^8 + 1.000x^7 + 0.560x^6 + 1.000x^5 + -0.189x^4 + 0.264x^3 + 0.385x^2 + 0.000x^1 + 1.000x^0 
++ 0.109x^8 + 1.000x^7 + 0.448x^6 + 1.000x^5 + -0.363x^4 + 0.367x^3 + 0.005x^2 + 1.000x^1 + 0.254x^0 
++ 0.429x^8 + 1.000x^7 + 0.002x^6 + 1.000x^5 + -0.267x^4 + 0.298x^3 + 0.446x^2 + 1.000x^1 + 0.466x^0 
++ 0.011x^8 + 1.000x^7 + 0.204x^6 + 1.000x^5 + -0.110x^4 + 1.000x^3 + 0.201x^2 + 0.614x^1 + 0.295x^0 
++ 0.128x^8 + 1.000x^7 + 1.000x^6 + -0.159x^5 + 0.665x^4 + 0.426x^3 + 0.075x^2 + 0.392x^1 + 1.000x^0 
++ 0.219x^8 + 1.000x^7 + 1.000x^6 + -0.105x^5 + 0.260x^4 + 0.035x^3 + 0.126x^2 + 1.000x^1 + 0.009x^0 
++ 0.015x^8 + 1.000x^7 + 1.000x^6 + -0.435x^5 + 0.472x^4 + -0.100x^3 + 0.437x^2 + 1.000x^1 + 0.050x^0 
++ 0.003x^8 + 1.000x^7 + 1.000x^6 + 0.304x^5 + 0.306x^4 + -0.115x^3 + 1.000x^2 + 0.474x^1 + 0.075x^0 
++ 0.060x^8 + 1.000x^7 + 1.000x^6 + -0.180x^5 + 0.391x^4 + 0.241x^3 + 1.000x^2 + 0.703x^1 + 0.007x^0 
++ 0.339x^8 + 1.000x^7 + 1.000x^6 + -0.094x^5 + 0.629x^4 + -0.132x^3 + 1.000x^2 + 0.407x^1 + 0.010x^0 
++ 0.023x^8 + 1.000x^7 + 1.000x^6 + -0.200x^5 + -0.245x^4 + 0.481x^3 + 1.000x^2 + 0.006x^1 + 0.135x^0 
++ 0.294x^8 + 1.000x^7 + 1.000x^6 + -0.119x^5 + 1.000x^4 + 0.472x^3 + 0.003x^2 + 0.156x^1 + 0.164x^0 
++ 0.353x^8 + 1.000x^7 + 1.000x^6 + -0.208x^5 + 1.000x^4 + 0.023x^3 + 0.012x^2 + 0.222x^1 + 0.538x^0 
++ 0.653x^8 + 1.000x^7 + 1.000x^6 + 1.000x^5 + -0.338x^4 + 0.191x^3 + 0.519x^2 + 0.010x^1 + 0.479x^0 
++ 1.000x^8 + 0.230x^7 + 0.003x^6 + -0.016x^5 + 0.050x^4 + -0.162x^3 + 0.291x^2 + 1.000x^1 + 1.000x^0 
++ 1.000x^8 + 0.754x^7 + 0.010x^6 + -0.124x^5 + 0.002x^4 + 0.350x^3 + 1.000x^2 + 0.725x^1 + 1.000x^0 
++ 1.000x^8 + 0.027x^7 + 0.013x^6 + 0.262x^5 + -0.126x^4 + 0.110x^3 + 1.000x^2 + 0.493x^1 + 1.000x^0 
++ 1.000x^8 + 0.629x^7 + 0.055x^6 + 0.474x^5 + -0.166x^4 + -0.204x^3 + 1.000x^2 + 0.005x^1 + 1.000x^0 
++ 1.000x^8 + 0.015x^7 + 0.195x^6 + 0.088x^5 + -0.551x^4 + -0.172x^3 + 1.000x^2 + 1.000x^1 + 0.137x^0 
++ 1.000x^8 + 0.122x^7 + 0.134x^6 + -0.130x^5 + 0.346x^4 + 1.000x^3 + 0.175x^2 + 0.005x^1 + 1.000x^0 
++ 1.000x^8 + 0.082x^7 + 0.157x^6 + -0.373x^5 + 0.256x^4 + 1.000x^3 + 0.268x^2 + 0.001x^1 + 1.000x^0 
++ 1.000x^8 + 0.739x^7 + 0.745x^6 + -0.162x^5 + 0.128x^4 + 1.000x^3 + 0.012x^2 + 1.000x^1 + 0.513x^0 
++ 1.000x^8 + 0.011x^7 + 0.138x^6 + -0.073x^5 + -0.283x^4 + 1.000x^3 + 0.037x^2 + 1.000x^1 + 0.578x^0 
++ 1.000x^8 + 0.014x^7 + 0.595x^6 + -0.210x^5 + 0.684x^4 + 1.000x^3 + 1.000x^2 + 0.210x^1 + 0.720x^0 
++ 1.000x^8 + 0.428x^7 + 0.051x^6 + -0.268x^5 + 0.223x^4 + 1.000x^3 + 1.000x^2 + 0.015x^1 + 0.415x^0 
++ 1.000x^8 + 0.010x^7 + 0.027x^6 + -0.163x^5 + 1.000x^4 + -0.063x^3 + 0.654x^2 + 0.479x^1 + 1.000x^0 
++ 1.000x^8 + 0.010x^7 + 0.416x^6 + 0.223x^5 + 1.000x^4 + -0.317x^3 + 0.372x^2 + 0.242x^1 + 1.000x^0 
++ 1.000x^8 + 0.024x^7 + 0.181x^6 + 0.186x^5 + 1.000x^4 + -0.381x^3 + 0.053x^2 + 1.000x^1 + 0.208x^0 
++ 1.000x^8 + 0.292x^7 + 0.025x^6 + -0.357x^5 + 1.000x^4 + -0.308x^3 + 1.000x^2 + 0.431x^1 + 0.305x^0 
++ 1.000x^8 + 0.380x^7 + 0.097x^6 + -0.191x^5 + 1.000x^4 + -0.248x^3 + 1.000x^2 + 0.416x^1 + 0.177x^0 
++ 1.000x^8 + 0.015x^7 + 0.685x^6 + -0.164x^5 + 1.000x^4 + -0.186x^3 + 1.000x^2 + 0.489x^1 + 0.768x^0 
++ 1.000x^8 + 0.497x^7 + 0.047x^6 + 0.463x^5 + 1.000x^4 + -0.125x^3 + 1.000x^2 + 0.575x^1 + 0.119x^0 
++ 1.000x^8 + 0.087x^7 + 0.004x^6 + -0.153x^5 + 1.000x^4 + 1.000x^3 + 0.032x^2 + 0.407x^1 + 0.386x^0 
++ 1.000x^8 + 0.013x^7 + 0.070x^6 + 1.000x^5 + 0.225x^4 + -0.184x^3 + 0.792x^2 + 0.243x^1 + 1.000x^0 
++ 1.000x^8 + 0.314x^7 + 0.324x^6 + 1.000x^5 + -0.435x^4 + -0.344x^3 + 0.384x^2 + 0.121x^1 + 1.000x^0 
++ 1.000x^8 + 0.005x^7 + 0.087x^6 + 1.000x^5 + 0.171x^4 + -0.153x^3 + 0.486x^2 + 1.000x^1 + 0.107x^0 
++ 1.000x^8 + 0.014x^7 + 0.170x^6 + 1.000x^5 + -0.215x^4 + 0.315x^3 + 0.077x^2 + 1.000x^1 + 0.554x^0 
++ 1.000x^8 + 0.269x^7 + 0.301x^6 + 1.000x^5 + -0.275x^4 + 0.029x^3 + 1.000x^2 + 0.391x^1 + 0.011x^0 
++ 1.000x^8 + 0.658x^7 + 0.330x^6 + 1.000x^5 + -0.117x^4 + 1.000x^3 + 0.683x^2 + 0.596x^1 + 0.000x^0 
++ 1.000x^8 + 0.074x^7 + 0.148x^6 + 1.000x^5 + 1.000x^4 + -0.271x^3 + 0.639x^2 + 0.322x^1 + 0.124x^0 
++ 1.000x^8 + 0.735x^7 + 0.359x^6 + 1.000x^5 + 1.000x^4 + -0.203x^3 + 0.644x^2 + 0.002x^1 + 0.158x^0 
++ 1.000x^8 + 0.095x^7 + 1.000x^6 + 0.044x^5 + -0.177x^4 + 0.416x^3 + 0.643x^2 + 0.094x^1 + 1.000x^0 
++ 1.000x^8 + 0.497x^7 + 1.000x^6 + 0.245x^5 + -0.175x^4 + 0.001x^3 + 0.014x^2 + 0.055x^1 + 1.000x^0 
++ 1.000x^8 + 0.558x^7 + 1.000x^6 + -0.319x^5 + 0.249x^4 + 0.274x^3 + 0.567x^2 + 0.010x^1 + 1.000x^0 
++ 1.000x^8 + 0.468x^7 + 1.000x^6 + 0.404x^5 + -0.375x^4 + -0.417x^3 + 0.015x^2 + 1.000x^1 + 0.120x^0 
++ 1.000x^8 + 0.175x^7 + 1.000x^6 + 0.135x^5 + -0.198x^4 + -0.135x^3 + 0.015x^2 + 1.000x^1 + 0.311x^0 
++ 1.000x^8 + 0.197x^7 + 1.000x^6 + -0.034x^5 + 0.052x^4 + -0.499x^3 + 0.049x^2 + 1.000x^1 + 0.031x^0 
++ 1.000x^8 + 0.465x^7 + 1.000x^6 + -0.282x^5 + -0.077x^4 + -0.429x^3 + 0.025x^2 + 1.000x^1 + 0.285x^0 
++ 1.000x^8 + 0.028x^7 + 1.000x^6 + 0.362x^5 + -0.100x^4 + -0.063x^3 + 1.000x^2 + 0.092x^1 + 0.344x^0 
++ 1.000x^8 + 0.455x^7 + 1.000x^6 + 0.282x^5 + -0.155x^4 + 0.059x^3 + 1.000x^2 + 0.397x^1 + 0.003x^0 
++ 1.000x^8 + 0.152x^7 + 1.000x^6 + 0.025x^5 + -0.241x^4 + 0.640x^3 + 1.000x^2 + 0.095x^1 + 0.484x^0 
++ 1.000x^8 + 0.639x^7 + 1.000x^6 + 0.184x^5 + 0.401x^4 + -0.148x^3 + 1.000x^2 + 0.016x^1 + 0.222x^0 
++ 1.000x^8 + 0.465x^7 + 1.000x^6 + -0.401x^5 + 0.065x^4 + 0.360x^3 + 1.000x^2 + 0.006x^1 + 0.176x^0 
++ 1.000x^8 + 0.332x^7 + 1.000x^6 + -0.165x^5 + -0.193x^4 + 1.000x^3 + 0.012x^2 + 0.616x^1 + 0.308x^0 
++ 1.000x^8 + 0.005x^7 + 1.000x^6 + -0.136x^5 + 1.000x^4 + 0.178x^3 + 0.197x^2 + 0.132x^1 + 0.095x^0 
++ 1.000x^8 + 0.469x^7 + 1.000x^6 + 1.000x^5 + -0.483x^4 + 0.071x^3 + 0.268x^2 + 0.051x^1 + 0.127x^0 
++ 1.000x^8 + 0.261x^7 + 1.000x^6 + 1.000x^5 + -0.278x^4 + 0.151x^3 + 0.089x^2 + 0.046x^1 + 0.129x^0 
++ 1.000x^8 + 1.000x^7 + 0.454x^6 + 0.173x^5 + 0.292x^4 + -0.204x^3 + 0.008x^2 + 0.029x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.008x^6 + 0.435x^5 + 0.442x^4 + -0.124x^3 + 0.544x^2 + 0.368x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.001x^6 + -0.048x^5 + -0.378x^4 + 0.473x^3 + 0.354x^2 + 0.247x^1 + 1.000x^0 
++ 1.000x^8 + 1.000x^7 + 0.676x^6 + 0.413x^5 + -0.195x^4 + 0.533x^3 + 0.525x^2 + 1.000x^1 + 0.005x^0 
++ 1.000x^8 + 1.000x^7 + 0.062x^6 + -0.289x^5 + -0.188x^4 + -0.081x^3 + 0.342x^2 + 1.000x^1 + 0.059x^0 
++ 1.000x^8 + 1.000x^7 + 0.045x^6 + -0.022x^5 + 0.347x^4 + -0.446x^3 + 0.391x^2 + 1.000x^1 + 0.429x^0 
++ 1.000x^8 + 1.000x^7 + 0.010x^6 + 1.000x^5 + 0.369x^4 + -0.160x^3 + 0.084x^2 + 0.435x^1 + 0.315x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.118x^5 + 0.275x^4 + -0.302x^3 + 0.235x^2 + 0.008x^1 + 0.360x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.085x^5 + 0.696x^4 + -0.207x^3 + 0.245x^2 + 0.350x^1 + 0.009x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + 0.317x^5 + -0.283x^4 + -0.301x^3 + 0.297x^2 + 0.238x^1 + 0.006x^0 
++ 1.000x^8 + 1.000x^7 + 1.000x^6 + -0.262x^5 + -0.180x^4 + 0.118x^3 + 0.276x^2 + 0.009x^1 + 0.591x^0 
++ 0.651x^8 + 0.013x^7 + 0.591x^6 + -0.207x^5 + -0.091x^4 + -0.055x^3 + 0.009x^2 + 1.000x^1 + 1.000x^0 
++ 0.210x^8 + 0.240x^7 + 0.012x^6 + 0.308x^5 + -0.550x^4 + 0.185x^3 + 0.319x^2 + 1.000x^1 + 1.000x^0 
++ 0.117x^8 + 0.076x^7 + 0.014x^6 + -0.212x^5 + 0.254x^4 + -0.064x^3 + 0.231x^2 + 1.000x^1 + 1.000x^0 
++ 0.364x^8 + 0.116x^7 + 0.361x^6 + 0.014x^5 + -0.277x^4 + 0.196x^3 + 1.000x^2 + 0.198x^1 + 1.000x^0 
++ 0.237x^8 + 0.174x^7 + 0.187x^6 + 0.365x^5 + -0.372x^4 + 0.221x^3 + 1.000x^2 + 0.202x^1 + 1.000x^0 
++ 0.030x^8 + 0.061x^7 + 0.198x^6 + -0.311x^5 + 0.405x^4 + -0.072x^3 + 1.000x^2 + 0.346x^1 + 1.000x^0 
++ 0.100x^8 + 0.520x^7 + 0.182x^6 + 0.150x^5 + -0.301x^4 + 0.102x^3 + 1.000x^2 + 1.000x^1 + 0.003x^0 
++ 0.525x^8 + 0.588x^7 + 0.525x^6 + -0.274x^5 + 0.097x^4 + 1.000x^3 + 1.000x^2 + 0.008x^1 + 0.290x^0 
++ 0.261x^8 + 0.014x^7 + 0.397x^6 + -0.238x^5 + 1.000x^4 + 0.287x^3 + 0.530x^2 + 0.478x^1 + 1.000x^0 
++ 0.421x^8 + 0.151x^7 + 0.169x^6 + -0.342x^5 + 1.000x^4 + 0.009x^3 + 0.003x^2 + 0.585x^1 + 1.000x^0 
++ 0.428x^8 + 0.229x^7 + 0.379x^6 + 0.131x^5 + 1.000x^4 + -0.432x^3 + 0.003x^2 + 0.236x^1 + 1.000x^0 
++ 0.134x^8 + 0.011x^7 + 0.052x^6 + -0.144x^5 + 1.000x^4 + 0.387x^3 + 0.296x^2 + 1.000x^1 + 0.611x^0 
++ 0.056x^8 + 0.332x^7 + 0.689x^6 + 0.757x^5 + 1.000x^4 + -0.117x^3 + 0.336x^2 + 1.000x^1 + 0.000x^0 
++ 0.426x^8 + 0.335x^7 + 0.129x^6 + 0.205x^5 + 1.000x^4 + -0.192x^3 + 1.000x^2 + 0.647x^1 + 0.084x^0 
++ 0.251x^8 + 0.407x^7 + 0.006x^6 + -0.260x^5 + 1.000x^4 + 0.257x^3 + 1.000x^2 + 0.362x^1 + 0.111x^0 
++ 0.458x^8 + 0.008x^7 + 0.391x^6 + 0.627x^5 + 1.000x^4 + -0.218x^3 + 1.000x^2 + 0.383x^1 + 0.296x^0 
++ 0.584x^8 + 0.375x^7 + 0.002x^6 + 1.000x^5 + 0.343x^4 + -0.206x^3 + 0.219x^2 + 0.478x^1 + 1.000x^0 
++ 0.361x^8 + 0.341x^7 + 0.109x^6 + 1.000x^5 + -0.007x^4 + -0.320x^3 + 0.173x^2 + 1.000x^1 + 0.250x^0 
++ 0.093x^8 + 0.442x^7 + 0.592x^6 + 1.000x^5 + -0.110x^4 + -0.367x^3 + 0.006x^2 + 1.000x^1 + 0.417x^0 
++ 0.203x^8 + 0.581x^7 + 0.502x^6 + 1.000x^5 + -0.130x^4 + 0.212x^3 + 0.236x^2 + 1.000x^1 + 0.008x^0 
++ 0.124x^8 + 0.432x^7 + 1.000x^6 + -0.131x^5 + 0.107x^4 + 0.482x^3 + 0.047x^2 + 0.377x^1 + 1.000x^0 
++ 0.101x^8 + 0.302x^7 + 1.000x^6 + -0.152x^5 + 0.449x^4 + 0.013x^3 + 0.630x^2 + 0.005x^1 + 1.000x^0 
++ 0.366x^8 + 0.434x^7 + 1.000x^6 + -0.319x^5 + 0.323x^4 + -0.198x^3 + 0.488x^2 + 0.090x^1 + 1.000x^0 
++ 0.503x^8 + 0.137x^7 + 1.000x^6 + -0.000x^5 + 0.387x^4 + -0.227x^3 + 0.340x^2 + 1.000x^1 + 0.008x^0 
++ 0.045x^8 + 0.208x^7 + 1.000x^6 + 0.195x^5 + -0.250x^4 + -0.372x^3 + 0.065x^2 + 1.000x^1 + 0.055x^0 
++ 0.089x^8 + 0.081x^7 + 1.000x^6 + 0.113x^5 + -0.234x^4 + 0.010x^3 + 1.000x^2 + 0.157x^1 + 0.023x^0 
++ 0.532x^8 + 0.167x^7 + 1.000x^6 + -0.219x^5 + 0.243x^4 + -0.297x^3 + 1.000x^2 + 0.359x^1 + 0.429x^0 
++ 0.000x^8 + 0.056x^7 + 1.000x^6 + 0.425x^5 + -0.154x^4 + 1.000x^3 + 0.705x^2 + 0.632x^1 + 0.540x^0 
++ 0.499x^8 + 0.276x^7 + 1.000x^6 + 1.000x^5 + -0.168x^4 + 0.193x^3 + 0.011x^2 + 0.248x^1 + 0.199x^0 
++ 0.005x^8 + 0.345x^7 + 1.000x^6 + 1.000x^5 + -0.110x^4 + 0.254x^3 + 0.735x^2 + 0.500x^1 + 0.380x^0 
++ 0.537x^8 + 1.000x^7 + 0.517x^6 + 0.219x^5 + -0.397x^4 + 0.512x^3 + 0.342x^2 + 0.011x^1 + 1.000x^0 
++ 0.000x^8 + 1.000x^7 + 0.640x^6 + -0.099x^5 + 0.673x^4 + -0.185x^3 + 0.671x^2 + 0.472x^1 + 1.000x^0 
++ 0.529x^8 + 1.000x^7 + 0.306x^6 + 0.103x^5 + 0.145x^4 + -0.396x^3 + 0.240x^2 + 1.000x^1 + 0.121x^0 
++ 0.207x^8 + 1.000x^7 + 0.231x^6 + -0.346x^5 + -0.515x^4 + -0.453x^3 + 1.000x^2 + 0.261x^1 + 0.236x^0 
++ 0.263x^8 + 1.000x^7 + 0.007x^6 + -0.374x^5 + 0.434x^4 + 0.007x^3 + 1.000x^2 + 0.323x^1 + 0.065x^0 
++ 0.047x^8 + 1.000x^7 + 0.177x^6 + 0.537x^5 + -0.115x^4 + 1.000x^3 + 0.189x^2 + 0.228x^1 + 0.015x^0 
++ 0.587x^8 + 1.000x^7 + 0.097x^6 + -0.171x^5 + 0.446x^4 + 1.000x^3 + 0.012x^2 + 0.146x^1 + 0.127x^0 
++ 0.084x^8 + 1.000x^7 + 0.553x^6 + 0.322x^5 + -0.116x^4 + 1.000x^3 + 0.556x^2 + 0.164x^1 + 0.011x^0 
++ 0.387x^8 + 1.000x^7 + 0.007x^6 + -0.252x^5 + -0.011x^4 + 1.000x^3 + 0.316x^2 + 0.040x^1 + 0.057x^0 
++ 0.356x^8 + 1.000x^7 + 0.010x^6 + -0.399x^5 + 1.000x^4 + 0.348x^3 + 0.494x^2 + 0.393x^1 + 0.478x^0 
++ 0.306x^8 + 1.000x^7 + 0.574x^6 + -0.209x^5 + 1.000x^4 + -0.063x^3 + 0.392x^2 + 0.418x^1 + 0.005x^0 
++ 0.014x^8 + 1.000x^7 + 0.357x^6 + -0.117x^5 + 1.000x^4 + 0.662x^3 + 0.156x^2 + 0.270x^1 + 0.511x^0 
++ 0.241x^8 + 1.000x^7 + 0.268x^6 + -0.014x^5 + 1.000x^4 + -0.125x^3 + 0.530x^2 + 0.000x^1 + 0.262x^0 
++ 0.202x^8 + 1.000x^7 + 0.294x^6 + 1.000x^5 + -0.560x^4 + 0.032x^3 + 0.009x^2 + 0.262x^1 + 0.154x^0 
++ 0.059x^8 + 1.000x^7 + 0.056x^6 + 1.000x^5 + 0.541x^4 + -0.395x^3 + 0.459x^2 + 0.552x^1 + 0.365x^0 
++ 0.342x^8 + 1.000x^7 + 1.000x^6 + 0.104x^5 + -0.279x^4 + 0.283x^3 + 0.156x^2 + 0.084x^1 + 0.005x^0 
++ 0.425x^8 + 1.000x^7 + 1.000x^6 + -0.431x^5 + 0.351x^4 + 0.492x^3 + 0.053x^2 + 0.052x^1 + 0.478x^0 
++ 1.000x^8 + 0.450x^7 + 0.247x^6 + 0.486x^5 + -0.030x^4 + -0.496x^3 + 0.410x^2 + 0.027x^1 + 1.000x^0 
++ 1.000x^8 + 0.217x^7 + 0.250x^6 + 0.230x^5 + -0.086x^4 + -0.313x^3 + 0.213x^2 + 0.030x^1 + 1.000x^0 
++ 1.000x^8 + 0.008x^7 + 0.138x^6 + -0.387x^5 + -0.379x^4 + 0.208x^3 + 0.216x^2 + 1.000x^1 + 0.323x^0 
++ 1.000x^8 + 0.274x^7 + 0.011x^6 + -0.372x^5 + -0.132x^4 + -0.098x^3 + 0.420x^2 + 1.000x^1 + 0.135x^0 
++ 1.000x^8 + 0.333x^7 + 0.183x^6 + -0.295x^5 + -0.034x^4 + 0.004x^3 + 0.007x^2 + 1.000x^1 + 0.242x^0 
++ 1.000x^8 + 0.011x^7 + 0.629x^6 + 0.177x^5 + 0.394x^4 + -0.130x^3 + 1.000x^2 + 0.392x^1 + 0.357x^0 
++ 1.000x^8 + 0.119x^7 + 0.325x^6 + -0.292x^5 + -0.221x^4 + 1.000x^3 + 0.418x^2 + 0.114x^1 + 0.105x^0 
++ 1.000x^8 + 0.685x^7 + 0.223x^6 + -0.121x^5 + -0.173x^4 + 1.000x^3 + 0.603x^2 + 0.092x^1 + 0.013x^0 
++ 1.000x^8 + 0.222x^7 + 0.011x^6 + -0.106x^5 + 1.000x^4 + 0.028x^3 + 0.365x^2 + 0.391x^1 + 0.464x^0 
++ 1.000x^8 + 0.119x^7 + 0.207x^6 + -0.105x^5 + 1.000x^4 + 0.499x^3 + 0.013x^2 + 0.658x^1 + 0.649x^0 
++ 1.000x^8 + 0.055x^7 + 0.095x^6 + 1.000x^5 + 0.457x^4 + -0.162x^3 + 0.085x^2 + 0.396x^1 + 0.075x^0 
++ 1.000x^8 + 0.270x^7 + 0.555x^6 + 1.000x^5 + 0.300x^4 + -0.341x^3 + 0.212x^2 + 0.007x^1 + 0.340x^0 
++ 1.000x^8 + 0.038x^7 + 1.000x^6 + 0.010x^5 + 0.365x^4 + -0.165x^3 + 0.400x^2 + 0.141x^1 + 0.483x^0 
++ 1.000x^8 + 0.423x^7 + 1.000x^6 + 0.045x^5 + 0.153x^4 + -0.196x^3 + 0.010x^2 + 0.565x^1 + 0.363x^0 
++ 1.000x^8 + 0.270x^7 + 1.000x^6 + 0.089x^5 + -0.237x^4 + 0.123x^3 + 0.316x^2 + 0.012x^1 + 0.332x^0 
++ 1.000x^8 + 0.005x^7 + 1.000x^6 + -0.315x^5 + -0.347x^4 + 0.431x^3 + 0.298x^2 + 0.374x^1 + 0.410x^0 
++ 1.000x^8 + 1.000x^7 + 0.091x^6 + -0.567x^5 + -0.169x^4 + -0.106x^3 + 0.096x^2 + 0.305x^1 + 0.278x^0 
++ 1.000x^8 + 1.000x^7 + 0.009x^6 + -0.424x^5 + -0.367x^4 + 0.014x^3 + 0.094x^2 + 0.104x^1 + 0.130x^0 
++ 0.014x^8 + 0.190x^7 + 0.779x^6 + 0.048x^5 + -0.083x^4 + -0.173x^3 + 0.694x^2 + 0.311x^1 + 1.000x^0 
++ 0.711x^8 + 0.356x^7 + 0.749x^6 + -0.082x^5 + -0.190x^4 + 0.535x^3 + 0.013x^2 + 1.000x^1 + 0.430x^0 
++ 0.137x^8 + 0.076x^7 + 0.149x^6 + -0.163x^5 + 0.039x^4 + 0.063x^3 + 1.000x^2 + 0.055x^1 + 0.356x^0 
++ 0.385x^8 + 0.410x^7 + 0.543x^6 + -0.044x^5 + -0.302x^4 + 0.609x^3 + 1.000x^2 + 0.002x^1 + 0.424x^0 
++ 0.671x^8 + 0.007x^7 + 0.626x^6 + 0.263x^5 + -0.144x^4 + 1.000x^3 + 0.821x^2 + 0.356x^1 + 0.654x^0 
++ 0.222x^8 + 0.269x^7 + 0.011x^6 + -0.133x^5 + 0.012x^4 + 1.000x^3 + 0.122x^2 + 0.285x^1 + 0.401x^0 
++ 0.486x^8 + 0.547x^7 + 0.085x^6 + -0.253x^5 + 0.331x^4 + 1.000x^3 + 0.016x^2 + 0.164x^1 + 0.426x^0 
++ 0.007x^8 + 0.214x^7 + 0.401x^6 + 0.339x^5 + 1.000x^4 + -0.372x^3 + 0.381x^2 + 0.091x^1 + 0.399x^0 
++ 0.000x^8 + 0.595x^7 + 0.227x^6 + -0.188x^5 + 1.000x^4 + 0.367x^3 + 0.702x^2 + 0.723x^1 + 0.404x^0 
++ 0.005x^8 + 0.318x^7 + 1.000x^6 + 0.426x^5 + -0.180x^4 + 0.418x^3 + 0.082x^2 + 0.028x^1 + 0.187x^0 
++ 0.703x^8 + 0.671x^7 + 1.000x^6 + 0.289x^5 + -0.137x^4 + 0.119x^3 + 0.427x^2 + 0.006x^1 + 0.466x^0 
++ 0.223x^8 + 0.002x^7 + 1.000x^6 + -0.227x^5 + 0.296x^4 + -0.012x^3 + 0.428x^2 + 0.335x^1 + 0.299x^0 
++ 0.028x^8 + 0.123x^7 + 1.000x^6 + -0.111x^5 + 0.245x^4 + 0.508x^3 + 0.130x^2 + 0.385x^1 + 0.301x^0 
++ 0.178x^8 + 1.000x^7 + 0.277x^6 + 0.289x^5 + -0.268x^4 + 0.460x^3 + 0.455x^2 + 0.072x^1 + 0.011x^0 
++ 1.000x^8 + 0.535x^7 + 0.207x^6 + -0.204x^5 + 0.067x^4 + 0.107x^3 + 0.487x^2 + 0.524x^1 + 0.002x^0 
++ 1.000x^8 + 0.622x^7 + 0.205x^6 + 0.242x^5 + -0.137x^4 + 0.207x^3 + 0.012x^2 + 0.511x^1 + 0.125x^0 
++ 1.000x^8 + 0.004x^7 + 0.183x^6 + -0.118x^5 + 0.267x^4 + 0.283x^3 + 0.385x^2 + 0.312x^1 + 0.142x^0

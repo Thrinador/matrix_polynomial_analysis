@@ -28,7 +28,7 @@ pub fn test_polynomials() {
 
 fn main() {
     let start = Instant::now();
-    let interesting_polynomials = mutate_polynomial(5, 2);
+    let interesting_polynomials = mutate_polynomial(9, 3);
     let duration = start.elapsed();
     println!("---------------------------------------------------");
     println!("Total time elapsed generating polynomials {:?}", duration);
