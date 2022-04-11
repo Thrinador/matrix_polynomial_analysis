@@ -8,7 +8,7 @@ use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use threadpool::ThreadPool;
 
-const RANDOM_MATRICES_TO_GENERATE: usize = 100000;
+const RANDOM_MATRICES_TO_GENERATE: usize = 10000;
 
 // TODO Fuzzing should have several different distributions that these random matrices are generated from.
 // The ones that come to mind are a distribution that favors the extremes much more then the middle and one that favors the
@@ -46,8 +46,39 @@ pub fn fuzz_polynomials_slow(polynomial: &DVector<f64>, size: usize) -> Option<D
     None
 }
 
+fn generate_circulant_matrix(fundamental_circulant: &DMatrix<f64>, size: usize) -> DMatrix<f64> {
+    let mut random_circulant = DMatrix::<f64>::zeros(3, 3);
+    let random_vector = DVector::<f64>::from_distribution(
+        size,
+        &Uniform::<f64>::new(1.0, 100.0),
+        &mut thread_rng(),
+    );
+    for i in 0..size {
+        random_circulant += random_vector[i] * random_circulant.pow(i as u32);
+    }
+
+    random_circulant
+}
+
+fn check_circulant_matrices(polynomial: &DVector<f64>, size: usize) -> bool {
+    let mut fundamental_circulant = DMatrix::<f64>::identity(size, size);
+    for i in 1..size {
+        fundamental_circulant.swap_rows(0, i);
+    }
+    for _ in 0..RANDOM_MATRICES_TO_GENERATE {
+        if !is_matrix_nonnegative(&apply_polynomial(
+            &polynomial,
+            &generate_circulant_matrix(&fundamental_circulant, size),
+        )) {
+            return false;
+        }
+    }
+
+    true
+}
+
 // TODO add more matrices to this function that do a good job removing problem polynomials.
-fn check_structured_matrices(polynomial: &DVector<f64>, size: usize) -> bool {
+fn check_simple_matrices(polynomial: &DVector<f64>, size: usize) -> bool {
     let mut identity = DMatrix::<f64>::identity(size, size);
     if !is_matrix_nonnegative(&apply_polynomial(&polynomial, &identity)) {
         return false;
@@ -84,7 +115,7 @@ pub fn fuzz_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
     if are_first_last_negative(polynomial, size) {
         return false;
     }
-    if !check_structured_matrices(polynomial, size) {
+    if !check_simple_matrices(polynomial, size) {
         return false;
     }
 
@@ -125,6 +156,13 @@ pub fn fuzz_polynomial(polynomial: &DVector<f64>, size: usize) -> bool {
     } else {
         panic!("Error in building inverse gaussian distribution 2");
     }
+
+    let polynomial_clone = polynomial.clone();
+    let sender_clone = sender.clone();
+    pool.execute(move || {
+        sender_clone.send(check_circulant_matrices(&polynomial_clone, size));
+    });
+    number_of_distributions += 1;
 
     for distribution in distributions {
         fuzz_polynomial_distribution_worker_uniform(

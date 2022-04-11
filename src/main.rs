@@ -27,10 +27,8 @@ pub fn test_polynomials() {
 }
 
 fn main() {
-    let polynomial = DVector::from_vec(vec![1.0, 1.0, 1.0, 1.0, 1.0]);
-    // evaluate_polynomial(&polynomial, 2);
     let start = Instant::now();
-    let interesting_polynomials = mutate_polynomial(&polynomial, 2);
+    let interesting_polynomials = mutate_polynomial(5, 2);
     let duration = start.elapsed();
     println!("---------------------------------------------------");
     println!("Total time elapsed generating polynomials {:?}", duration);

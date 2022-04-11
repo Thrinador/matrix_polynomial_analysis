@@ -9,7 +9,7 @@ use threadpool::ThreadPool;
 
 mod fuzz_polynomial;
 
-const RANDOM_POLYNOMIAL_MUTATIONS: usize = 10;
+const RANDOM_POLYNOMIAL_MUTATIONS: usize = 50;
 
 pub fn print_polynomial(polynomial: DVector<f64>) {
     let mut i = polynomial.len();
@@ -53,20 +53,20 @@ pub fn apply_polynomial(polynomial: &DVector<f64>, matrix: &DMatrix<f64>) -> DMa
     final_matrix
 }
 
-fn generate_mutated_polynomials(
-    base_polynomial: &DVector<f64>,
-    combination: &Vec<usize>,
-) -> Vec<DVector<f64>> {
+fn generate_mutated_polynomials(size: usize, combination: &Vec<usize>) -> Vec<DVector<f64>> {
     let mut mutated_base_polynomials = Vec::new();
     let mut rng = rand::thread_rng();
     for _ in 0..RANDOM_POLYNOMIAL_MUTATIONS {
+        let mut polynomial_1 = DVector::<f64>::from_element(size, 1.0);
+        let mut polynomial_0 = DVector::<f64>::zeros(size);
         for j in combination.clone() {
-            let mut polynomial = base_polynomial.clone();
-            // Generates a float between 0 and 1 and subtracts it from the base polynomial of all 1's.
-            let random_number: f64 = rng.gen();
-            polynomial[j] -= random_number;
-            mutated_base_polynomials.push(polynomial);
+            let random_number_0: f64 = rng.gen();
+            let random_number_1: f64 = rng.gen();
+            polynomial_0[j] += random_number_0;
+            polynomial_1[j] -= random_number_1;
         }
+        mutated_base_polynomials.push(polynomial_0);
+        mutated_base_polynomials.push(polynomial_1);
     }
     mutated_base_polynomials
 }
@@ -80,14 +80,14 @@ fn generate_mutated_polynomials(
 //
 // Another idea is to write some machine learning algorithm that trys to minimize on certain criteria such as smallest
 // difference between largest and smallest coeffiecents, or lowest possible negative values.
-pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVector<f64>> {
+pub fn mutate_polynomial(polynomial_length: usize, size: usize) -> Vec<DVector<f64>> {
     let mut vector: Vec<DVector<f64>> = Vec::new();
-    for i in 1..base_polynomial.len() {
-        let combinations_of_i = (0..base_polynomial.len()).combinations(i);
+    for i in 1..polynomial_length {
+        let combinations_of_i = (0..polynomial_length).combinations(i);
         for combination in combinations_of_i {
             let start = Instant::now();
             vector.append(&mut mutate_coefficients(
-                generate_mutated_polynomials(&base_polynomial, &combination),
+                generate_mutated_polynomials(polynomial_length, &combination),
                 size,
                 &combination,
             ));
@@ -98,7 +98,7 @@ pub fn mutate_polynomial(base_polynomial: &DVector<f64>, size: usize) -> Vec<DVe
             }
             println!(" is: {:?}", duration);
         }
-        println!("Finished operation {} out of {}", i, base_polynomial.len());
+        println!("Finished operation {} out of {}", i, polynomial_length);
     }
     collapse_polynomials(vector)
 }
