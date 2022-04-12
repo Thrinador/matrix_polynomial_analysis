@@ -1,6 +1,6 @@
+use crate::polynomial::Polynomial;
 use itertools::Itertools;
 use nalgebra::DMatrix;
-use nalgebra::DVector;
 use rand::prelude::Rng;
 use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
@@ -8,42 +8,9 @@ use std::time::Instant;
 use threadpool::ThreadPool;
 
 mod fuzz_polynomial;
+pub mod polynomial;
 
 const RANDOM_POLYNOMIAL_MUTATIONS: usize = 5;
-
-pub fn print_polynomial(polynomial: DVector<f64>) {
-    let mut i = polynomial.len();
-    for term in polynomial.iter() {
-        i -= 1;
-        print!("+ {:.3}x^{} ", term, i);
-    }
-}
-
-// TODO This function is not quite working yet. I want to use an ordering where a polynomial is greater
-// then another if it is term by term greater with the highest priority being the largest term.
-fn polynomial_less_then(polynomial_1: &DVector<f64>, polynomial_2: &DVector<f64>) -> bool {
-    for i in 0..polynomial_1.len() {
-        if polynomial_1[i] >= polynomial_2[i] {
-            return false;
-        }
-    }
-    true
-}
-
-// TODO If the number of poylnomials gets to large consider a better sorting algorithm.
-pub fn sort_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f64>> {
-    for i in 0..polynomials.len() {
-        for j in i..polynomials.len() {
-            if polynomial_less_then(&polynomials[i], &polynomials[j]) {
-                let temp_polynomial = polynomials[i].clone();
-                polynomials[i] = polynomials[j].clone();
-                polynomials[j] = temp_polynomial;
-            }
-        }
-    }
-
-    polynomials
-}
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     for value in matrix.iter().enumerate() {
@@ -54,37 +21,12 @@ pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     true
 }
 
-pub fn is_polynomial_nonnegative(polynomial: &DVector<f64>) -> bool {
-    is_polynomial_nonnegative_with_threshold(&polynomial, 0.0)
-}
-
-pub fn is_polynomial_nonnegative_with_threshold(polynomial: &DVector<f64>, threshold: f64) -> bool {
-    for value in polynomial {
-        if value < &threshold {
-            return false;
-        }
-    }
-    true
-}
-
-// As things get larger this function will need to be optimized. There might be some tricks with moving the powers of the
-// matrix up as we go instead of taking a new power each time.
-pub fn apply_polynomial(polynomial: &DVector<f64>, matrix: &DMatrix<f64>) -> DMatrix<f64> {
-    let mut final_matrix = matrix.scale(0.0);
-    let mut term: u32 = polynomial.len() as u32;
-    for coefficient in polynomial.iter() {
-        term = term - 1;
-        final_matrix += matrix.pow(term).scale(*coefficient);
-    }
-    final_matrix
-}
-
-fn generate_mutated_polynomials(size: usize, combination: &Vec<usize>) -> Vec<DVector<f64>> {
+fn generate_mutated_polynomials(size: usize, combination: &Vec<usize>) -> Vec<Polynomial> {
     let mut mutated_base_polynomials = Vec::new();
     let mut rng = rand::thread_rng();
     for _ in 0..RANDOM_POLYNOMIAL_MUTATIONS {
-        let mut polynomial_1 = DVector::<f64>::from_element(size, 1.0);
-        let mut polynomial_0 = DVector::<f64>::zeros(size);
+        let mut polynomial_1 = Polynomial::from_element(size, 1.0);
+        let mut polynomial_0 = Polynomial::from_element(size, 0.0);
         for j in combination.clone() {
             let random_number_0: f64 = rng.gen();
             let random_number_1: f64 = rng.gen();
@@ -106,8 +48,8 @@ fn generate_mutated_polynomials(size: usize, combination: &Vec<usize>) -> Vec<DV
 //
 // Another idea is to write some machine learning algorithm that trys to minimize on certain criteria such as smallest
 // difference between largest and smallest coeffiecents, or lowest possible negative values.
-pub fn mutate_polynomial(polynomial_length: usize, size: usize) -> Vec<DVector<f64>> {
-    let mut vector: Vec<DVector<f64>> = Vec::new();
+pub fn mutate_polynomial(polynomial_length: usize, size: usize) -> Vec<Polynomial> {
+    let mut vector: Vec<Polynomial> = Vec::new();
     for i in 1..polynomial_length {
         let combinations_of_i = (0..polynomial_length).combinations(i);
         for combination in combinations_of_i {
@@ -131,10 +73,10 @@ pub fn mutate_polynomial(polynomial_length: usize, size: usize) -> Vec<DVector<f
 
 // Returns a subset of the vector containing the elementwise smallest polynomials.
 // TODO This function could use some work. It is very slow and quite long for what it is doing.
-pub fn collapse_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f64>> {
+pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial> {
     // Scale up polynomials so that their smallest element is one.
     for i in 0..polynomials.len() {
-        let smallest_value = polynomials[i][polynomials[i].iamin()];
+        let smallest_value = polynomials[i].min_term();
         for j in 0..polynomials[i].len() {
             polynomials[i][j] /= smallest_value;
         }
@@ -173,7 +115,7 @@ pub fn collapse_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f
 
     // Scale down polynomials so that their largest element is one.
     for i in 0..polynomials.len() {
-        let largest_value = polynomials[i][polynomials[i].iamax()];
+        let largest_value = polynomials[i].max_term();
         for j in 0..polynomials[i].len() {
             polynomials[i][j] /= largest_value;
         }
@@ -185,14 +127,13 @@ pub fn collapse_polynomials(mut polynomials: Vec<DVector<f64>>) -> Vec<DVector<f
 // Given a base polynomial of all ones make random_polynomial_mutations number of mutated polynomials with reduced coefficients.
 // Then try and minimize the coefficients of those mutated polynomials.
 pub fn mutate_coefficients(
-    base_polynomials: Vec<DVector<f64>>,
+    base_polynomials: Vec<Polynomial>,
     size: usize,
     combination: &Vec<usize>,
-) -> Vec<DVector<f64>> {
+) -> Vec<Polynomial> {
     let n_workers = 8;
     let pool = ThreadPool::new(n_workers);
-    let (sender, receiver): (Sender<Option<DVector<f64>>>, Receiver<Option<DVector<f64>>>) =
-        channel();
+    let (sender, receiver): (Sender<Option<Polynomial>>, Receiver<Option<Polynomial>>) = channel();
     let number_of_polynomials = base_polynomials.len();
     for polynomial in base_polynomials {
         minimize_polynomial_coefficients_async(
@@ -214,11 +155,11 @@ pub fn mutate_coefficients(
 }
 
 pub fn minimize_polynomial_coefficients_async(
-    polynomial: DVector<f64>,
+    polynomial: Polynomial,
     size: usize,
     combination: Vec<usize>,
     pool: &ThreadPool,
-    sender: Sender<Option<DVector<f64>>>,
+    sender: Sender<Option<Polynomial>>,
 ) {
     pool.execute(move || {
         sender.send(minimize_polynomial_coefficients(
@@ -232,10 +173,10 @@ pub fn minimize_polynomial_coefficients_async(
 // TODO There is a bug where for some reason one polynomial of all negative coefficients except for the middle ones
 // gets through.
 pub fn minimize_polynomial_coefficients(
-    mut polynomial: DVector<f64>,
+    mut polynomial: Polynomial,
     size: usize,
     combination: &Vec<usize>,
-) -> Option<DVector<f64>> {
+) -> Option<Polynomial> {
     let mut backoff = 0.5;
     while backoff > 0.01 {
         for i in combination {
@@ -248,7 +189,7 @@ pub fn minimize_polynomial_coefficients(
             backoff /= 2.0;
         }
     }
-    if !is_polynomial_nonnegative_with_threshold(&polynomial, -0.1) {
+    if !polynomial.is_polynomial_nonnegative_with_threshold(-0.1) {
         Some(polynomial)
     } else {
         None

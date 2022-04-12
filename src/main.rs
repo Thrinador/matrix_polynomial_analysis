@@ -1,10 +1,13 @@
+use crate::polynomial::Polynomial;
 use matrix_polynomial_analysis::*;
 use nalgebra::base::*;
 use std::time::Instant;
 
 mod fuzz_polynomial;
+mod polynomial;
 
-pub fn evaluate_polynomial(polynomial: &DVector<f64>, size: usize) {
+/*
+pub fn evaluate_polynomial(polynomial: &Polynomial, size: usize) {
     if let Some(failed_matrix) = fuzz_polynomial::fuzz_polynomials_slow(&polynomial, size) {
         println!("The polynomial does not preserve the nonnegativity for:");
         println!("{}", failed_matrix.to_string());
@@ -25,10 +28,11 @@ pub fn test_polynomials() {
     evaluate_polynomial(&polynomial_2, 2);
     evaluate_polynomial(&polynomial_2, 3);
 }
+*/
 
 fn main() {
     let start = Instant::now();
-    let interesting_polynomials = mutate_polynomial(9, 3);
+    let interesting_polynomials = mutate_polynomial(5, 2);
     let duration = start.elapsed();
     println!("---------------------------------------------------");
     println!("Total time elapsed generating polynomials {:?}", duration);
@@ -39,7 +43,7 @@ fn main() {
     println!("---------------------------------------------------");
     println!("");
     for poly in interesting_polynomials {
-        print_polynomial(poly);
+        println!("{}", poly.to_string());
         println!();
     }
 }

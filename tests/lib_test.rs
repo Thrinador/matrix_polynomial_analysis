@@ -1,5 +1,6 @@
 #[cfg(test)]
 mod tests {
+    use matrix_polynomial_analysis::polynomial::Polynomial;
     use matrix_polynomial_analysis::*;
     use nalgebra::base::*;
 
@@ -52,34 +53,34 @@ mod tests {
             .cloned(),
         );
 
-        let polynomial_1 = DVector::from_vec(vec![1.0, 1.0, 1.0, 1.0, 1.0]);
-        let polynomial_2 = DVector::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]);
+        let polynomial_1 = Polynomial::from_vec(vec![1.0, 1.0, 1.0, 1.0, 1.0]);
+        let polynomial_2 = Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]);
 
         assert_eq!(
-            apply_polynomial(&polynomial_1, &identity),
+            polynomial_1.apply_polynomial(&identity),
             DMatrix::<f64>::identity(3, 3).scale(5.0)
         );
         assert_eq!(
-            apply_polynomial(&polynomial_2, &identity),
+            polynomial_2.apply_polynomial(&identity),
             DMatrix::<f64>::identity(3, 3).scale(3.0)
         );
 
         assert_eq!(
-            apply_polynomial(&polynomial_1, &identity),
+            polynomial_1.apply_polynomial(&identity),
             DMatrix::<f64>::identity(3, 3).scale(5.0)
         );
-        assert_eq!(apply_polynomial(&polynomial_1, &m1), m1_p1);
-        assert_eq!(apply_polynomial(&polynomial_2, &m1), m1_p2);
+        assert_eq!(polynomial_1.apply_polynomial(&m1), m1_p1);
+        assert_eq!(polynomial_1.apply_polynomial(&m1), m1_p2);
     }
 
     #[test]
     fn test_collapse_polynomials() {
         // All random matrices values should be between 0 and 1.
         let mut polynomials = Vec::new();
-        polynomials.push(DVector::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]));
-        polynomials.push(DVector::from_vec(vec![2.0, 0.0, 1.0, 1.0, 1.0]));
-        polynomials.push(DVector::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0]));
-        polynomials.push(DVector::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]));
+        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]));
+        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, 1.0, 1.0, 1.0]));
+        polynomials.push(Polynomial::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0]));
+        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]));
         polynomials = collapse_polynomials(polynomials);
 
         println!("Polynomials length {}", polynomials.len());
@@ -87,11 +88,11 @@ mod tests {
         assert_eq!(polynomials.len(), 2);
         assert_eq!(
             polynomials[0],
-            DVector::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0])
+            Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0])
         );
         assert_eq!(
             polynomials[1],
-            DVector::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0])
+            Polynomial::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0])
         );
     }
 }
