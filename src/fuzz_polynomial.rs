@@ -18,6 +18,9 @@ const RANDOM_MATRICES_TO_GENERATE: usize = 1000;
 // TODO Another idea for fuzzing is to take randomly generated matrices and sometimes 0 out certain elements, or use
 // different structered matrices to try and prune some early cases.
 
+// TODO Benchmark the performance difference of returning a bool vs returning the matrix that caused the fuzz to fail. It would be nice to combine
+// the fuzz_polynomials_slow() with fuzz_polynomials() functions assume the performance hit is negligible.
+
 // Even in its current state this fuzzing is far to slow. I think it needs a combination of failing faster and maybe some more smarts on minimizing coefficients.
 
 // Runs much slower than the other fuzz polynomial function, but allows for the matrix that caused the fuzz to fail to be returned.
