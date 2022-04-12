@@ -18,9 +18,6 @@ const RANDOM_MATRICES_TO_GENERATE: usize = 1000;
 // TODO Another idea for fuzzing is to take randomly generated matrices and sometimes 0 out certain elements, or use
 // different structered matrices to try and prune some early cases.
 
-// TODO There needs to be a way to shorten this file. Right now it seems like a need a new function for each new distribution introduced.
-// this is because the generics for the distributions are not working on nonfixed sized distributions. (Might be able to fix that with a where clause).
-
 // Even in its current state this fuzzing is far to slow. I think it needs a combination of failing faster and maybe some more smarts on minimizing coefficients.
 
 // Runs much slower than the other fuzz polynomial function, but allows for the matrix that caused the fuzz to fail to be returned.
@@ -70,7 +67,7 @@ fn generate_circulant_matrix(fundamental_circulant: &DMatrix<f64>) -> DMatrix<f6
     random_circulant
 }
 
-fn check_circulant_matrices(polynomial: &Polynomial) -> bool {
+fn fuzz_circulant_matrices(polynomial: &Polynomial) -> bool {
     let mut fundamental_circulant =
         DMatrix::<f64>::identity(polynomial.get_size(), polynomial.get_size());
     for i in 1..polynomial.get_size() {
@@ -108,7 +105,10 @@ fn check_simple_matrices(polynomial: &Polynomial) -> bool {
     true
 }
 
-// TODO This function needs to be much faster. I am not sure if that means checking fewer distributions
+// TODO This function needs to be much faster. I am not sure if that means checking fewer distributions.
+// We could use more "simple" checks. Things like taking the derivative of the polynomial and fuzzing that against smaller matrices.
+// Or checking sums of different parts of the coefficients like in the 2x2 case all the even coefficients must sum to be nonnegative
+// same with odd
 pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
     // We know nonnegative polynomials are always good.
     if polynomial.is_polynomial_nonnegative() {
@@ -126,34 +126,22 @@ pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
     let (sender, receiver): (Sender<bool>, Receiver<bool>) = channel();
 
     let mut distributions = Vec::new();
-    //distributions.push(Uniform::<f64>::new(0.0, 1.0));
+    distributions.push(Uniform::<f64>::new(0.0, 1.0));
     distributions.push(Uniform::<f64>::new(0.0, 10.0));
-    //distributions.push(Uniform::<f64>::new(0.0, 1000.0));
+    distributions.push(Uniform::<f64>::new(0.0, 1000.0));
     distributions.push(Uniform::<f64>::new(0.0, 100000.0));
 
     let mut number_of_distributions = distributions.len();
 
-    /*
     if let Ok(dist) = InverseGaussian::<f64>::new(500.0, 10.0) {
-        fuzz_polynomial_distribution_worker_inverse_gaussian(
-            polynomial.clone(),
-            dist,
-            &pool,
-            sender.clone(),
-        );
+        fuzz_polynomial_distribution_worker(polynomial.clone(), dist, &pool, sender.clone());
         number_of_distributions += 1;
     } else {
         panic!("Error in building inverse gaussian distribution 1");
     }
-    */
 
     if let Ok(dist) = InverseGaussian::<f64>::new(1.0, 1.0) {
-        fuzz_polynomial_distribution_worker_inverse_gaussian(
-            polynomial.clone(),
-            dist,
-            &pool,
-            sender.clone(),
-        );
+        fuzz_polynomial_distribution_worker(polynomial.clone(), dist, &pool, sender.clone());
         number_of_distributions += 1;
     } else {
         panic!("Error in building inverse gaussian distribution 2");
@@ -161,13 +149,13 @@ pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
 
     let polynomial_clone = polynomial.clone();
     let sender_clone = sender.clone();
-    //pool.execute(move || {
-    //    sender_clone.send(check_circulant_matrices(&polynomial_clone));
-    //});
-    //number_of_distributions += 1;
+    pool.execute(move || {
+        sender_clone.send(fuzz_circulant_matrices(&polynomial_clone));
+    });
+    number_of_distributions += 1;
 
     for distribution in distributions {
-        fuzz_polynomial_distribution_worker_uniform(
+        fuzz_polynomial_distribution_worker(
             polynomial.clone(),
             distribution,
             &pool,
@@ -185,38 +173,15 @@ pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
     true
 }
 
-fn fuzz_polynomial_distribution_worker_inverse_gaussian(
+fn fuzz_polynomial_distribution_worker<F>(
     polynomial: Polynomial,
-    dist: InverseGaussian<f64>,
+    dist: F,
     pool: &ThreadPool,
     sender: Sender<bool>,
-) {
-    pool.execute(move || {
-        let mut rng = thread_rng();
-        let mut found_negative_matrix = false;
-        for _ in 1..RANDOM_MATRICES_TO_GENERATE {
-            let random_matrix = DMatrix::<f64>::from_distribution(
-                polynomial.get_size(),
-                polynomial.get_size(),
-                &dist,
-                &mut rng,
-            );
-            let final_matrix = polynomial.apply_polynomial(&random_matrix);
-            if !is_matrix_nonnegative(&final_matrix) {
-                found_negative_matrix = true;
-                break;
-            }
-        }
-        sender.send(!found_negative_matrix);
-    });
-}
-
-fn fuzz_polynomial_distribution_worker_uniform(
-    polynomial: Polynomial,
-    dist: Uniform<f64>,
-    pool: &ThreadPool,
-    sender: Sender<bool>,
-) {
+) where
+    F: rand_distr::Distribution<f64> + 'static,
+    F: Send,
+{
     pool.execute(move || {
         let mut rng = thread_rng();
         let mut found_negative_matrix = false;
