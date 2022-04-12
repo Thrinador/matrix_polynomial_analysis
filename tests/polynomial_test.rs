@@ -2,8 +2,6 @@
 mod tests {
     use matrix_polynomial_analysis::fuzz_polynomial::*;
     use matrix_polynomial_analysis::polynomial::Polynomial;
-    use matrix_polynomial_analysis::*;
-    use nalgebra::base::*;
 
     #[test]
     fn test_fuzz_polynomial() {

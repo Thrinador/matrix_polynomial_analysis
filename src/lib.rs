@@ -1,15 +1,16 @@
 use crate::polynomial::Polynomial;
 use itertools::Itertools;
+use log::info;
 use nalgebra::DMatrix;
 use rand::prelude::Rng;
 use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
-use std::time::Instant;
 use threadpool::ThreadPool;
 
 pub mod fuzz_polynomial;
 pub mod polynomial;
 
+// TODO all constants should be changed to flags that get set on startup from command line arguments.
 const RANDOM_POLYNOMIAL_MUTATIONS: usize = 3;
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
@@ -43,15 +44,6 @@ fn generate_mutated_polynomials(
     mutated_base_polynomials
 }
 
-// Given a polynomial we want to mutate it by slowly changing the coefficients of the polynomial trying to keep it
-// preserving the nonnegativity of matrices of a given size. I want to do this to try and "map out" what the space of polynomials that preserve nonnegativity are.
-// This space should form a cone.
-//
-// I think the way I want to do this is with multi-sets. First mutate all the coefficients one at a time. Next take all
-// the pairs of coefficients and try to minimize them. Keep going till you try and minimize them all at once.
-//
-// Another idea is to write some machine learning algorithm that trys to minimize on certain criteria such as smallest
-// difference between largest and smallest coeffiecents, or lowest possible negative values.
 pub fn mutate_polynomial(polynomial_length: usize, matrix_size: usize) -> Vec<Polynomial> {
     let mut mutated_polynomials = Vec::new();
     for i in 1..polynomial_length {
@@ -69,19 +61,20 @@ pub fn mutate_polynomial(polynomial_length: usize, matrix_size: usize) -> Vec<Po
     for i in 1..polynomial_length {
         let combinations_of_i = (0..polynomial_length).combinations(i);
         for combination in combinations_of_i {
-            let start = Instant::now();
             vector.append(&mut mutate_coefficients(
                 mutated_polynomials.clone(),
                 &combination,
             ));
-            let duration = start.elapsed();
-            print!("Time elapsed in mutate_coefficients() with combination ");
+            let mut combo_string = String::new();
             for combo in combination {
-                print!("{} ", combo);
+                combo_string = format!("{} {} ", combo_string, combo);
             }
-            println!(" is: {:?}", duration);
+            info!(
+                "Mutate_coefficients() finished combination {}",
+                combo_string
+            );
         }
-        println!("Finished operation {} out of {}", i, polynomial_length);
+        info!("Finished operation {} out of {}", i, polynomial_length);
     }
     collapse_polynomials(vector)
 }
@@ -96,7 +89,6 @@ pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial>
             polynomials[i][j] /= smallest_value;
         }
     }
-
     let mut i = 0;
     while i < polynomials.len() {
         let mut j = 0;
@@ -178,6 +170,8 @@ pub fn minimize_polynomial_coefficients_async(
     });
 }
 
+// This function is very slow and does not scale well to polynomial growth. In particular there are 2^n possible combinations of coefficients
+// to minimize. As n gets past 10 we can't reasonably check all of them unless the fuzzing dramatically improves.
 pub fn minimize_polynomial_coefficients(
     mut polynomial: Polynomial,
     combination: &Vec<usize>,

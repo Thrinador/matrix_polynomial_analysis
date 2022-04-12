@@ -9,6 +9,10 @@ pub struct Polynomial {
     size: usize,
 }
 
+// TODO there is a bug where randomly all polynomial coefficients turn into NaN. This needs to be fixed as it
+// seemingly happens at random and will cause more problems in larger simulations. My only guess as to why it is happening
+// is something to do with the sorting/collapsing of many polynomials.
+
 impl Polynomial {
     pub fn to_string(&self) -> String {
         let mut i = self.len();

@@ -9,7 +9,7 @@ use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use threadpool::ThreadPool;
 
-const RANDOM_MATRICES_TO_GENERATE: usize = 100;
+const RANDOM_MATRICES_TO_GENERATE: usize = 1000;
 
 // TODO Fuzzing should have several different distributions that these random matrices are generated from.
 // The ones that come to mind are a distribution that favors the extremes much more then the middle and one that favors the
@@ -17,6 +17,11 @@ const RANDOM_MATRICES_TO_GENERATE: usize = 100;
 
 // TODO Another idea for fuzzing is to take randomly generated matrices and sometimes 0 out certain elements, or use
 // different structered matrices to try and prune some early cases.
+
+// TODO There needs to be a way to shorten this file. Right now it seems like a need a new function for each new distribution introduced.
+// this is because the generics for the distributions are not working on nonfixed sized distributions. (Might be able to fix that with a where clause).
+
+// Even in its current state this fuzzing is far to slow. I think it needs a combination of failing faster and maybe some more smarts on minimizing coefficients.
 
 // Runs much slower than the other fuzz polynomial function, but allows for the matrix that caused the fuzz to fail to be returned.
 pub fn fuzz_polynomials_slow(polynomial: &Polynomial) -> Option<DMatrix<f64>> {
@@ -103,6 +108,7 @@ fn check_simple_matrices(polynomial: &Polynomial) -> bool {
     true
 }
 
+// TODO This function needs to be much faster. I am not sure if that means checking fewer distributions
 pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
     // We know nonnegative polynomials are always good.
     if polynomial.is_polynomial_nonnegative() {
@@ -120,13 +126,14 @@ pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
     let (sender, receiver): (Sender<bool>, Receiver<bool>) = channel();
 
     let mut distributions = Vec::new();
-    distributions.push(Uniform::<f64>::new(0.0, 1.0));
+    //distributions.push(Uniform::<f64>::new(0.0, 1.0));
     distributions.push(Uniform::<f64>::new(0.0, 10.0));
-    distributions.push(Uniform::<f64>::new(0.0, 1000.0));
+    //distributions.push(Uniform::<f64>::new(0.0, 1000.0));
     distributions.push(Uniform::<f64>::new(0.0, 100000.0));
 
     let mut number_of_distributions = distributions.len();
 
+    /*
     if let Ok(dist) = InverseGaussian::<f64>::new(500.0, 10.0) {
         fuzz_polynomial_distribution_worker_inverse_gaussian(
             polynomial.clone(),
@@ -138,6 +145,7 @@ pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
     } else {
         panic!("Error in building inverse gaussian distribution 1");
     }
+    */
 
     if let Ok(dist) = InverseGaussian::<f64>::new(1.0, 1.0) {
         fuzz_polynomial_distribution_worker_inverse_gaussian(
@@ -153,10 +161,10 @@ pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
 
     let polynomial_clone = polynomial.clone();
     let sender_clone = sender.clone();
-    pool.execute(move || {
-        sender_clone.send(check_circulant_matrices(&polynomial_clone));
-    });
-    number_of_distributions += 1;
+    //pool.execute(move || {
+    //    sender_clone.send(check_circulant_matrices(&polynomial_clone));
+    //});
+    //number_of_distributions += 1;
 
     for distribution in distributions {
         fuzz_polynomial_distribution_worker_uniform(
