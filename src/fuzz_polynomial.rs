@@ -19,7 +19,7 @@ const RANDOM_MATRICES_TO_GENERATE: usize = 100;
 // different structered matrices to try and prune some early cases.
 
 // Runs much slower than the other fuzz polynomial function, but allows for the matrix that caused the fuzz to fail to be returned.
-pub fn fuzz_polynomials_slow(polynomial: &Polynomial, size: usize) -> Option<DMatrix<f64>> {
+pub fn fuzz_polynomials_slow(polynomial: &Polynomial) -> Option<DMatrix<f64>> {
     // We know nonnegative polynomials are always good.
     if polynomial.is_polynomial_nonnegative() {
         return None;
@@ -36,8 +36,12 @@ pub fn fuzz_polynomials_slow(polynomial: &Polynomial, size: usize) -> Option<DMa
     for distribution in distributions {
         let mut rng = thread_rng();
         for _ in 1..RANDOM_MATRICES_TO_GENERATE {
-            let random_matrix =
-                DMatrix::<f64>::from_distribution(size, size, &distribution, &mut rng);
+            let random_matrix = DMatrix::<f64>::from_distribution(
+                polynomial.get_size(),
+                polynomial.get_size(),
+                &distribution,
+                &mut rng,
+            );
             let final_matrix = polynomial.apply_polynomial(&random_matrix);
             if !is_matrix_nonnegative(&final_matrix) {
                 return Some(final_matrix);
@@ -47,28 +51,29 @@ pub fn fuzz_polynomials_slow(polynomial: &Polynomial, size: usize) -> Option<DMa
     None
 }
 
-fn generate_circulant_matrix(fundamental_circulant: &DMatrix<f64>, size: usize) -> DMatrix<f64> {
+fn generate_circulant_matrix(fundamental_circulant: &DMatrix<f64>) -> DMatrix<f64> {
     let mut random_circulant = DMatrix::<f64>::zeros(3, 3);
     let random_vector = DVector::<f64>::from_distribution(
-        size,
+        fundamental_circulant.len(),
         &Uniform::<f64>::new(1.0, 100.0),
         &mut thread_rng(),
     );
-    for i in 0..size {
+    for i in 0..fundamental_circulant.len() {
         random_circulant += random_vector[i] * random_circulant.pow(i as u32);
     }
 
     random_circulant
 }
 
-fn check_circulant_matrices(polynomial: &Polynomial, size: usize) -> bool {
-    let mut fundamental_circulant = DMatrix::<f64>::identity(size, size);
-    for i in 1..size {
+fn check_circulant_matrices(polynomial: &Polynomial) -> bool {
+    let mut fundamental_circulant =
+        DMatrix::<f64>::identity(polynomial.get_size(), polynomial.get_size());
+    for i in 1..polynomial.get_size() {
         fundamental_circulant.swap_rows(0, i);
     }
     for _ in 0..RANDOM_MATRICES_TO_GENERATE {
         if !is_matrix_nonnegative(
-            &polynomial.apply_polynomial(&generate_circulant_matrix(&fundamental_circulant, size)),
+            &polynomial.apply_polynomial(&generate_circulant_matrix(&fundamental_circulant)),
         ) {
             return false;
         }
@@ -78,13 +83,13 @@ fn check_circulant_matrices(polynomial: &Polynomial, size: usize) -> bool {
 }
 
 // TODO add more matrices to this function that do a good job removing problem polynomials.
-fn check_simple_matrices(polynomial: &Polynomial, size: usize) -> bool {
-    let mut identity = DMatrix::<f64>::identity(size, size);
+fn check_simple_matrices(polynomial: &Polynomial) -> bool {
+    let mut identity = DMatrix::<f64>::identity(polynomial.get_size(), polynomial.get_size());
     if !is_matrix_nonnegative(&polynomial.apply_polynomial(&identity)) {
         return false;
     }
     // Go through some permutation matrices
-    for i in 1..size {
+    for i in 1..polynomial.get_size() {
         identity.swap_rows(0, i);
         if !is_matrix_nonnegative(&polynomial.apply_polynomial(&identity)) {
             return false;
@@ -98,7 +103,7 @@ fn check_simple_matrices(polynomial: &Polynomial, size: usize) -> bool {
     true
 }
 
-pub fn fuzz_polynomial(polynomial: &Polynomial, size: usize) -> bool {
+pub fn fuzz_polynomial(polynomial: &Polynomial) -> bool {
     // We know nonnegative polynomials are always good.
     if polynomial.is_polynomial_nonnegative() {
         return true;
@@ -106,7 +111,7 @@ pub fn fuzz_polynomial(polynomial: &Polynomial, size: usize) -> bool {
     if polynomial.are_first_last_negative() {
         return false;
     }
-    if !check_simple_matrices(polynomial, size) {
+    if !check_simple_matrices(polynomial) {
         return false;
     }
 
@@ -125,7 +130,6 @@ pub fn fuzz_polynomial(polynomial: &Polynomial, size: usize) -> bool {
     if let Ok(dist) = InverseGaussian::<f64>::new(500.0, 10.0) {
         fuzz_polynomial_distribution_worker_inverse_gaussian(
             polynomial.clone(),
-            size,
             dist,
             &pool,
             sender.clone(),
@@ -138,7 +142,6 @@ pub fn fuzz_polynomial(polynomial: &Polynomial, size: usize) -> bool {
     if let Ok(dist) = InverseGaussian::<f64>::new(1.0, 1.0) {
         fuzz_polynomial_distribution_worker_inverse_gaussian(
             polynomial.clone(),
-            size,
             dist,
             &pool,
             sender.clone(),
@@ -151,14 +154,13 @@ pub fn fuzz_polynomial(polynomial: &Polynomial, size: usize) -> bool {
     let polynomial_clone = polynomial.clone();
     let sender_clone = sender.clone();
     pool.execute(move || {
-        sender_clone.send(check_circulant_matrices(&polynomial_clone, size));
+        sender_clone.send(check_circulant_matrices(&polynomial_clone));
     });
     number_of_distributions += 1;
 
     for distribution in distributions {
         fuzz_polynomial_distribution_worker_uniform(
             polynomial.clone(),
-            size,
             distribution,
             &pool,
             sender.clone(),
@@ -177,7 +179,6 @@ pub fn fuzz_polynomial(polynomial: &Polynomial, size: usize) -> bool {
 
 fn fuzz_polynomial_distribution_worker_inverse_gaussian(
     polynomial: Polynomial,
-    size: usize,
     dist: InverseGaussian<f64>,
     pool: &ThreadPool,
     sender: Sender<bool>,
@@ -185,7 +186,12 @@ fn fuzz_polynomial_distribution_worker_inverse_gaussian(
     pool.execute(move || {
         let mut rng = thread_rng();
         for _ in 1..RANDOM_MATRICES_TO_GENERATE {
-            let random_matrix = DMatrix::<f64>::from_distribution(size, size, &dist, &mut rng);
+            let random_matrix = DMatrix::<f64>::from_distribution(
+                polynomial.get_size(),
+                polynomial.get_size(),
+                &dist,
+                &mut rng,
+            );
             let final_matrix = polynomial.apply_polynomial(&random_matrix);
             if !is_matrix_nonnegative(&final_matrix) {
                 sender.send(false);
@@ -197,7 +203,6 @@ fn fuzz_polynomial_distribution_worker_inverse_gaussian(
 
 fn fuzz_polynomial_distribution_worker_uniform(
     polynomial: Polynomial,
-    size: usize,
     dist: Uniform<f64>,
     pool: &ThreadPool,
     sender: Sender<bool>,
@@ -206,7 +211,12 @@ fn fuzz_polynomial_distribution_worker_uniform(
         let mut rng = thread_rng();
         let mut found_negative_matrix = false;
         for _ in 1..RANDOM_MATRICES_TO_GENERATE {
-            let random_matrix = DMatrix::<f64>::from_distribution(size, size, &dist, &mut rng);
+            let random_matrix = DMatrix::<f64>::from_distribution(
+                polynomial.get_size(),
+                polynomial.get_size(),
+                &dist,
+                &mut rng,
+            );
             let final_matrix = polynomial.apply_polynomial(&random_matrix);
             if !is_matrix_nonnegative(&final_matrix) {
                 found_negative_matrix = true;

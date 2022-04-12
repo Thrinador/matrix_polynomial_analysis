@@ -45,10 +45,10 @@ impl Polynomial {
         final_matrix
     }
 
-    pub fn from_element(size: usize, element: f64) -> Polynomial {
+    pub fn from_element(polynomial_length: usize, matrix_size: usize, element: f64) -> Polynomial {
         Polynomial {
-            coefficients: DVector::from_element(size, element),
-            size: size,
+            coefficients: DVector::from_element(polynomial_length, element),
+            size: matrix_size,
         }
     }
 
@@ -79,6 +79,10 @@ impl Polynomial {
             }
         }
         false
+    }
+
+    pub fn get_size(&self) -> usize {
+        self.size
     }
 }
 

@@ -1,6 +1,5 @@
 use crate::polynomial::Polynomial;
 use matrix_polynomial_analysis::*;
-use nalgebra::base::*;
 use std::time::Instant;
 
 mod fuzz_polynomial;
@@ -44,6 +43,5 @@ fn main() {
     println!("");
     for poly in interesting_polynomials {
         println!("{}", poly.to_string());
-        println!();
     }
 }
