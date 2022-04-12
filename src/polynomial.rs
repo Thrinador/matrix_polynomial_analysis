@@ -52,11 +52,11 @@ impl Polynomial {
         }
     }
 
-    pub fn from_vec(vector: Vec<f64>) -> Polynomial {
+    pub fn from_vec(vector: Vec<f64>, matrix_size: usize) -> Polynomial {
         let size = vector.len();
         Polynomial {
             coefficients: DVector::from_vec(vector),
-            size: size,
+            size: matrix_size,
         }
     }
 

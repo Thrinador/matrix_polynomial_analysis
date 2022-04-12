@@ -53,8 +53,8 @@ mod tests {
             .cloned(),
         );
 
-        let polynomial_1 = Polynomial::from_vec(vec![1.0, 1.0, 1.0, 1.0, 1.0]);
-        let polynomial_2 = Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]);
+        let polynomial_1 = Polynomial::from_vec(vec![1.0, 1.0, 1.0, 1.0, 1.0], 2);
+        let polynomial_2 = Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0], 2);
 
         assert_eq!(
             polynomial_1.apply_polynomial(&identity),
@@ -77,10 +77,10 @@ mod tests {
     fn test_collapse_polynomials() {
         // All random matrices values should be between 0 and 1.
         let mut polynomials = Vec::new();
-        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]));
-        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, 1.0, 1.0, 1.0]));
-        polynomials.push(Polynomial::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0]));
-        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0]));
+        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0], 2));
+        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, 1.0, 1.0, 1.0], 2));
+        polynomials.push(Polynomial::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0], 2));
+        polynomials.push(Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0], 2));
         polynomials = collapse_polynomials(polynomials);
 
         println!("Polynomials length {}", polynomials.len());
@@ -88,11 +88,11 @@ mod tests {
         assert_eq!(polynomials.len(), 2);
         assert_eq!(
             polynomials[0],
-            Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0])
+            Polynomial::from_vec(vec![2.0, 0.0, -1.0, 1.0, 1.0], 2)
         );
         assert_eq!(
             polynomials[1],
-            Polynomial::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0])
+            Polynomial::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0], 2)
         );
     }
 }

@@ -7,10 +7,10 @@ use std::sync::mpsc::{Receiver, Sender};
 use std::time::Instant;
 use threadpool::ThreadPool;
 
-mod fuzz_polynomial;
+pub mod fuzz_polynomial;
 pub mod polynomial;
 
-const RANDOM_POLYNOMIAL_MUTATIONS: usize = 5;
+const RANDOM_POLYNOMIAL_MUTATIONS: usize = 3;
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     for value in matrix.iter().enumerate() {
@@ -53,13 +53,25 @@ fn generate_mutated_polynomials(
 // Another idea is to write some machine learning algorithm that trys to minimize on certain criteria such as smallest
 // difference between largest and smallest coeffiecents, or lowest possible negative values.
 pub fn mutate_polynomial(polynomial_length: usize, matrix_size: usize) -> Vec<Polynomial> {
+    let mut mutated_polynomials = Vec::new();
+    for i in 1..polynomial_length {
+        let combinations_of_i = (0..polynomial_length).combinations(i);
+        for combination in combinations_of_i {
+            mutated_polynomials.append(&mut generate_mutated_polynomials(
+                polynomial_length,
+                matrix_size,
+                &combination,
+            ));
+        }
+    }
+
     let mut vector: Vec<Polynomial> = Vec::new();
     for i in 1..polynomial_length {
         let combinations_of_i = (0..polynomial_length).combinations(i);
         for combination in combinations_of_i {
             let start = Instant::now();
             vector.append(&mut mutate_coefficients(
-                generate_mutated_polynomials(polynomial_length, matrix_size, &combination),
+                mutated_polynomials.clone(),
                 &combination,
             ));
             let duration = start.elapsed();
@@ -79,7 +91,7 @@ pub fn mutate_polynomial(polynomial_length: usize, matrix_size: usize) -> Vec<Po
 pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial> {
     // Scale up polynomials so that their smallest element is one.
     for i in 0..polynomials.len() {
-        let smallest_value = polynomials[i].min_term();
+        let smallest_value = polynomials[i].min_term().abs();
         for j in 0..polynomials[i].len() {
             polynomials[i][j] /= smallest_value;
         }
@@ -118,7 +130,7 @@ pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial>
 
     // Scale down polynomials so that their largest element is one.
     for i in 0..polynomials.len() {
-        let largest_value = polynomials[i].max_term();
+        let largest_value = polynomials[i].max_term().abs();
         for j in 0..polynomials[i].len() {
             polynomials[i][j] /= largest_value;
         }
@@ -166,21 +178,18 @@ pub fn minimize_polynomial_coefficients_async(
     });
 }
 
-// TODO There is a bug where for some reason one polynomial of all negative coefficients except for the middle ones
-// gets through.
 pub fn minimize_polynomial_coefficients(
     mut polynomial: Polynomial,
     combination: &Vec<usize>,
 ) -> Option<Polynomial> {
     let mut backoff = 0.5;
     while backoff > 0.01 {
+        let old_polynomial = polynomial.clone();
         for i in combination {
             polynomial[i.clone()] -= backoff;
         }
         if !fuzz_polynomial::fuzz_polynomial(&polynomial) {
-            for i in combination {
-                polynomial[i.clone()] += backoff;
-            }
+            polynomial = old_polynomial;
             backoff /= 2.0;
         }
     }

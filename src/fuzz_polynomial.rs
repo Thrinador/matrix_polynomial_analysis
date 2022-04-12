@@ -185,6 +185,7 @@ fn fuzz_polynomial_distribution_worker_inverse_gaussian(
 ) {
     pool.execute(move || {
         let mut rng = thread_rng();
+        let mut found_negative_matrix = false;
         for _ in 1..RANDOM_MATRICES_TO_GENERATE {
             let random_matrix = DMatrix::<f64>::from_distribution(
                 polynomial.get_size(),
@@ -194,10 +195,11 @@ fn fuzz_polynomial_distribution_worker_inverse_gaussian(
             );
             let final_matrix = polynomial.apply_polynomial(&random_matrix);
             if !is_matrix_nonnegative(&final_matrix) {
-                sender.send(false);
+                found_negative_matrix = true;
+                break;
             }
         }
-        sender.send(true);
+        sender.send(!found_negative_matrix);
     });
 }
 
@@ -223,10 +225,6 @@ fn fuzz_polynomial_distribution_worker_uniform(
                 break;
             }
         }
-        if found_negative_matrix {
-            sender.send(false);
-        } else {
-            sender.send(true);
-        }
+        sender.send(!found_negative_matrix);
     });
 }
