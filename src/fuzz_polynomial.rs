@@ -44,6 +44,7 @@ pub fn verify_polynomial(polynomial: &Polynomial) -> bool {
     let (sender, receiver): (Sender<bool>, Receiver<bool>) = channel();
 
     let mut number_of_messages = fuzz_polynomial(polynomial, &pool, &sender);
+    number_of_messages += fuzz_derivatives(polynomial, &pool, sender.clone());
     number_of_messages += fuzz_circulant_matrices(polynomial.clone(), &pool, sender.clone());
 
     for _ in 0..number_of_messages {
@@ -54,6 +55,37 @@ pub fn verify_polynomial(polynomial: &Polynomial) -> bool {
         }
     }
     true
+}
+
+fn fuzz_derivatives(polynomial: &Polynomial, pool: &ThreadPool, sender: Sender<bool>) -> usize {
+    let matrix_size = polynomial.get_size();
+    let mut derivative_polynomial = polynomial.clone();
+    derivative_polynomial.set_size(1);
+    pool.execute(move || {
+        for i in 1..matrix_size {
+            derivative_polynomial = derivative_polynomial.derivative();
+            let mut rng = thread_rng();
+            let mut did_pass = true;
+            for _ in 1..RANDOM_MATRICES_TO_GENERATE {
+                let random_matrix = DMatrix::<f64>::from_distribution(
+                    1,
+                    1,
+                    &Uniform::<f64>::new(0.0, 10.0),
+                    &mut rng,
+                );
+                let final_matrix = derivative_polynomial.apply_polynomial(&random_matrix);
+                if !is_matrix_nonnegative(&final_matrix) {
+                    did_pass = false;
+                }
+            }
+            if !did_pass {
+                sender.send(false);
+                break;
+            }
+        }
+        sender.send(true);
+    });
+    1
 }
 
 fn fuzz_polynomial(polynomial: &Polynomial, pool: &ThreadPool, sender: &Sender<bool>) -> usize {
@@ -141,6 +173,10 @@ fn check_simple_matrices(polynomial: &Polynomial) -> bool {
         return false;
     }
 
+    true
+}
+
+fn check_sums_of_coefficients(polynomial: &Polynomial) -> bool {
     true
 }
 

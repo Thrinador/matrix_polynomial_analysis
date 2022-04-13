@@ -88,6 +88,18 @@ impl Polynomial {
     pub fn get_size(&self) -> usize {
         self.size
     }
+
+    pub fn set_size(&mut self, size: usize) {
+        self.size = size;
+    }
+
+    pub fn derivative(&self) -> Polynomial {
+        let mut derivative = Polynomial::from_element(self.len() - 1, self.size, 0.0);
+        for i in 1..self.len() {
+            derivative[i - 1] = (i as f64) * self[i];
+        }
+        derivative
+    }
 }
 
 impl PartialEq for Polynomial {
