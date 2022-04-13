@@ -8,7 +8,7 @@ mod polynomial;
 fn main() {
     env_logger::init();
     let start = Instant::now();
-    let mut interesting_polynomials = mutate_polynomial(5, 2);
+    let mut interesting_polynomials = mutate_polynomial(7, 3);
     interesting_polynomials.sort();
     let duration = start.elapsed();
     info!("Total time elapsed generating polynomials {:?}", duration);

@@ -14,10 +14,10 @@ pub mod polynomial;
 // TODO all constants should be changed to flags that get set on startup from command line arguments.
 
 // For each combination of coefficients generates this many mutated polynomials.
-const RANDOM_POLYNOMIAL_MUTATIONS: usize = 100;
+const RANDOM_POLYNOMIAL_MUTATIONS: usize = 1000;
 
 // From the list of mutated polynomials take this many to try and minimize coefficients.
-const NUMBER_OF_MUTATED_POLYNOMIALS: usize = 10;
+const NUMBER_OF_MUTATED_POLYNOMIALS: usize = 100;
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     for value in matrix.iter().enumerate() {
@@ -62,6 +62,10 @@ pub fn mutate_polynomial(polynomial_length: usize, matrix_size: usize) -> Vec<Po
             ));
         }
     }
+    info!(
+        "Generated {} mutated polynomials",
+        mutated_polynomials.len()
+    );
     if mutated_polynomials.len() > NUMBER_OF_MUTATED_POLYNOMIALS {
         let mut rng = thread_rng();
         let mut vec = Vec::new();
@@ -73,7 +77,7 @@ pub fn mutate_polynomial(polynomial_length: usize, matrix_size: usize) -> Vec<Po
         }
         mutated_polynomials = vec;
     }
-
+    info!("Starting to mutate coefficients");
     let mut vector: Vec<Polynomial> = Vec::new();
     for i in 1..polynomial_length {
         let combinations_of_i = (0..polynomial_length).combinations(i);

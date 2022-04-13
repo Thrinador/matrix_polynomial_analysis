@@ -46,6 +46,7 @@ pub fn verify_polynomial(polynomial: &Polynomial) -> bool {
     let mut number_of_messages = fuzz_polynomial(polynomial, &pool, &sender);
     number_of_messages += fuzz_derivatives(polynomial, &pool, sender.clone());
     number_of_messages += fuzz_circulant_matrices(polynomial.clone(), &pool, sender.clone());
+    number_of_messages += fuzz_remainder_polynomials(polynomial, &pool, &sender);
 
     for _ in 0..number_of_messages {
         if let Ok(message) = receiver.recv() {
@@ -62,24 +63,9 @@ fn fuzz_derivatives(polynomial: &Polynomial, pool: &ThreadPool, sender: Sender<b
     let mut derivative_polynomial = polynomial.clone();
     derivative_polynomial.set_size(1);
     pool.execute(move || {
-        for i in 1..matrix_size {
+        for _ in 1..matrix_size {
             derivative_polynomial = derivative_polynomial.derivative();
-            let mut rng = thread_rng();
-            let mut did_pass = true;
-            for _ in 1..RANDOM_MATRICES_TO_GENERATE {
-                let random_matrix = DMatrix::<f64>::from_distribution(
-                    1,
-                    1,
-                    &Uniform::<f64>::new(0.0, 10.0),
-                    &mut rng,
-                );
-                let final_matrix = derivative_polynomial.apply_polynomial(&random_matrix);
-                if !is_matrix_nonnegative(&final_matrix) {
-                    did_pass = false;
-                    break;
-                }
-            }
-            if !did_pass {
+            if !simple_1_by_1_fuzz(&derivative_polynomial) {
                 sender.send(false);
                 break;
             }
@@ -177,8 +163,36 @@ fn check_simple_matrices(polynomial: &Polynomial) -> bool {
     true
 }
 
-fn fuzz_remainder_polynomials(polynomial: &Polynomial) -> usize {
-    1
+fn fuzz_remainder_polynomials(
+    polynomial: &Polynomial,
+    pool: &ThreadPool,
+    sender: &Sender<bool>,
+) -> usize {
+    let mut remainder_polynomials = generate_remainder_polynomials(polynomial);
+    let num_polynomials = remainder_polynomials.len();
+    for polynomial in remainder_polynomials {
+        let sender_clone = sender.clone();
+        pool.execute(move || {
+            sender_clone.send(simple_1_by_1_fuzz(&polynomial));
+        });
+    }
+
+    num_polynomials
+}
+
+fn generate_remainder_polynomials(polynomial: &Polynomial) -> Vec<Polynomial> {
+    let mut remainder_polynomials = Vec::new();
+    for _ in 0..polynomial.get_size() {
+        remainder_polynomials.push(polynomial.clone());
+    }
+    for i in 0..polynomial.len() {
+        for j in 0..polynomial.get_size() {
+            if i + j < polynomial.len() {
+                remainder_polynomials[j][i + j] = 0.0;
+            }
+        }
+    }
+    remainder_polynomials
 }
 
 fn fuzz_polynomial_distribution_worker<F>(
@@ -209,23 +223,16 @@ fn fuzz_polynomial_distribution_worker<F>(
         sender.send(!found_negative_matrix);
     });
 }
-/*
+
 fn simple_1_by_1_fuzz(polynomial: &Polynomial) -> bool {
     let mut rng = thread_rng();
-    let mut did_pass = true;
     for _ in 1..RANDOM_MATRICES_TO_GENERATE {
-        let random_matrix = DMatrix::<f64>::from_distribution(
-            1,
-            1,
-            &Uniform::<f64>::new(0.0, 10.0),
-            &mut rng,
-        );
-        let final_matrix = derivative_polynomial.apply_polynomial(&random_matrix);
+        let random_matrix =
+            DMatrix::<f64>::from_distribution(1, 1, &Uniform::<f64>::new(0.0, 10.0), &mut rng);
+        let final_matrix = polynomial.apply_polynomial(&random_matrix);
         if !is_matrix_nonnegative(&final_matrix) {
-            did_pass = false;
-            break;
+            return false;
         }
     }
     true
 }
-*/

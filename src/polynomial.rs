@@ -69,11 +69,11 @@ impl Polynomial {
     }
 
     pub fn min_term(&self) -> f64 {
-        self.coefficients[self.coefficients.iamin()]
+        self.coefficients.amin()
     }
 
     pub fn max_term(&self) -> f64 {
-        self.coefficients[self.coefficients.iamax()]
+        self.coefficients.amax()
     }
 
     pub fn are_first_last_negative(&self) -> bool {
