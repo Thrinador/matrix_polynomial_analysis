@@ -67,14 +67,14 @@ fn fuzz_derivatives(polynomial: &Polynomial, pool: &ThreadPool, sender: Sender<b
 
 fn fuzz_polynomial(polynomial: &Polynomial, pool: &ThreadPool, sender: &Sender<bool>) -> usize {
     let mut distributions = Vec::new();
-    distributions.push(Uniform::<f64>::new(0.0, 1.0));
+    // distributions.push(Uniform::<f64>::new(0.0, 1.0));
     distributions.push(Uniform::<f64>::new(0.0, 10.0));
     distributions.push(Uniform::<f64>::new(0.0, 1000.0));
     distributions.push(Uniform::<f64>::new(0.0, 100000.0));
 
     let mut number_of_distributions = distributions.len();
 
-    if let Ok(dist) = InverseGaussian::<f64>::new(1.0, 1.0) {
+    if let Ok(dist) = InverseGaussian::<f64>::new(10.0, 10.0) {
         fuzz_polynomial_distribution_worker(polynomial.clone(), dist, &pool, sender.clone());
         number_of_distributions += 1;
     } else {
@@ -220,7 +220,7 @@ fn simple_1_by_1_fuzz(polynomial: &Polynomial) -> bool {
     let mut rng = thread_rng();
     for _ in 1..RANDOM_MATRICES_TO_GENERATE {
         let random_matrix =
-            DMatrix::<f64>::from_distribution(1, 1, &Uniform::<f64>::new(0.0, 10.0), &mut rng);
+            DMatrix::<f64>::from_distribution(1, 1, &Uniform::<f64>::new(0.0, 10000.0), &mut rng);
         let final_matrix = polynomial.apply_polynomial(&random_matrix);
         if !is_matrix_nonnegative(&final_matrix) {
             return false;

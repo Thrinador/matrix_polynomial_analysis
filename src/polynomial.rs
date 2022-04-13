@@ -19,7 +19,11 @@ impl Polynomial {
         let mut out: String = String::new();
         for term in self.coefficients.iter() {
             i -= 1;
-            out = format!("{}+ {:.3}x^{} ", out, term, i);
+            if term >= &0.0 {
+                out = format!("{}+ {:.7}x^{} ", out, term, i);
+            } else {
+                out = format!("{}- {:.7}x^{} ", out, term.abs(), i);
+            }
         }
         out
     }
@@ -76,10 +80,22 @@ impl Polynomial {
         self.coefficients.amax()
     }
 
+    // TODO add in that if one of the last coefficients is zero, then we need to move down by matrix size.
     pub fn are_first_last_negative(&self) -> bool {
         for i in 0..self.size {
-            if self[i] < 0.0 || self[(self.len() - 1) - i] < 0.0 {
+            let mut last_term = (self.len() - 1) - i;
+            if self[i] < 0.0 || self[last_term] < 0.0 {
                 return true;
+            }
+            if approx_equal(self[last_term], 0.0) {
+                while last_term >= 0 && approx_equal(self[last_term], 0.0) {
+                    if self[last_term] < 0.0 {
+                        return true;
+                    } else if self[last_term] > 0.00001 {
+                        break;
+                    }
+                    last_term -= self.size;
+                }
             }
         }
         false
@@ -100,6 +116,11 @@ impl Polynomial {
         }
         derivative
     }
+}
+
+// TODO this is a pretty rough function, for now my percision caps at 3 decimals so it is sufficient.
+pub fn approx_equal(term1: f64, term2: f64) -> bool {
+    (term1 - term2).abs() < 0.00001
 }
 
 impl PartialEq for Polynomial {
