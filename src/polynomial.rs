@@ -41,10 +41,10 @@ impl Polynomial {
     // matrix up as we go instead of taking a new power each time.
     pub fn apply_polynomial(&self, matrix: &DMatrix<f64>) -> DMatrix<f64> {
         let mut final_matrix = matrix.scale(0.0);
-        let mut term: u32 = self.coefficients.len() as u32;
-        for coefficient in self.coefficients.iter() {
-            term = term - 1;
-            final_matrix += matrix.pow(term).scale(*coefficient);
+        let mut working_matrix = DMatrix::<f64>::identity(self.size, self.size);
+        for coefficient in self.coefficients.iter().rev() {
+            final_matrix += working_matrix.scale(*coefficient);
+            working_matrix *= matrix;
         }
         final_matrix
     }

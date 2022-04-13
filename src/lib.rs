@@ -103,13 +103,14 @@ pub fn mutate_polynomial(polynomial_length: usize, matrix_size: usize) -> Vec<Po
 // Returns a subset of the vector containing the elementwise smallest polynomials.
 // TODO This function could use some work. It is very slow and quite long for what it is doing.
 pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial> {
-    // Scale up polynomials so that their smallest element is one.
+    // Scale down polynomials so that their largest element is one.
     for i in 0..polynomials.len() {
-        let smallest_value = polynomials[i].min_term().abs();
+        let largest_value = polynomials[i].max_term().abs();
         for j in 0..polynomials[i].len() {
-            polynomials[i][j] /= smallest_value;
+            polynomials[i][j] /= largest_value;
         }
     }
+
     let mut i = 0;
     while i < polynomials.len() {
         let mut j = 0;
@@ -140,15 +141,6 @@ pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial>
             i += 1;
         }
     }
-
-    // Scale down polynomials so that their largest element is one.
-    for i in 0..polynomials.len() {
-        let largest_value = polynomials[i].max_term().abs();
-        for j in 0..polynomials[i].len() {
-            polynomials[i][j] /= largest_value;
-        }
-    }
-
     polynomials
 }
 
@@ -176,7 +168,6 @@ pub fn mutate_coefficients(
             negative_polynomials.push(message);
         }
     }
-
     collapse_polynomials(negative_polynomials)
 }
 

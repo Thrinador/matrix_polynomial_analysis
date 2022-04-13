@@ -17,16 +17,6 @@ const RANDOM_MATRICES_TO_GENERATE: usize = 1000;
 
 // TODO Another idea for fuzzing is to take randomly generated matrices and sometimes 0 out certain elements, or use
 // different structered matrices to try and prune some early cases.
-
-// TODO Benchmark the performance difference of returning a bool vs returning the matrix that caused the fuzz to fail. It would be nice to combine
-// the fuzz_polynomials_slow() with fuzz_polynomials() functions assume the performance hit is negligible.
-
-// Even in its current state this fuzzing is far to slow. I think it needs a combination of failing faster and maybe some more smarts on minimizing coefficients.
-
-// TODO This function needs to be much faster. I am not sure if that means checking fewer distributions.
-// We could use more "simple" checks. Things like taking the derivative of the polynomial and fuzzing that against smaller matrices.
-// Or checking sums of different parts of the coefficients like in the 2x2 case all the even coefficients must sum to be nonnegative
-// same with odd
 pub fn verify_polynomial(polynomial: &Polynomial) -> bool {
     // We know nonnegative polynomials are always good.
     if polynomial.is_polynomial_nonnegative() {
@@ -183,7 +173,9 @@ fn fuzz_remainder_polynomials(
 fn generate_remainder_polynomials(polynomial: &Polynomial) -> Vec<Polynomial> {
     let mut remainder_polynomials = Vec::new();
     for _ in 0..polynomial.get_size() {
-        remainder_polynomials.push(polynomial.clone());
+        let mut remainder_polynomial = polynomial.clone();
+        remainder_polynomial.set_size(1);
+        remainder_polynomials.push(remainder_polynomial);
     }
     for i in 0..polynomial.len() {
         for j in 0..polynomial.get_size() {
