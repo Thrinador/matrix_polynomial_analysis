@@ -182,7 +182,7 @@ pub fn minimize_polynomial_coefficients(
         for i in combination {
             polynomial[i.clone()] -= backoff;
         }
-        if !fuzz_polynomial::fuzz_polynomial(&polynomial) {
+        if !fuzz_polynomial::verify_polynomial(&polynomial) {
             polynomial = old_polynomial;
             backoff /= 2.0;
         }

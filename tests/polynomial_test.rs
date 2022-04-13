@@ -6,19 +6,19 @@ mod tests {
     #[test]
     fn test_fuzz_polynomial() {
         assert_eq!(
-            fuzz_polynomial(&Polynomial::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0], 2)),
+            verify_polynomial(&Polynomial::from_vec(vec![3.0, 0.0, -1.0, -1.0, 1.0], 2)),
             false
         );
         assert_eq!(
-            fuzz_polynomial(&Polynomial::from_vec(vec![3.0, 0.0, 1.0, 1.0, 1.0], 2)),
+            verify_polynomial(&Polynomial::from_vec(vec![3.0, 0.0, 1.0, 1.0, 1.0], 2)),
             true
         );
         assert_eq!(
-            fuzz_polynomial(&Polynomial::from_vec(vec![-3.0, 0.0, -1.0, -1.0, 1.0], 2)),
+            verify_polynomial(&Polynomial::from_vec(vec![-3.0, 0.0, -1.0, -1.0, 1.0], 2)),
             false
         );
         assert_eq!(
-            fuzz_polynomial(&Polynomial::from_vec(vec![-1.0, -1.0, 1.0, -1.0, -1.0], 2)),
+            verify_polynomial(&Polynomial::from_vec(vec![-1.0, -1.0, 1.0, -1.0, -1.0], 2)),
             false
         );
     }
