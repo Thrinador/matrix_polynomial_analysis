@@ -76,6 +76,7 @@ fn fuzz_derivatives(polynomial: &Polynomial, pool: &ThreadPool, sender: Sender<b
                 let final_matrix = derivative_polynomial.apply_polynomial(&random_matrix);
                 if !is_matrix_nonnegative(&final_matrix) {
                     did_pass = false;
+                    break;
                 }
             }
             if !did_pass {
@@ -176,8 +177,8 @@ fn check_simple_matrices(polynomial: &Polynomial) -> bool {
     true
 }
 
-fn check_sums_of_coefficients(polynomial: &Polynomial) -> bool {
-    true
+fn fuzz_remainder_polynomials(polynomial: &Polynomial) -> usize {
+    1
 }
 
 fn fuzz_polynomial_distribution_worker<F>(
@@ -208,3 +209,23 @@ fn fuzz_polynomial_distribution_worker<F>(
         sender.send(!found_negative_matrix);
     });
 }
+/*
+fn simple_1_by_1_fuzz(polynomial: &Polynomial) -> bool {
+    let mut rng = thread_rng();
+    let mut did_pass = true;
+    for _ in 1..RANDOM_MATRICES_TO_GENERATE {
+        let random_matrix = DMatrix::<f64>::from_distribution(
+            1,
+            1,
+            &Uniform::<f64>::new(0.0, 10.0),
+            &mut rng,
+        );
+        let final_matrix = derivative_polynomial.apply_polynomial(&random_matrix);
+        if !is_matrix_nonnegative(&final_matrix) {
+            did_pass = false;
+            break;
+        }
+    }
+    true
+}
+*/

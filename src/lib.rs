@@ -3,6 +3,7 @@ use itertools::Itertools;
 use log::info;
 use nalgebra::DMatrix;
 use rand::prelude::Rng;
+use rand::{seq::IteratorRandom, thread_rng};
 use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use threadpool::ThreadPool;
@@ -11,7 +12,12 @@ pub mod fuzz_polynomial;
 pub mod polynomial;
 
 // TODO all constants should be changed to flags that get set on startup from command line arguments.
-const RANDOM_POLYNOMIAL_MUTATIONS: usize = 3;
+
+// For each combination of coefficients generates this many mutated polynomials.
+const RANDOM_POLYNOMIAL_MUTATIONS: usize = 100;
+
+// From the list of mutated polynomials take this many to try and minimize coefficients.
+const NUMBER_OF_MUTATED_POLYNOMIALS: usize = 10;
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     for value in matrix.iter().enumerate() {
@@ -55,6 +61,17 @@ pub fn mutate_polynomial(polynomial_length: usize, matrix_size: usize) -> Vec<Po
                 &combination,
             ));
         }
+    }
+    if mutated_polynomials.len() > NUMBER_OF_MUTATED_POLYNOMIALS {
+        let mut rng = thread_rng();
+        let mut vec = Vec::new();
+        for entry in mutated_polynomials
+            .iter()
+            .choose_multiple(&mut rng, NUMBER_OF_MUTATED_POLYNOMIALS)
+        {
+            vec.push(entry.clone());
+        }
+        mutated_polynomials = vec;
     }
 
     let mut vector: Vec<Polynomial> = Vec::new();
@@ -137,7 +154,7 @@ pub fn mutate_coefficients(
     base_polynomials: Vec<Polynomial>,
     combination: &Vec<usize>,
 ) -> Vec<Polynomial> {
-    let n_workers = 8;
+    let n_workers = 16;
     let pool = ThreadPool::new(n_workers);
     let (sender, receiver): (Sender<Option<Polynomial>>, Receiver<Option<Polynomial>>) = channel();
     let number_of_polynomials = base_polynomials.len();
