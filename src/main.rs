@@ -7,6 +7,8 @@ use std::time::Instant;
 pub mod fuzz_polynomial;
 pub mod polynomial;
 
+// TODO there is a problem with the starting_polynomial. I don't have a good way to pass it in right now
+
 #[derive(Parser, Debug)]
 #[clap(author, version, about, long_about = None)]
 struct Args {
@@ -50,7 +52,10 @@ fn main() {
     match args.mode {
         1 => {
             let polynomial = if args.starting_polynomial.len() == 0 {
-                Polynomial::from_vec(vec![1.0, 1.0, 1.0, 1.0, 1.0], args.matrix_size)
+                Polynomial::from_vec(
+                    vec![1.0, 1.0, -0.636535, 0.1093750, 0.3191201],
+                    args.matrix_size,
+                )
             } else {
                 Polynomial::from_vec(args.starting_polynomial, args.matrix_size)
             };

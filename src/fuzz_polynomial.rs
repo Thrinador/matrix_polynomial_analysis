@@ -1,5 +1,7 @@
 use crate::is_matrix_nonnegative;
 use crate::polynomial::Polynomial;
+use itertools::Itertools;
+use log::trace;
 use nalgebra::DMatrix;
 use nalgebra::DVector;
 use rand::distributions::Uniform;
@@ -31,8 +33,16 @@ pub fn verify_polynomial(polynomial: &Polynomial, number_of_matrices_to_fuzz: us
     let pool = ThreadPool::new(n_workers);
     let (sender, receiver): (Sender<bool>, Receiver<bool>) = channel();
 
-    let mut number_of_messages =
-        fuzz_polynomial(polynomial, &pool, &sender, number_of_matrices_to_fuzz);
+    let mut number_of_messages = 0;
+
+    let square_matrix_size = usize::pow(polynomial.get_size(), 2);
+    for i in 0..square_matrix_size {
+        for j in (0..square_matrix_size).combinations(i) {
+            number_of_messages +=
+                fuzz_polynomial(polynomial, &pool, &sender, number_of_matrices_to_fuzz, j);
+        }
+    }
+
     number_of_messages += fuzz_derivatives(
         polynomial,
         &pool,
@@ -85,6 +95,7 @@ fn fuzz_polynomial(
     pool: &ThreadPool,
     sender: &Sender<bool>,
     number_of_matrices_to_fuzz: usize,
+    entries_to_zero: Vec<usize>,
 ) -> usize {
     let mut distributions = Vec::new();
     // distributions.push(Uniform::<f64>::new(0.0, 1.0));
@@ -101,6 +112,7 @@ fn fuzz_polynomial(
             &pool,
             sender.clone(),
             number_of_matrices_to_fuzz,
+            entries_to_zero.clone(),
         );
         number_of_distributions += 1;
     } else {
@@ -114,6 +126,7 @@ fn fuzz_polynomial(
             &pool,
             sender.clone(),
             number_of_matrices_to_fuzz,
+            entries_to_zero.clone(),
         );
     }
 
@@ -148,10 +161,10 @@ fn fuzz_circulant_matrices(
         }
         let mut did_pass = true;
         for _ in 0..number_of_matrices_to_fuzz {
-            if !is_matrix_nonnegative(&polynomial.apply_polynomial(&generate_circulant_matrix(
-                &fundamental_circulant,
-                polynomial.get_size(),
-            ))) {
+            let random_matrix =
+                generate_circulant_matrix(&fundamental_circulant, polynomial.get_size());
+            if !is_matrix_nonnegative(&polynomial.apply_polynomial(&random_matrix)) {
+                trace!("{}", random_matrix);
                 did_pass = false;
                 break;
             }
@@ -223,6 +236,7 @@ fn fuzz_polynomial_distribution_worker<F>(
     pool: &ThreadPool,
     sender: Sender<bool>,
     number_of_matrices_to_fuzz: usize,
+    entries_to_zero: Vec<usize>,
 ) where
     F: rand_distr::Distribution<f64> + 'static,
     F: Send,
@@ -231,14 +245,20 @@ fn fuzz_polynomial_distribution_worker<F>(
         let mut rng = thread_rng();
         let mut found_negative_matrix = false;
         for _ in 1..number_of_matrices_to_fuzz {
-            let random_matrix = DMatrix::<f64>::from_distribution(
+            let mut random_matrix = DMatrix::<f64>::from_distribution(
                 polynomial.get_size(),
                 polynomial.get_size(),
                 &dist,
                 &mut rng,
             );
+            for entry in &entries_to_zero {
+                let row = entry % polynomial.get_size();
+                let column = entry / polynomial.get_size();
+                random_matrix[(row, column)] = 0.0;
+            }
             let final_matrix = polynomial.apply_polynomial(&random_matrix);
             if !is_matrix_nonnegative(&final_matrix) {
+                trace!("{}", random_matrix);
                 found_negative_matrix = true;
                 break;
             }
@@ -254,6 +274,7 @@ fn simple_1_by_1_fuzz(polynomial: &Polynomial, number_of_matrices_to_fuzz: usize
             DMatrix::<f64>::from_distribution(1, 1, &Uniform::<f64>::new(0.0, 10000.0), &mut rng);
         let final_matrix = polynomial.apply_polynomial(&random_matrix);
         if !is_matrix_nonnegative(&final_matrix) {
+            trace!("{}", random_matrix);
             return false;
         }
     }

@@ -1,6 +1,6 @@
 use crate::polynomial::Polynomial;
 use itertools::Itertools;
-use log::info;
+use log::{info, trace};
 use nalgebra::DMatrix;
 use rand::prelude::Rng;
 use rand::{seq::IteratorRandom, thread_rng};
