@@ -27,6 +27,10 @@ fn generate_mutated_polynomials(
     base_polynomial: &Polynomial,
     mutated_polynomials_to_evaluate: usize,
 ) -> Vec<Polynomial> {
+    info!(
+        "Start generating mutated polynomials for {}",
+        base_polynomial.to_string()
+    );
     let mut mutated_polynomials = Vec::new();
     let mut rng = rand::thread_rng();
     for i in 1..base_polynomial.len() {
@@ -35,12 +39,28 @@ fn generate_mutated_polynomials(
             for _ in 0..mutated_polynomials_to_evaluate {
                 let mut polynomial = base_polynomial.clone();
                 for j in combination.clone() {
-                    if polynomial[j] >= 0.0 {
-                        polynomial[j] += rng.gen_range(0.0..base_polynomial[j]);
-                        polynomial[j] -= rng.gen_range(0.0..(1.0 - base_polynomial[j]));
+                    if polynomial[j] > 0.0 {
+                        let num_up = if base_polynomial[j] >= 1.0 {
+                            0.0
+                        } else {
+                            rng.gen_range(0.0..(1.0 - base_polynomial[j]))
+                        };
+                        let num_down = rng.gen_range(0.0..base_polynomial[j]);
+
+                        polynomial[j] -= num_down;
+                        polynomial[j] += num_up;
+                    } else if polynomial[j] == 0.0 {
+                        polynomial[j] += rng.gen_range(0.0..1.0);
                     } else {
-                        polynomial[j] -= rng.gen_range(0.0..base_polynomial[j].abs());
-                        polynomial[j] += rng.gen_range(0.0..(1.0 - base_polynomial[j].abs()));
+                        let num_down = if base_polynomial[j].abs() >= 1.0 {
+                            0.0
+                        } else {
+                            rng.gen_range(0.0..(1.0 - base_polynomial[j].abs()))
+                        };
+                        let num_up = rng.gen_range(0.0..base_polynomial[j].abs());
+
+                        polynomial[j] -= num_down;
+                        polynomial[j] += num_up;
                     }
                 }
                 mutated_polynomials.push(polynomial);
@@ -73,6 +93,11 @@ pub fn mutate_polynomial(
 ) -> Vec<Polynomial> {
     let mutated_polynomials =
         generate_mutated_polynomials(&base_polynomial, mutated_polynomials_to_evaluate);
+    info!("Generated mutated polynomials:");
+    for poly in &mutated_polynomials {
+        info!("{}", poly.to_string());
+    }
+
     info!("Starting to mutate coefficients");
     let mut vector: Vec<Polynomial> = Vec::new();
     for i in 1..base_polynomial.len() {
@@ -192,19 +217,32 @@ pub fn minimize_polynomial_coefficients(
     matrices_to_fuzz: usize,
 ) -> Option<Polynomial> {
     let mut backoff = 0.5;
-    while backoff > 0.001 {
-        let old_polynomial = polynomial.clone();
-        for i in combination {
-            polynomial[i.clone()] -= backoff;
-        }
-        if !fuzz_polynomial::verify_polynomial(&polynomial, matrices_to_fuzz) {
-            polynomial = old_polynomial;
-            backoff /= 2.0;
+    let mut did_pass = false;
+    let mut old_polynomial = None;
+    while backoff > 0.0001 {
+        if fuzz_polynomial::verify_polynomial(&polynomial, matrices_to_fuzz) {
+            for i in combination {
+                polynomial[i.clone()] -= backoff;
+            }
+            did_pass = true;
+            old_polynomial = Some(polynomial.clone());
+        } else {
+            if did_pass {
+                backoff /= 2.0;
+            }
+            for i in combination {
+                polynomial[i.clone()] += backoff;
+            }
+            if !did_pass {
+                backoff /= 2.0;
+            }
+            did_pass = false;
         }
     }
-    if !polynomial.is_polynomial_nonnegative_with_threshold(-0.1) {
-        Some(polynomial)
-    } else {
-        None
+    if let Some(polynomial) = old_polynomial {
+        if !polynomial.is_polynomial_nonnegative_with_threshold(-0.1) {
+            return Some(polynomial);
+        }
     }
+    None
 }
