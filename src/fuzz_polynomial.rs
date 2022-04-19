@@ -1,7 +1,7 @@
 use crate::is_matrix_nonnegative;
 use crate::polynomial::Polynomial;
 use itertools::Itertools;
-use log::{trace, warn};
+use log::trace;
 use nalgebra::DMatrix;
 use nalgebra::DVector;
 use rand::distributions::Uniform;
@@ -166,7 +166,9 @@ fn fuzz_circulant_matrices(
                 break;
             }
         }
-        sender.send(did_pass);
+        if let Err(e) = sender.send(did_pass) {
+            trace!("Error trying to send circulants {}", e);
+        }
     });
     1
 }
@@ -203,7 +205,11 @@ fn fuzz_remainder_polynomials(
     for polynomial in remainder_polynomials {
         let sender_clone = sender.clone();
         pool.execute(move || {
-            sender_clone.send(simple_1_by_1_fuzz(&polynomial, number_of_matrices_to_fuzz));
+            if let Err(e) =
+                sender_clone.send(simple_1_by_1_fuzz(&polynomial, number_of_matrices_to_fuzz))
+            {
+                trace!("Error trying to send remainder {}", e);
+            }
         });
     }
 
@@ -260,7 +266,9 @@ fn fuzz_polynomial_distribution_worker<F>(
                 break;
             }
         }
-        sender.send(!found_negative_matrix);
+        if let Err(e) = sender.send(!found_negative_matrix) {
+            trace!("Error trying to send distribution {}", e);
+        }
     });
 }
 

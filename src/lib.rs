@@ -221,7 +221,7 @@ pub fn minimize_polynomial_coefficients(
     let mut backoff = 0.5;
     let mut did_pass = false;
     let mut old_polynomial = None;
-    while backoff > 0.0001 {
+    while backoff > 0.001 {
         if fuzz_polynomial::verify_polynomial(&polynomial, matrices_to_fuzz) {
             for i in combination {
                 polynomial[i.clone()] -= backoff;
