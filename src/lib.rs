@@ -1,5 +1,5 @@
 use itertools::Itertools;
-use log::info;
+use log::{debug, info, warn};
 use nalgebra::DMatrix;
 use polynomial::Polynomial;
 use rand::prelude::Rng;
@@ -93,9 +93,9 @@ pub fn mutate_polynomial(
 ) -> Vec<Polynomial> {
     let mutated_polynomials =
         generate_mutated_polynomials(&base_polynomial, mutated_polynomials_to_evaluate);
-    info!("Generated mutated polynomials:");
+    debug!("Generated mutated polynomials:");
     for poly in &mutated_polynomials {
-        info!("{}", poly.to_string());
+        debug!("{}", poly.to_string());
     }
 
     info!("Starting to mutate coefficients");
@@ -203,11 +203,13 @@ pub fn minimize_polynomial_coefficients_async(
     matrices_to_fuzz: usize,
 ) {
     pool.execute(move || {
-        sender.send(minimize_polynomial_coefficients(
+        if let Err(e) = sender.send(minimize_polynomial_coefficients(
             polynomial,
             &combination,
             matrices_to_fuzz,
-        ));
+        )) {
+            warn!("Error trying to send minimize {}", e);
+        }
     });
 }
 

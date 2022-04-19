@@ -1,7 +1,7 @@
 use crate::is_matrix_nonnegative;
 use crate::polynomial::Polynomial;
 use itertools::Itertools;
-use log::trace;
+use log::{trace, warn};
 use nalgebra::DMatrix;
 use nalgebra::DVector;
 use rand::distributions::Uniform;
@@ -75,11 +75,15 @@ fn fuzz_derivatives(
         for _ in 1..matrix_size {
             derivative_polynomial = derivative_polynomial.derivative();
             if !simple_1_by_1_fuzz(&derivative_polynomial, number_of_matrices_to_fuzz) {
-                sender.send(false);
+                if let Err(e) = sender.send(false) {
+                    trace!("Error trying to send derivatives {}", e);
+                }
                 break;
             }
         }
-        sender.send(true);
+        if let Err(e) = sender.send(true) {
+            trace!("Error trying to send derivatives {}", e);
+        }
     });
     1
 }
