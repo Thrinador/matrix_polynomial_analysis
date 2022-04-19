@@ -11,12 +11,6 @@ use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use threadpool::ThreadPool;
 
-// TODO Fuzzing should have several different distributions that these random matrices are generated from.
-// The ones that come to mind are a distribution that favors the extremes much more then the middle and one that favors the
-// middle (maybe gaussian) more than the extremes.
-
-// TODO Another idea for fuzzing is to take randomly generated matrices and sometimes 0 out certain elements, or use
-// different structered matrices to try and prune some early cases.
 pub fn verify_polynomial(polynomial: &Polynomial, number_of_matrices_to_fuzz: usize) -> bool {
     // We know nonnegative polynomials are always good.
     if polynomial.is_polynomial_nonnegative() {
@@ -29,7 +23,7 @@ pub fn verify_polynomial(polynomial: &Polynomial, number_of_matrices_to_fuzz: us
         return false;
     }
 
-    let n_workers = 8;
+    let n_workers = num_cpus::get();
     let pool = ThreadPool::new(n_workers);
     let (sender, receiver): (Sender<bool>, Receiver<bool>) = channel();
 
@@ -98,7 +92,6 @@ fn fuzz_polynomial(
     entries_to_zero: Vec<usize>,
 ) -> usize {
     let mut distributions = Vec::new();
-    // distributions.push(Uniform::<f64>::new(0.0, 1.0));
     distributions.push(Uniform::<f64>::new(0.0, 10.0));
     distributions.push(Uniform::<f64>::new(0.0, 1000.0));
     distributions.push(Uniform::<f64>::new(0.0, 100000.0));

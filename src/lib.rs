@@ -148,7 +148,7 @@ pub fn mutate_coefficients(
     combination: &Vec<usize>,
     matrices_to_fuzz: usize,
 ) -> Vec<Polynomial> {
-    let n_workers = 16;
+    let n_workers = num_cpus::get();
     let pool = ThreadPool::new(n_workers);
     let (sender, receiver): (Sender<Option<Polynomial>>, Receiver<Option<Polynomial>>) = channel();
     let number_of_polynomials = base_polynomials.len();
@@ -186,8 +186,6 @@ pub fn minimize_polynomial_coefficients_async(
     });
 }
 
-// This function is very slow and does not scale well to polynomial growth. In particular there are 2^n possible combinations of coefficients
-// to minimize. As n gets past 10 we can't reasonably check all of them unless the fuzzing dramatically improves.
 pub fn minimize_polynomial_coefficients(
     mut polynomial: Polynomial,
     combination: &Vec<usize>,
