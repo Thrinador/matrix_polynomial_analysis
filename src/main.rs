@@ -102,22 +102,11 @@ fn main() {
         3 => {
             let polynomial_1 =
                 Polynomial::from_element(args.polynomial_length, args.matrix_size, 1.0);
-            let polynomial_0 =
-                Polynomial::from_element(args.polynomial_length, args.matrix_size, 0.0);
-
-            info!("Run 1 of 2 against polynomial {}", polynomial_0.to_string());
             let mut interesting_polynomials = mutate_polynomial(
-                polynomial_0,
-                args.matrices_to_fuzz,
-                args.mutated_polynomials_to_evaluate,
-            );
-            info!("Run 2 of 2 against polynomial {}", polynomial_1.to_string());
-            interesting_polynomials.append(&mut mutate_polynomial(
                 polynomial_1,
                 args.matrices_to_fuzz,
                 args.mutated_polynomials_to_evaluate,
-            ));
-            interesting_polynomials = collapse_polynomials(interesting_polynomials);
+            );
             interesting_polynomials.sort();
             let duration = start.elapsed();
             info!("Total time elapsed generating polynomials {:?}", duration);

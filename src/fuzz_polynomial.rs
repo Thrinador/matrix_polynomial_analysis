@@ -7,8 +7,9 @@ use nalgebra::DVector;
 use rand::distributions::Uniform;
 use rand::thread_rng;
 use rand_distr::*;
-use std::sync::mpsc::channel;
-use std::sync::mpsc::{Receiver, Sender};
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::mpsc::{channel, Receiver, Sender};
+use std::sync::Arc;
 use threadpool::ThreadPool;
 
 pub fn verify_polynomial(polynomial: &Polynomial, number_of_matrices_to_fuzz: usize) -> bool {
@@ -26,14 +27,21 @@ pub fn verify_polynomial(polynomial: &Polynomial, number_of_matrices_to_fuzz: us
     let n_workers = num_cpus::get();
     let pool = ThreadPool::new(n_workers);
     let (sender, receiver): (Sender<bool>, Receiver<bool>) = channel();
+    let is_alive: Arc<AtomicBool> = Arc::new(AtomicBool::new(true));
 
     let mut number_of_messages = 0;
 
     let square_matrix_size = usize::pow(polynomial.get_size(), 2);
     for i in 0..square_matrix_size {
         for j in (0..square_matrix_size).combinations(i) {
-            number_of_messages +=
-                fuzz_polynomial(polynomial, &pool, &sender, number_of_matrices_to_fuzz, j);
+            number_of_messages += fuzz_polynomial(
+                polynomial,
+                &pool,
+                &sender,
+                is_alive.clone(),
+                number_of_matrices_to_fuzz,
+                j,
+            );
         }
     }
 
@@ -41,16 +49,23 @@ pub fn verify_polynomial(polynomial: &Polynomial, number_of_matrices_to_fuzz: us
         polynomial,
         &pool,
         sender.clone(),
+        is_alive.clone(),
         number_of_matrices_to_fuzz,
     );
     number_of_messages += fuzz_circulant_matrices(
         polynomial.clone(),
         &pool,
         sender.clone(),
+        is_alive.clone(),
         number_of_matrices_to_fuzz,
     );
-    number_of_messages +=
-        fuzz_remainder_polynomials(polynomial, &pool, &sender, number_of_matrices_to_fuzz);
+    number_of_messages += fuzz_remainder_polynomials(
+        polynomial,
+        &pool,
+        &sender,
+        is_alive,
+        number_of_matrices_to_fuzz,
+    );
 
     for _ in 0..number_of_messages {
         if let Ok(message) = receiver.recv() {
@@ -66,6 +81,7 @@ fn fuzz_derivatives(
     polynomial: &Polynomial,
     pool: &ThreadPool,
     sender: Sender<bool>,
+    is_alive: Arc<AtomicBool>,
     number_of_matrices_to_fuzz: usize,
 ) -> usize {
     let matrix_size = polynomial.get_size();
@@ -74,7 +90,11 @@ fn fuzz_derivatives(
     pool.execute(move || {
         for _ in 1..matrix_size {
             derivative_polynomial = derivative_polynomial.derivative();
-            if !simple_1_by_1_fuzz(&derivative_polynomial, number_of_matrices_to_fuzz) {
+            if !simple_1_by_1_fuzz(
+                &derivative_polynomial,
+                is_alive.clone(),
+                number_of_matrices_to_fuzz,
+            ) {
                 if let Err(e) = sender.send(false) {
                     trace!("Error trying to send derivatives {}", e);
                 }
@@ -92,6 +112,7 @@ fn fuzz_polynomial(
     polynomial: &Polynomial,
     pool: &ThreadPool,
     sender: &Sender<bool>,
+    is_alive: Arc<AtomicBool>,
     number_of_matrices_to_fuzz: usize,
     entries_to_zero: Vec<usize>,
 ) -> usize {
@@ -108,6 +129,7 @@ fn fuzz_polynomial(
             dist,
             &pool,
             sender.clone(),
+            is_alive.clone(),
             number_of_matrices_to_fuzz,
             entries_to_zero.clone(),
         );
@@ -122,6 +144,7 @@ fn fuzz_polynomial(
             distribution,
             &pool,
             sender.clone(),
+            is_alive.clone(),
             number_of_matrices_to_fuzz,
             entries_to_zero.clone(),
         );
@@ -148,6 +171,7 @@ fn fuzz_circulant_matrices(
     polynomial: Polynomial,
     pool: &ThreadPool,
     sender: Sender<bool>,
+    is_alive: Arc<AtomicBool>,
     number_of_matrices_to_fuzz: usize,
 ) -> usize {
     pool.execute(move || {
@@ -158,6 +182,10 @@ fn fuzz_circulant_matrices(
         }
         let mut did_pass = true;
         for _ in 0..number_of_matrices_to_fuzz {
+            if !is_alive.load(Ordering::Relaxed) {
+                break;
+            }
+
             let random_matrix =
                 generate_circulant_matrix(&fundamental_circulant, polynomial.get_size());
             if !is_matrix_nonnegative(&polynomial.apply_polynomial(&random_matrix)) {
@@ -198,16 +226,20 @@ fn fuzz_remainder_polynomials(
     polynomial: &Polynomial,
     pool: &ThreadPool,
     sender: &Sender<bool>,
+    is_alive: Arc<AtomicBool>,
     number_of_matrices_to_fuzz: usize,
 ) -> usize {
     let remainder_polynomials = generate_remainder_polynomials(polynomial);
     let num_polynomials = remainder_polynomials.len();
     for polynomial in remainder_polynomials {
         let sender_clone = sender.clone();
+        let is_alive_clone = is_alive.clone();
         pool.execute(move || {
-            if let Err(e) =
-                sender_clone.send(simple_1_by_1_fuzz(&polynomial, number_of_matrices_to_fuzz))
-            {
+            if let Err(e) = sender_clone.send(simple_1_by_1_fuzz(
+                &polynomial,
+                is_alive_clone,
+                number_of_matrices_to_fuzz,
+            )) {
                 trace!("Error trying to send remainder {}", e);
             }
         });
@@ -238,6 +270,7 @@ fn fuzz_polynomial_distribution_worker<F>(
     dist: F,
     pool: &ThreadPool,
     sender: Sender<bool>,
+    is_alive: Arc<AtomicBool>,
     number_of_matrices_to_fuzz: usize,
     entries_to_zero: Vec<usize>,
 ) where
@@ -248,6 +281,10 @@ fn fuzz_polynomial_distribution_worker<F>(
         let mut rng = thread_rng();
         let mut found_negative_matrix = false;
         for _ in 1..number_of_matrices_to_fuzz {
+            if !is_alive.load(Ordering::Relaxed) {
+                break;
+            }
+
             let mut random_matrix = DMatrix::<f64>::from_distribution(
                 polynomial.get_size(),
                 polynomial.get_size(),
@@ -272,9 +309,16 @@ fn fuzz_polynomial_distribution_worker<F>(
     });
 }
 
-fn simple_1_by_1_fuzz(polynomial: &Polynomial, number_of_matrices_to_fuzz: usize) -> bool {
+fn simple_1_by_1_fuzz(
+    polynomial: &Polynomial,
+    is_alive: Arc<AtomicBool>,
+    number_of_matrices_to_fuzz: usize,
+) -> bool {
     let mut rng = thread_rng();
     for _ in 1..number_of_matrices_to_fuzz {
+        if !is_alive.load(Ordering::Relaxed) {
+            break;
+        }
         let random_matrix =
             DMatrix::<f64>::from_distribution(1, 1, &Uniform::<f64>::new(0.0, 10000.0), &mut rng);
         let final_matrix = polynomial.apply_polynomial(&random_matrix);

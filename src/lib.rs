@@ -20,9 +20,6 @@ pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     true
 }
 
-// TODO this is an important function and needs some thought. The old way for mode 3 was to generate two polynomial, one comprising
-// of all 1's and the other all 0's. From there random coefficients were added to the 0's one and removed from the 1's. This would
-// be done to every coefficient in the provided combination vector.
 fn generate_mutated_polynomials(
     base_polynomial: &Polynomial,
     mutated_polynomials_to_evaluate: usize,
