@@ -1,5 +1,5 @@
 use itertools::Itertools;
-use log::{info, trace};
+use log::info;
 use nalgebra::DMatrix;
 use polynomial::Polynomial;
 use rand::prelude::Rng;
@@ -25,18 +25,23 @@ pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
 // be done to every coefficient in the provided combination vector.
 fn generate_mutated_polynomials(
     base_polynomial: &Polynomial,
-    number_of_mutated_polynomials_to_evaluate: usize,
+    mutated_polynomials_to_evaluate: usize,
 ) -> Vec<Polynomial> {
     let mut mutated_polynomials = Vec::new();
     let mut rng = rand::thread_rng();
     for i in 1..base_polynomial.len() {
         let combinations_of_i = (0..base_polynomial.len()).combinations(i);
         for combination in combinations_of_i {
-            for _ in 0..number_of_mutated_polynomials_to_evaluate {
+            for _ in 0..mutated_polynomials_to_evaluate {
                 let mut polynomial = base_polynomial.clone();
                 for j in combination.clone() {
-                    polynomial[j] += rng.gen_range(0.0..base_polynomial[j]);
-                    polynomial[j] -= rng.gen_range(0.0..(1.0 - base_polynomial[j]));
+                    if polynomial[j] >= 0.0 {
+                        polynomial[j] += rng.gen_range(0.0..base_polynomial[j]);
+                        polynomial[j] -= rng.gen_range(0.0..(1.0 - base_polynomial[j]));
+                    } else {
+                        polynomial[j] -= rng.gen_range(0.0..base_polynomial[j].abs());
+                        polynomial[j] += rng.gen_range(0.0..(1.0 - base_polynomial[j].abs()));
+                    }
                 }
                 mutated_polynomials.push(polynomial);
             }
@@ -46,12 +51,12 @@ fn generate_mutated_polynomials(
         "Generated {} mutated polynomials",
         mutated_polynomials.len()
     );
-    if mutated_polynomials.len() > number_of_mutated_polynomials_to_evaluate {
+    if mutated_polynomials.len() > mutated_polynomials_to_evaluate {
         let mut rng = thread_rng();
         let mut vec = Vec::new();
         for entry in mutated_polynomials
             .iter()
-            .choose_multiple(&mut rng, number_of_mutated_polynomials_to_evaluate)
+            .choose_multiple(&mut rng, mutated_polynomials_to_evaluate)
         {
             vec.push(entry.clone());
         }
@@ -63,11 +68,11 @@ fn generate_mutated_polynomials(
 
 pub fn mutate_polynomial(
     base_polynomial: Polynomial,
-    number_of_matrices_to_fuzz: usize,
-    number_of_mutated_polynomials_to_evaluate: usize,
+    matrices_to_fuzz: usize,
+    mutated_polynomials_to_evaluate: usize,
 ) -> Vec<Polynomial> {
     let mutated_polynomials =
-        generate_mutated_polynomials(&base_polynomial, number_of_mutated_polynomials_to_evaluate);
+        generate_mutated_polynomials(&base_polynomial, mutated_polynomials_to_evaluate);
     info!("Starting to mutate coefficients");
     let mut vector: Vec<Polynomial> = Vec::new();
     for i in 1..base_polynomial.len() {
@@ -76,7 +81,7 @@ pub fn mutate_polynomial(
             vector.append(&mut mutate_coefficients(
                 mutated_polynomials.clone(),
                 &combination,
-                number_of_matrices_to_fuzz,
+                matrices_to_fuzz,
             ));
             let mut combo_string = String::new();
             for combo in combination {
@@ -141,7 +146,7 @@ pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial>
 pub fn mutate_coefficients(
     base_polynomials: Vec<Polynomial>,
     combination: &Vec<usize>,
-    number_of_matrices_to_fuzz: usize,
+    matrices_to_fuzz: usize,
 ) -> Vec<Polynomial> {
     let n_workers = 16;
     let pool = ThreadPool::new(n_workers);
@@ -153,7 +158,7 @@ pub fn mutate_coefficients(
             combination.clone(),
             &pool,
             sender.clone(),
-            number_of_matrices_to_fuzz,
+            matrices_to_fuzz,
         );
     }
     let mut negative_polynomials = Vec::new();
@@ -170,13 +175,13 @@ pub fn minimize_polynomial_coefficients_async(
     combination: Vec<usize>,
     pool: &ThreadPool,
     sender: Sender<Option<Polynomial>>,
-    number_of_matrices_to_fuzz: usize,
+    matrices_to_fuzz: usize,
 ) {
     pool.execute(move || {
         sender.send(minimize_polynomial_coefficients(
             polynomial,
             &combination,
-            number_of_matrices_to_fuzz,
+            matrices_to_fuzz,
         ));
     });
 }
@@ -186,7 +191,7 @@ pub fn minimize_polynomial_coefficients_async(
 pub fn minimize_polynomial_coefficients(
     mut polynomial: Polynomial,
     combination: &Vec<usize>,
-    number_of_matrices_to_fuzz: usize,
+    matrices_to_fuzz: usize,
 ) -> Option<Polynomial> {
     let mut backoff = 0.5;
     while backoff > 0.001 {
@@ -194,7 +199,7 @@ pub fn minimize_polynomial_coefficients(
         for i in combination {
             polynomial[i.clone()] -= backoff;
         }
-        if !fuzz_polynomial::verify_polynomial(&polynomial, number_of_matrices_to_fuzz) {
+        if !fuzz_polynomial::verify_polynomial(&polynomial, matrices_to_fuzz) {
             polynomial = old_polynomial;
             backoff /= 2.0;
         }

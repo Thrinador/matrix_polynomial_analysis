@@ -201,7 +201,7 @@ fn fuzz_remainder_polynomials(
     sender: &Sender<bool>,
     number_of_matrices_to_fuzz: usize,
 ) -> usize {
-    let mut remainder_polynomials = generate_remainder_polynomials(polynomial);
+    let remainder_polynomials = generate_remainder_polynomials(polynomial);
     let num_polynomials = remainder_polynomials.len();
     for polynomial in remainder_polynomials {
         let sender_clone = sender.clone();
