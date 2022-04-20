@@ -13,7 +13,6 @@ use std::sync::Arc;
 use threadpool::ThreadPool;
 
 pub fn verify_polynomial(polynomial: &Polynomial, number_of_matrices_to_fuzz: usize) -> bool {
-    // We know nonnegative polynomials are always good.
     if polynomial.is_polynomial_nonnegative() {
         return true;
     }
@@ -201,7 +200,6 @@ fn fuzz_circulant_matrices(
     1
 }
 
-// TODO add more matrices to this function that do a good job removing problem polynomials.
 fn check_simple_matrices(polynomial: &Polynomial) -> bool {
     let mut identity = DMatrix::<f64>::identity(polynomial.get_size(), polynomial.get_size());
     if !is_matrix_nonnegative(&polynomial.apply_polynomial(&identity)) {

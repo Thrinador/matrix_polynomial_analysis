@@ -79,23 +79,35 @@ impl Polynomial {
         self.coefficients.amax()
     }
 
-    // TODO This function needs some work. The casting is all over the place.
-    // TODO add in that if one of the last coefficients is zero, then we need to move down by matrix size.
     pub fn are_first_last_negative(&self) -> bool {
         for i in 0..self.size {
-            let mut last_term: i32 = ((self.len() - 1) - i) as i32;
-            if self[i] < 0.0 || self[last_term as usize] < 0.0 {
+            if self.len() - 1 < i {
+                break;
+            }
+            let mut last_term = (self.len() - 1) - i;
+            let mut term = i;
+            if self[i] < 0.0 || self[last_term] < 0.0 {
                 return true;
             }
-            if approx_equal(self[last_term as usize], 0.0) {
-                while last_term >= 0 && approx_equal(self[last_term as usize], 0.0) {
-                    if self[last_term as usize] < 0.0 {
-                        return true;
-                    } else if self[last_term as usize] > 0.00001 {
-                        break;
-                    }
-                    last_term -= self.size as i32;
+            while approx_equal(self[last_term], 0.0) {
+                if self[last_term] < 0.0 {
+                    return true;
+                } else if self[last_term] > 0.0000001 {
+                    break;
+                } else if last_term < self.size {
+                    break;
                 }
+                last_term -= self.size;
+            }
+            while approx_equal(self[term], 0.0) {
+                if self[term] < 0.0 {
+                    return true;
+                } else if self[term] > 0.0000001 {
+                    break;
+                } else if term + self.size >= self.len() {
+                    break;
+                }
+                term += self.size;
             }
         }
         false

@@ -120,7 +120,6 @@ pub fn mutate_polynomial(
 }
 
 // Returns a subset of the vector containing the elementwise smallest polynomials.
-// TODO This function could use some work. It is very slow and quite long for what it is doing.
 pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial> {
     // Scale down polynomials so that their largest element is one.
     for i in 0..polynomials.len() {
