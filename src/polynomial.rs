@@ -1,17 +1,13 @@
 use nalgebra::DMatrix;
-use nalgebra::DVector;
+use serde::{Deserialize, Serialize};
 use std::cmp::Ordering;
 use std::ops::{Index, IndexMut};
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Polynomial {
-    coefficients: DVector<f64>,
+    coefficients: Vec<f64>,
     size: usize,
 }
-
-// TODO there is a bug where randomly all polynomial coefficients turn into NaN. This needs to be fixed as it
-// seemingly happens at random and will cause more problems in larger simulations. My only guess as to why it is happening
-// is something to do with the sorting/collapsing of many polynomials.
 
 impl Polynomial {
     pub fn to_string(&self) -> String {
@@ -55,14 +51,14 @@ impl Polynomial {
 
     pub fn from_element(polynomial_length: usize, matrix_size: usize, element: f64) -> Polynomial {
         Polynomial {
-            coefficients: DVector::from_element(polynomial_length, element),
+            coefficients: vec![element; polynomial_length],
             size: matrix_size,
         }
     }
 
-    pub fn from_vec(vector: Vec<f64>, matrix_size: usize) -> Polynomial {
+    pub fn from_vec(coefficients: Vec<f64>, matrix_size: usize) -> Polynomial {
         Polynomial {
-            coefficients: DVector::from_vec(vector),
+            coefficients: coefficients,
             size: matrix_size,
         }
     }
@@ -72,11 +68,23 @@ impl Polynomial {
     }
 
     pub fn min_term(&self) -> f64 {
-        self.coefficients.amin()
+        let mut min = self.coefficients[0].abs();
+        for coefficient in &self.coefficients {
+            if min > coefficient.abs() {
+                min = coefficient.abs();
+            }
+        }
+        min
     }
 
     pub fn max_term(&self) -> f64 {
-        self.coefficients.amax()
+        let mut max = self.coefficients[0].abs();
+        for coefficient in &self.coefficients {
+            if max < coefficient.abs() {
+                max = coefficient.abs();
+            }
+        }
+        max
     }
 
     pub fn are_first_last_negative(&self) -> bool {

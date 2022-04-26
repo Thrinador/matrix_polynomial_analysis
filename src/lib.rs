@@ -4,12 +4,21 @@ use nalgebra::DMatrix;
 use polynomial::Polynomial;
 use rand::prelude::Rng;
 use rand::{seq::IteratorRandom, thread_rng};
+use serde::{Deserialize, Serialize};
 use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
+use std::sync::Arc;
 use threadpool::ThreadPool;
 
-pub mod fuzz_polynomial;
 pub mod polynomial;
+pub mod polynomial_verifier;
+
+#[derive(Serialize, Deserialize)]
+struct CurrentState {
+    starting_mutated_polynomials: Vec<Polynomial>,
+    combinations_left: Vec<Vec<usize>>,
+    interesting_polynomials: Vec<Polynomial>,
+}
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     for value in matrix.iter().enumerate() {
@@ -95,6 +104,12 @@ pub fn mutate_polynomial(
         debug!("{}", poly.to_string());
     }
 
+    info!("Starting to generate matrices to fuzz");
+    let polynomial_verifier = Arc::new(polynomial_verifier::PolynomialVerifier::new(
+        matrices_to_fuzz,
+        base_polynomial.get_size(),
+    ));
+
     info!("Starting to mutate coefficients");
     let mut vector: Vec<Polynomial> = Vec::new();
     for i in 1..base_polynomial.len() {
@@ -103,7 +118,7 @@ pub fn mutate_polynomial(
             vector.append(&mut mutate_coefficients(
                 mutated_polynomials.clone(),
                 &combination,
-                matrices_to_fuzz,
+                &polynomial_verifier,
             ));
             let mut combo_string = String::new();
             for combo in combination {
@@ -167,22 +182,22 @@ pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial>
 pub fn mutate_coefficients(
     base_polynomials: Vec<Polynomial>,
     combination: &Vec<usize>,
-    matrices_to_fuzz: usize,
+    polynomial_verifier: &Arc<polynomial_verifier::PolynomialVerifier>,
 ) -> Vec<Polynomial> {
     let n_workers = num_cpus::get();
     let pool = ThreadPool::new(n_workers);
     let (sender, receiver): (Sender<Option<Polynomial>>, Receiver<Option<Polynomial>>) = channel();
     let number_of_polynomials = base_polynomials.len();
+    let mut negative_polynomials = Vec::new();
     for polynomial in base_polynomials {
         minimize_polynomial_coefficients_async(
             polynomial.clone(),
             combination.clone(),
             &pool,
             sender.clone(),
-            matrices_to_fuzz,
+            polynomial_verifier.clone(),
         );
     }
-    let mut negative_polynomials = Vec::new();
     for _ in 0..number_of_polynomials {
         if let Ok(Some(message)) = receiver.recv() {
             negative_polynomials.push(message);
@@ -196,13 +211,13 @@ pub fn minimize_polynomial_coefficients_async(
     combination: Vec<usize>,
     pool: &ThreadPool,
     sender: Sender<Option<Polynomial>>,
-    matrices_to_fuzz: usize,
+    polynomial_verifier: Arc<polynomial_verifier::PolynomialVerifier>,
 ) {
     pool.execute(move || {
         if let Err(e) = sender.send(minimize_polynomial_coefficients(
             polynomial,
             &combination,
-            matrices_to_fuzz,
+            &polynomial_verifier,
         )) {
             warn!("Error trying to send minimize {}", e);
         }
@@ -212,13 +227,13 @@ pub fn minimize_polynomial_coefficients_async(
 pub fn minimize_polynomial_coefficients(
     mut polynomial: Polynomial,
     combination: &Vec<usize>,
-    matrices_to_fuzz: usize,
+    polynomial_verifier: &Arc<polynomial_verifier::PolynomialVerifier>,
 ) -> Option<Polynomial> {
     let mut backoff = 0.5;
     let mut did_pass = false;
     let mut old_polynomial = None;
     while backoff > 0.001 {
-        if fuzz_polynomial::verify_polynomial(&polynomial, matrices_to_fuzz) {
+        if polynomial_verifier.test_polynomial(&polynomial) {
             for i in combination {
                 polynomial[i.clone()] -= backoff;
             }

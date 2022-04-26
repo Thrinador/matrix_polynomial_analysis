@@ -5,8 +5,8 @@ use serde::{Deserialize, Serialize};
 use std::fs::File;
 use std::time::Instant;
 
-pub mod fuzz_polynomial;
 pub mod polynomial;
+pub mod polynomial_verifier;
 
 #[derive(Serialize, Deserialize)]
 struct Args {
@@ -63,8 +63,11 @@ fn main() {
             } else {
                 polynomial::Polynomial::from_vec(args.starting_polynomial, args.matrix_size)
             };
-            let verify_polynomial =
-                fuzz_polynomial::verify_polynomial(&polynomial, args.matrices_to_fuzz);
+            let polynomial_verifier = polynomial_verifier::PolynomialVerifier::new(
+                args.matrices_to_fuzz,
+                args.matrix_size,
+            );
+            let verify_polynomial = polynomial_verifier.test_polynomial(&polynomial);
             let duration = start.elapsed();
             info!("Total time elapsed verifying polynomial {:?}", duration);
             if verify_polynomial {
