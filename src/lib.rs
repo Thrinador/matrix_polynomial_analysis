@@ -1,24 +1,18 @@
+use current_state::CurrentState;
 use itertools::Itertools;
 use log::{debug, info, warn};
 use nalgebra::DMatrix;
 use polynomial::Polynomial;
 use rand::prelude::Rng;
 use rand::{seq::IteratorRandom, thread_rng};
-use serde::{Deserialize, Serialize};
 use std::sync::mpsc::channel;
 use std::sync::mpsc::{Receiver, Sender};
 use std::sync::Arc;
 use threadpool::ThreadPool;
 
+pub mod current_state;
 pub mod polynomial;
 pub mod polynomial_verifier;
-
-#[derive(Serialize, Deserialize)]
-struct CurrentState {
-    starting_mutated_polynomials: Vec<Polynomial>,
-    combinations_left: Vec<Vec<usize>>,
-    interesting_polynomials: Vec<Polynomial>,
-}
 
 pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
     for value in matrix.iter().enumerate() {
@@ -97,10 +91,12 @@ pub fn mutate_polynomial(
     matrices_to_fuzz: usize,
     mutated_polynomials_to_evaluate: usize,
 ) -> Vec<Polynomial> {
-    let mutated_polynomials =
+    let mut current_state = CurrentState::new(base_polynomial.len());
+
+    current_state.starting_mutated_polynomials =
         generate_mutated_polynomials(&base_polynomial, mutated_polynomials_to_evaluate);
     debug!("Generated mutated polynomials:");
-    for poly in &mutated_polynomials {
+    for poly in &current_state.starting_mutated_polynomials {
         debug!("{}", poly.to_string());
     }
 
@@ -111,27 +107,30 @@ pub fn mutate_polynomial(
     ));
 
     info!("Starting to mutate coefficients");
-    let mut vector: Vec<Polynomial> = Vec::new();
     for i in 1..base_polynomial.len() {
         let combinations_of_i = (0..base_polynomial.len()).combinations(i);
         for combination in combinations_of_i {
-            vector.append(&mut mutate_coefficients(
-                mutated_polynomials.clone(),
-                &combination,
-                &polynomial_verifier,
-            ));
+            current_state
+                .interesting_polynomials
+                .append(&mut mutate_coefficients(
+                    current_state.starting_mutated_polynomials.clone(),
+                    &combination,
+                    &polynomial_verifier,
+                ));
             let mut combo_string = String::new();
-            for combo in combination {
+            for combo in &combination {
                 combo_string = format!("{} {} ", combo_string, combo);
             }
             info!(
                 "Mutate_coefficients() finished combination {}",
                 combo_string
             );
+            current_state.remove_combination(&combination, i);
+            current_state.save_state();
         }
         info!("Finished operation {} out of {}", i, base_polynomial.len());
     }
-    collapse_polynomials(vector)
+    collapse_polynomials(current_state.interesting_polynomials)
 }
 
 // Returns a subset of the vector containing the elementwise smallest polynomials.
