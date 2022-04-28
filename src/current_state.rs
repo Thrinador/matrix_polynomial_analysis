@@ -14,7 +14,7 @@ pub struct CurrentState {
 impl CurrentState {
     pub fn new(polynomial_length: usize) -> Self {
         let mut combinations_left = Vec::new();
-        for i in 1..polynomial_length {
+        for i in 0..polynomial_length {
             combinations_left.push(Vec::new());
             for j in (0..polynomial_length).combinations(i) {
                 combinations_left[i].push(j);
@@ -37,5 +37,10 @@ impl CurrentState {
             serde_json::to_string(&self).expect("Object will be converted to JSON string");
         File::create("state.json").expect("file should open read only");
         fs::write("state.json", json_object).expect("file should open read only");
+    }
+
+    pub fn load_state() -> Self {
+        let file = File::open("state.json").expect("file should open read only");
+        serde_json::from_reader(file).expect("File was not able to be read")
     }
 }

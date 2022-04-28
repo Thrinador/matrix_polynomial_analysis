@@ -133,6 +133,56 @@ pub fn mutate_polynomial(
     collapse_polynomials(current_state.interesting_polynomials)
 }
 
+pub fn continue_mutating_polynomial(
+    mut current_state: CurrentState,
+    matrices_to_fuzz: usize,
+) -> Vec<Polynomial> {
+    info!("Starting to generate matrices to fuzz");
+    let polynomial_verifier = Arc::new(polynomial_verifier::PolynomialVerifier::new(
+        matrices_to_fuzz,
+        current_state.starting_mutated_polynomials[0].get_size(),
+    ));
+
+    info!("Starting to mutate coefficients");
+    let mut count = 0;
+    for i in &current_state.combinations_left {
+        info!(
+            "Starting operation {} out of {}",
+            count,
+            current_state.combinations_left.len()
+        );
+        for combination in i {
+            if combination.is_empty() {
+                continue;
+            }
+
+            let mut combo_string = String::new();
+            for combo in combination {
+                combo_string = format!("{} {} ", combo_string, combo);
+            }
+            current_state
+                .interesting_polynomials
+                .append(&mut mutate_coefficients(
+                    current_state.starting_mutated_polynomials.clone(),
+                    &combination,
+                    &polynomial_verifier,
+                ));
+            info!(
+                "Mutate_coefficients() finished combination {}",
+                combo_string
+            );
+            current_state.save_state();
+        }
+        info!(
+            "Finished operation {} out of {}",
+            count,
+            current_state.combinations_left.len()
+        );
+        count += 1;
+    }
+    collapse_polynomials(current_state.interesting_polynomials)
+}
+
 // Returns a subset of the vector containing the elementwise smallest polynomials.
 pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial> {
     // Scale down polynomials so that their largest element is one.
@@ -233,11 +283,11 @@ pub fn minimize_polynomial_coefficients(
     let mut old_polynomial = None;
     while backoff > 0.001 {
         if polynomial_verifier.test_polynomial(&polynomial) {
+            old_polynomial = Some(polynomial.clone());
             for i in combination {
                 polynomial[i.clone()] -= backoff;
             }
             did_pass = true;
-            old_polynomial = Some(polynomial.clone());
         } else {
             if did_pass {
                 backoff /= 2.0;

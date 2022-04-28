@@ -1,10 +1,12 @@
 use log::{error, info};
+use matrix_polynomial_analysis::current_state::CurrentState;
 use matrix_polynomial_analysis::polynomial::Polynomial;
 use matrix_polynomial_analysis::*;
 use serde::{Deserialize, Serialize};
 use std::fs::File;
 use std::time::Instant;
 
+pub mod current_state;
 pub mod polynomial;
 pub mod polynomial_verifier;
 
@@ -110,6 +112,15 @@ fn main() {
                 args.matrices_to_fuzz,
                 args.mutated_polynomials_to_evaluate,
             );
+            interesting_polynomials.sort();
+            let duration = start.elapsed();
+            info!("Total time elapsed generating polynomials {:?}", duration);
+            print_polynomials(interesting_polynomials);
+        }
+        4 => {
+            let current_state = CurrentState::load_state();
+            let mut interesting_polynomials =
+                continue_mutating_polynomial(current_state, args.matrices_to_fuzz);
             interesting_polynomials.sort();
             let duration = start.elapsed();
             info!("Total time elapsed generating polynomials {:?}", duration);
