@@ -49,3 +49,4 @@ Which mode should this run as? Options are mode 1, 2, 3:
 - Mode 1: Tests the `starting_polynomial` against matrices of size `matrix_size`.
 - Mode 2: Returns a set of mutated polynomials constructed from the `starting_polynomial` that are likely nonnegative for matrices of size `matrix_size`.
 - Mode 3: Returns a snapshot of what the space of polynomials with `number_of_coefficients_in_polynomial` terms looks like against `matrix_size` matrices returns a snapshot of what that space
+- Mode 4: Uses the state.json file to load the state from the last run. This can be used to terminate the program and restart it. This mode uses the `matrix_size` and `matrices_to_fuzz` flags.
