@@ -226,19 +226,17 @@ pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial>
     polynomials
 }
 
-// Given a base polynomial of all ones make random_polynomial_mutations number of mutated polynomials with reduced coefficients.
-// Then try and minimize the coefficients of those mutated polynomials.
 pub fn mutate_coefficients(
-    base_polynomials: Vec<Polynomial>,
+    polynomials: Vec<Polynomial>,
     combination: &Vec<usize>,
     polynomial_verifier: &Arc<polynomial_verifier::PolynomialVerifier>,
 ) -> Vec<Polynomial> {
     let n_workers = num_cpus::get();
     let pool = ThreadPool::new(n_workers);
     let (sender, receiver): (Sender<Option<Polynomial>>, Receiver<Option<Polynomial>>) = channel();
-    let number_of_polynomials = base_polynomials.len();
+    let number_of_polynomials = polynomials.len();
     let mut negative_polynomials = Vec::new();
-    for polynomial in base_polynomials {
+    for polynomial in polynomials {
         minimize_polynomial_coefficients_async(
             polynomial.clone(),
             combination.clone(),
@@ -301,6 +299,10 @@ pub fn minimize_polynomial_coefficients(
             did_pass = false;
         }
     }
+    debug!(
+        "Finished minimizing coefficients for {}",
+        polynomial.to_string()
+    );
     if let Some(polynomial) = old_polynomial {
         if !polynomial.is_polynomial_nonnegative_with_threshold(-0.1) {
             return Some(polynomial);
