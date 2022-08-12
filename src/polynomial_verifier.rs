@@ -1,4 +1,3 @@
-use crate::is_matrix_nonnegative;
 use crate::polynomial::Polynomial;
 use itertools::Itertools;
 use log::{debug, info, trace};
@@ -188,5 +187,14 @@ fn check_simple_matrices(polynomial: &Polynomial) -> bool {
         return false;
     }
 
+    true
+}
+
+pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
+    for value in matrix.iter().enumerate() {
+        if value.1 < &0.0 {
+            return false;
+        }
+    }
     true
 }

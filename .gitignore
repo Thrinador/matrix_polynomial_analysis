@@ -16,3 +16,5 @@ Cargo.lock
 
 test.txt
 state.json
+perf.data**
+output.json

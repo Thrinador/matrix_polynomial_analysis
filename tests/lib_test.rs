@@ -5,17 +5,6 @@ mod tests {
     use nalgebra::base::*;
 
     #[test]
-    fn test_is_matrix_nonnegative() {
-        // All random matrices values should be between 0 and 1.
-        let mut rand = DMatrix::<f64>::new_random(100, 100);
-
-        assert_eq!(is_matrix_nonnegative(&rand), true);
-
-        rand[(5, 5)] = -1.0;
-        assert_eq!(is_matrix_nonnegative(&rand), false);
-    }
-
-    #[test]
     fn test_apply_polynomial() {
         // All random matrices values should be between 0 and 1.
         let identity = DMatrix::<f64>::identity(3, 3);

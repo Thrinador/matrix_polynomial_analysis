@@ -1,7 +1,6 @@
 use current_state::CurrentState;
 use itertools::Itertools;
 use log::{debug, info, warn};
-use nalgebra::DMatrix;
 use polynomial::Polynomial;
 use rand::prelude::Rng;
 use rand::{seq::IteratorRandom, thread_rng};
@@ -13,15 +12,6 @@ use threadpool::ThreadPool;
 pub mod current_state;
 pub mod polynomial;
 pub mod polynomial_verifier;
-
-pub fn is_matrix_nonnegative(matrix: &DMatrix<f64>) -> bool {
-    for value in matrix.iter().enumerate() {
-        if value.1 < &0.0 {
-            return false;
-        }
-    }
-    true
-}
 
 fn generate_mutated_polynomials(
     base_polynomial: &Polynomial,
