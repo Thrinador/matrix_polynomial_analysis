@@ -46,7 +46,6 @@ fn generate_mutated_polynomials(
                             rng.gen_range(0.0..(1.0 - base_polynomial[j]))
                         };
                         let num_down = rng.gen_range(0.0..base_polynomial[j]);
-
                         polynomial[j] -= num_down;
                         polynomial[j] += num_up;
                     } else if polynomial[j] == 0.0 {
@@ -58,7 +57,6 @@ fn generate_mutated_polynomials(
                             rng.gen_range(0.0..(1.0 - base_polynomial[j].abs()))
                         };
                         let num_up = rng.gen_range(0.0..base_polynomial[j].abs());
-
                         polynomial[j] -= num_down;
                         polynomial[j] += num_up;
                     }
@@ -90,47 +88,52 @@ pub fn mutate_polynomial(
     base_polynomial: Polynomial,
     matrices_to_fuzz: usize,
     mutated_polynomials_to_evaluate: usize,
+    generations: usize,
 ) -> Vec<Polynomial> {
     let mut current_state = CurrentState::new(base_polynomial.len());
-
     current_state.starting_mutated_polynomials =
         generate_mutated_polynomials(&base_polynomial, mutated_polynomials_to_evaluate);
     debug!("Generated mutated polynomials:");
     for poly in &current_state.starting_mutated_polynomials {
         debug!("{}", poly.to_string());
     }
-
     info!("Starting to generate matrices to fuzz");
     let polynomial_verifier = Arc::new(polynomial_verifier::PolynomialVerifier::new(
         matrices_to_fuzz,
         base_polynomial.get_size(),
     ));
 
-    info!("Starting to mutate coefficients");
-    for i in 1..base_polynomial.len() {
-        let combinations_of_i = (0..base_polynomial.len()).combinations(i);
-        for combination in combinations_of_i {
-            current_state
-                .interesting_polynomials
-                .append(&mut mutate_coefficients(
-                    current_state.starting_mutated_polynomials.clone(),
-                    &combination,
-                    &polynomial_verifier,
-                ));
-            let mut combo_string = String::new();
-            for combo in &combination {
-                combo_string = format!("{} {} ", combo_string, combo);
+    for gen in 0..generations {
+        info!("Starting to mutate coefficients for generation {}", gen);
+        for i in 1..base_polynomial.len() {
+            let combinations_of_i = (0..base_polynomial.len()).combinations(i);
+            for combination in combinations_of_i {
+                current_state
+                    .interesting_polynomials
+                    .append(&mut mutate_coefficients(
+                        current_state.starting_mutated_polynomials.clone(),
+                        &combination,
+                        &polynomial_verifier,
+                    ));
+                let mut combo_string = String::new();
+                for combo in &combination {
+                    combo_string = format!("{} {} ", combo_string, combo);
+                }
+                info!(
+                    "Mutate_coefficients() finished combination {}",
+                    combo_string
+                );
+                current_state.remove_combination(&combination, i);
+                current_state.save_state();
             }
-            info!(
-                "Mutate_coefficients() finished combination {}",
-                combo_string
-            );
-            current_state.remove_combination(&combination, i);
-            current_state.save_state();
+            info!("Finished operation {} out of {}", i, base_polynomial.len());
         }
-        info!("Finished operation {} out of {}", i, base_polynomial.len());
+        info!("Finished generation {}", gen);
+        current_state.interesting_polynomials =
+            collapse_polynomials(current_state.interesting_polynomials);
+        current_state.starting_mutated_polynomials = current_state.interesting_polynomials.clone();
     }
-    collapse_polynomials(current_state.interesting_polynomials)
+    current_state.interesting_polynomials
 }
 
 pub fn continue_mutating_polynomial(

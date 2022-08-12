@@ -19,6 +19,7 @@ struct Args {
     polynomial_length: usize,
     mode: usize,
     starting_polynomial: Vec<f64>,
+    number_of_generations: usize,
 }
 
 #[derive(Serialize, Deserialize)]
@@ -106,6 +107,7 @@ fn mode_mutate_polynomial(args: Args) {
         polynomial,
         args.matrices_to_fuzz,
         args.mutated_polynomials_to_evaluate,
+        args.number_of_generations,
     );
     interesting_polynomials.sort();
     let duration = start.elapsed();
@@ -115,11 +117,12 @@ fn mode_mutate_polynomial(args: Args) {
 
 fn mode_map_space(args: Args) {
     let start = Instant::now();
-    let polynomial_1 = Polynomial::from_element(args.polynomial_length, args.matrix_size, 1.0);
+    let polynomial = Polynomial::from_element(args.polynomial_length, args.matrix_size, 1.0);
     let mut interesting_polynomials = mutate_polynomial(
-        polynomial_1,
+        polynomial,
         args.matrices_to_fuzz,
         args.mutated_polynomials_to_evaluate,
+        args.number_of_generations,
     );
     interesting_polynomials.sort();
     let duration = start.elapsed();
