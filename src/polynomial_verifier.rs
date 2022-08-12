@@ -110,8 +110,7 @@ impl PolynomialVerifier {
                             matrix[(row, column)] = 0.0;
                         }
 
-                        let final_matrix = polynomial.apply_polynomial(&matrix);
-                        if !is_matrix_nonnegative(&final_matrix) {
+                        if !&polynomial.is_polynomial_nonnegative_from_matrix(&matrix) {
                             trace!("{}", &matrices[k]);
                             if let Err(e) = sender.send(false) {
                                 trace!("Error trying to send distribution {}", e);
@@ -172,18 +171,18 @@ impl PolynomialVerifier {
 
 fn check_simple_matrices(polynomial: &Polynomial) -> bool {
     let mut identity = DMatrix::<f64>::identity(polynomial.get_size(), polynomial.get_size());
-    if !is_matrix_nonnegative(&polynomial.apply_polynomial(&identity)) {
+    if !&polynomial.is_polynomial_nonnegative_from_matrix(&identity) {
         return false;
     }
     // Go through some permutation matrices
     for i in 1..polynomial.get_size() {
         identity.swap_rows(0, i);
-        if !is_matrix_nonnegative(&polynomial.apply_polynomial(&identity)) {
+        if !&polynomial.is_polynomial_nonnegative_from_matrix(&identity) {
             return false;
         }
     }
     // Fundamental circulant
-    if !is_matrix_nonnegative(&polynomial.apply_polynomial(&identity)) {
+    if !&polynomial.is_polynomial_nonnegative_from_matrix(&identity) {
         return false;
     }
 
