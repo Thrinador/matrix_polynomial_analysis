@@ -37,16 +37,20 @@ impl Polynomial {
         true
     }
 
-    // As things get larger this function will need to be optimized. There might be some tricks with moving the powers of the
-    // matrix up as we go instead of taking a new power each time.
-    pub fn apply_polynomial(&self, matrix: &DMatrix<f64>) -> DMatrix<f64> {
+    pub fn is_polynomial_nonnegative_from_matrix(&self, matrix: &DMatrix<f64>) -> bool {
         let mut final_matrix = matrix.scale(0.0);
         let mut working_matrix = DMatrix::<f64>::identity(self.size, self.size);
         for coefficient in self.coefficients.iter().rev() {
             final_matrix += working_matrix.scale(*coefficient);
             working_matrix *= matrix;
         }
-        final_matrix
+
+        for value in final_matrix.iter().enumerate() {
+            if value.1 < &0.0 {
+                return false;
+            }
+        }
+        true
     }
 
     pub fn from_element(polynomial_length: usize, matrix_size: usize, element: f64) -> Polynomial {
