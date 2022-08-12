@@ -1,7 +1,7 @@
 {
     "matrix_size": 2,
     "matrices_to_fuzz": 100000,
-    "mutated_polynomials_to_evaluate": 5,
+    "mutated_polynomials_to_evaluate": 50,
     "polynomial_length": 5,
     "mode": 3,
     "starting_polynomial": [0.9145172, 1.0000000, 0.3463593, 0.5656466, 0.2500000, 0.2500000, 0.2500000, 1.0000000, 1.0000000],

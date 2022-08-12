@@ -9,10 +9,11 @@ pub struct CurrentState {
     pub starting_mutated_polynomials: Vec<Polynomial>,
     pub combinations_left: Vec<Vec<Vec<usize>>>,
     pub interesting_polynomials: Vec<Polynomial>,
+    pub current_generation: usize,
 }
 
 impl CurrentState {
-    pub fn new(polynomial_length: usize) -> Self {
+    pub fn new(polynomial_length: usize, current_generation: usize) -> Self {
         let mut combinations_left = Vec::new();
         for i in 0..polynomial_length {
             combinations_left.push(Vec::new());
@@ -25,11 +26,21 @@ impl CurrentState {
             starting_mutated_polynomials: Vec::new(),
             combinations_left: combinations_left,
             interesting_polynomials: Vec::new(),
+            current_generation,
         }
     }
 
     pub fn remove_combination(&mut self, combination: &Vec<usize>, combination_length: usize) {
         self.combinations_left[combination_length].retain(|x| x != combination);
+        self.save_state();
+    }
+
+    pub fn finish_generation(&mut self) {
+        self.interesting_polynomials =
+            Polynomial::collapse_polynomials(&self.interesting_polynomials);
+        self.starting_mutated_polynomials = self.interesting_polynomials.clone();
+        self.current_generation += 1;
+        self.save_state();
     }
 
     pub fn save_state(&self) {

@@ -7,10 +7,6 @@ use std::fs;
 use std::fs::File;
 use std::time::Instant;
 
-pub mod current_state;
-pub mod polynomial;
-pub mod polynomial_verifier;
-
 #[derive(Serialize, Deserialize)]
 struct Args {
     matrix_size: usize,
@@ -103,7 +99,7 @@ fn mode_mutate_polynomial(args: Args) {
     } else {
         Polynomial::from_vec(args.starting_polynomial, args.matrix_size)
     };
-    let mut interesting_polynomials = mutate_polynomial(
+    let mut interesting_polynomials = mutate_polynomial_from_beginning(
         polynomial,
         args.matrices_to_fuzz,
         args.mutated_polynomials_to_evaluate,
@@ -118,7 +114,7 @@ fn mode_mutate_polynomial(args: Args) {
 fn mode_map_space(args: Args) {
     let start = Instant::now();
     let polynomial = Polynomial::from_element(args.polynomial_length, args.matrix_size, 1.0);
-    let mut interesting_polynomials = mutate_polynomial(
+    let mut interesting_polynomials = mutate_polynomial_from_beginning(
         polynomial,
         args.matrices_to_fuzz,
         args.mutated_polynomials_to_evaluate,
@@ -133,8 +129,11 @@ fn mode_map_space(args: Args) {
 fn mode_return_state(args: Args) {
     let start = Instant::now();
     let current_state = CurrentState::load_state();
-    let mut interesting_polynomials =
-        continue_mutating_polynomial(current_state, args.matrices_to_fuzz);
+    let mut interesting_polynomials = mutate_polynomial(
+        current_state,
+        args.matrices_to_fuzz,
+        args.number_of_generations,
+    );
     interesting_polynomials.sort();
     let duration = start.elapsed();
     info!("Total time elapsed generating polynomials {:?}", duration);
