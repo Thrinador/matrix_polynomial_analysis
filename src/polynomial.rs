@@ -140,6 +140,50 @@ impl Polynomial {
         }
         derivative
     }
+
+    // Returns a subset of the vector containing the elementwise smallest polynomials.
+    pub fn collapse_polynomials(polynomial_base: &Vec<Polynomial>) -> Vec<Polynomial> {
+        let mut polynomials = polynomial_base.clone();
+        // Scale down polynomials so that their largest element is one.
+        for i in 0..polynomials.len() {
+            let largest_value = polynomials[i].max_term().abs();
+            for j in 0..polynomials[i].len() {
+                polynomials[i][j] /= largest_value;
+            }
+        }
+
+        let mut i = 0;
+        while i < polynomials.len() {
+            let mut j = 0;
+            let mut was_removed = false;
+            while j < polynomials.len() {
+                if i == j {
+                    j += 1;
+                    if j == polynomials.len() {
+                        break;
+                    };
+                }
+                let mut bool_is_smaller_polynomial = true;
+                for k in 0..polynomials[i].len() {
+                    if polynomials[i][k] > polynomials[j][k] {
+                        bool_is_smaller_polynomial = false;
+                        break;
+                    }
+                }
+                if bool_is_smaller_polynomial {
+                    polynomials.remove(j);
+                    was_removed = true;
+                    break;
+                } else {
+                    j += 1;
+                }
+            }
+            if !was_removed {
+                i += 1;
+            }
+        }
+        polynomials
+    }
 }
 
 // TODO this is a pretty rough function, for now my percision caps at 3 decimals so it is sufficient.

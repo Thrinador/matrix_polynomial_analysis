@@ -74,61 +74,45 @@ fn generate_mutated_polynomials(
     }
 }
 
-pub fn mutate_polynomial(
-    base_polynomial: Polynomial,
-    matrices_to_fuzz: usize,
+pub fn initialize_current_state(
+    base_polynomial: &Polynomial,
     mutated_polynomials_to_evaluate: usize,
-    generations: usize,
-) -> Vec<Polynomial> {
-    let mut current_state = CurrentState::new(base_polynomial.len());
+) -> CurrentState {
+    let mut current_state = CurrentState::new(base_polynomial.len(), 0);
     current_state.starting_mutated_polynomials =
         generate_mutated_polynomials(&base_polynomial, mutated_polynomials_to_evaluate);
     debug!("Generated mutated polynomials:");
     for poly in &current_state.starting_mutated_polynomials {
         debug!("{}", poly.to_string());
     }
-    info!("Starting to generate matrices to fuzz");
-    let polynomial_verifier = Arc::new(polynomial_verifier::PolynomialVerifier::new(
-        matrices_to_fuzz,
-        base_polynomial.get_size(),
-    ));
-
-    for gen in 0..generations {
-        info!("Starting to mutate coefficients for generation {}", gen);
-        for i in 1..base_polynomial.len() {
-            let combinations_of_i = (0..base_polynomial.len()).combinations(i);
-            for combination in combinations_of_i {
-                current_state
-                    .interesting_polynomials
-                    .append(&mut mutate_coefficients(
-                        current_state.starting_mutated_polynomials.clone(),
-                        &combination,
-                        &polynomial_verifier,
-                    ));
-                let mut combo_string = String::new();
-                for combo in &combination {
-                    combo_string = format!("{} {} ", combo_string, combo);
-                }
-                info!(
-                    "Mutate_coefficients() finished combination {}",
-                    combo_string
-                );
-                current_state.remove_combination(&combination, i);
-                current_state.save_state();
-            }
-            info!("Finished operation {} out of {}", i, base_polynomial.len());
-        }
-        info!("Finished generation {}", gen);
-        current_state.interesting_polynomials =
-            collapse_polynomials(current_state.interesting_polynomials);
-        current_state.starting_mutated_polynomials = current_state.interesting_polynomials.clone();
-    }
-    current_state.interesting_polynomials
+    current_state
 }
 
-pub fn continue_mutating_polynomial(
+pub fn print_finished_combination(combination: &Vec<usize>) {
+    let mut combo_string = String::new();
+    for combo in combination {
+        combo_string = format!("{} {} ", combo_string, combo);
+    }
+    info!(
+        "Mutate_coefficients() finished combination {}",
+        combo_string
+    );
+}
+
+pub fn mutate_polynomial_from_beginning(
+    base_polynomial: Polynomial,
+    matrices_to_fuzz: usize,
+    mutated_polynomials_to_evaluate: usize,
+    generations: usize,
+) -> Vec<Polynomial> {
+    let current_state = initialize_current_state(&base_polynomial, mutated_polynomials_to_evaluate);
+    mutate_polynomial(current_state, matrices_to_fuzz, generations)
+}
+
+pub fn mutate_polynomial(
     mut current_state: CurrentState,
     matrices_to_fuzz: usize,
+    generations: usize,
 ) -> Vec<Polynomial> {
     info!("Starting to generate matrices to fuzz");
     let polynomial_verifier = Arc::new(polynomial_verifier::PolynomialVerifier::new(
@@ -136,96 +120,43 @@ pub fn continue_mutating_polynomial(
         current_state.starting_mutated_polynomials[0].get_size(),
     ));
 
-    info!("Starting to mutate coefficients");
-    let mut count = 0;
-    for i in &current_state.combinations_left {
-        info!(
-            "Starting operation {} out of {}",
-            count,
-            current_state.combinations_left.len()
-        );
-        for combination in i {
-            if combination.is_empty() {
-                continue;
-            }
-
-            let mut combo_string = String::new();
-            for combo in combination {
-                combo_string = format!("{} {} ", combo_string, combo);
-            }
-            current_state
-                .interesting_polynomials
-                .append(&mut mutate_coefficients(
-                    current_state.starting_mutated_polynomials.clone(),
-                    &combination,
-                    &polynomial_verifier,
-                ));
-            info!(
-                "Mutate_coefficients() finished combination {}",
-                combo_string
-            );
-            current_state.save_state();
-        }
-        info!(
-            "Finished operation {} out of {}",
-            count,
-            current_state.combinations_left.len()
-        );
-        count += 1;
-    }
-    collapse_polynomials(current_state.interesting_polynomials)
-}
-
-// Returns a subset of the vector containing the elementwise smallest polynomials.
-pub fn collapse_polynomials(mut polynomials: Vec<Polynomial>) -> Vec<Polynomial> {
-    // Scale down polynomials so that their largest element is one.
-    for i in 0..polynomials.len() {
-        let largest_value = polynomials[i].max_term().abs();
-        for j in 0..polynomials[i].len() {
-            polynomials[i][j] /= largest_value;
-        }
-    }
-
-    let mut i = 0;
-    while i < polynomials.len() {
-        let mut j = 0;
-        let mut was_removed = false;
-        while j < polynomials.len() {
-            if i == j {
-                j += 1;
-                if j == polynomials.len() {
-                    break;
-                };
-            }
-            let mut bool_is_smaller_polynomial = true;
-            for k in 0..polynomials[i].len() {
-                if polynomials[i][k] > polynomials[j][k] {
-                    bool_is_smaller_polynomial = false;
-                    break;
+    for gen in current_state.current_generation..generations {
+        info!("Starting to mutate coefficients for generation {}", gen);
+        let mut count = 0;
+        for i in current_state.combinations_left.clone().iter() {
+            for combination in i {
+                if combination.is_empty() {
+                    continue;
                 }
+                current_state
+                    .interesting_polynomials
+                    .append(&mut mutate_coefficients(
+                        &current_state.starting_mutated_polynomials,
+                        &combination,
+                        &polynomial_verifier,
+                    ));
+                print_finished_combination(&combination);
+                current_state.remove_combination(&combination, count);
             }
-            if bool_is_smaller_polynomial {
-                polynomials.remove(j);
-                was_removed = true;
-                break;
-            } else {
-                j += 1;
-            }
+            info!(
+                "Finished operation {} out of {}",
+                count,
+                current_state.combinations_left.len()
+            );
+            count += 1;
         }
-        if !was_removed {
-            i += 1;
-        }
+        info!("Finished generation {}", gen);
+        current_state.finish_generation();
     }
-    polynomials
+    current_state.interesting_polynomials
 }
 
 pub fn mutate_coefficients(
-    polynomials: Vec<Polynomial>,
+    polynomials: &Vec<Polynomial>,
     combination: &Vec<usize>,
     polynomial_verifier: &Arc<polynomial_verifier::PolynomialVerifier>,
 ) -> Vec<Polynomial> {
-    let n_workers = num_cpus::get();
-    let pool = ThreadPool::new(n_workers);
+    let pool = ThreadPool::new(num_cpus::get()); // TODO this is something that we might want control over in the startup flags.
     let (sender, receiver): (Sender<Option<Polynomial>>, Receiver<Option<Polynomial>>) = channel();
     let number_of_polynomials = polynomials.len();
     let mut negative_polynomials = Vec::new();
@@ -243,7 +174,7 @@ pub fn mutate_coefficients(
             negative_polynomials.push(message);
         }
     }
-    collapse_polynomials(negative_polynomials)
+    Polynomial::collapse_polynomials(&negative_polynomials)
 }
 
 pub fn minimize_polynomial_coefficients_async(
