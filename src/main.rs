@@ -6,9 +6,17 @@ use serde::{Deserialize, Serialize};
 use std::fs;
 use std::fs::File;
 use std::time::Instant;
+use toml;
 
-#[derive(Serialize, Deserialize)]
-struct Args {
+// Top level struct to hold the TOML data.
+#[derive(Deserialize)]
+struct Data {
+    config: Config,
+}
+
+// Config struct holds to data from the `[config]` section.
+#[derive(Deserialize)]
+struct Config {
     matrix_size: usize,
     matrices_to_fuzz: usize,
     mutated_polynomials_to_evaluate: usize,
@@ -41,9 +49,10 @@ fn i32_to_polynomial_mode(val: usize) -> PolynomialMode {
     }
 }
 
-fn read_user_from_file() -> Args {
-    let file = File::open("startup.json").expect("file should open read only");
-    serde_json::from_reader(file).expect("File was not able to be read")
+fn read_user_from_file() -> Config {
+    let file_contents = fs::read_to_string("startup.toml").expect("file should open read only");
+    let data: Data = toml::from_str(&file_contents).expect("Unable to load data");
+    data.config
 }
 
 fn print_polynomials(polynomials: Vec<Polynomial>) {
@@ -63,7 +72,7 @@ fn print_polynomials(polynomials: Vec<Polynomial>) {
     fs::write("output.json", json_object).expect("file should open read only");
 }
 
-fn mode_test_polynomial(args: Args) {
+fn mode_test_polynomial(args: Config) {
     let start = Instant::now();
     let polynomial = if args.starting_polynomial.len() == 0 {
         polynomial::Polynomial::from_vec(vec![1.0, 1.0, 1.0, 1.0, 1.0], args.matrix_size)
@@ -95,7 +104,7 @@ fn mode_test_polynomial(args: Args) {
     }
 }
 
-fn mode_mutate_polynomial(args: Args) {
+fn mode_mutate_polynomial(args: Config) {
     let start = Instant::now();
     let polynomial = if args.starting_polynomial.len() == 0 {
         Polynomial::from_vec(vec![1.0, 1.0, 1.0, 1.0, 1.0], args.matrix_size)
@@ -114,7 +123,7 @@ fn mode_mutate_polynomial(args: Args) {
     print_polynomials(interesting_polynomials);
 }
 
-fn mode_map_space(args: Args) {
+fn mode_map_space(args: Config) {
     let start = Instant::now();
     let polynomial = Polynomial::from_element(args.polynomial_length, args.matrix_size, 1.0);
     let mut interesting_polynomials = mutate_polynomial_from_beginning(
@@ -129,7 +138,7 @@ fn mode_map_space(args: Args) {
     print_polynomials(interesting_polynomials);
 }
 
-fn mode_return_state(args: Args) {
+fn mode_return_state(args: Config) {
     let start = Instant::now();
     let current_state = CurrentState::load_state();
     let mut interesting_polynomials = mutate_polynomial(
