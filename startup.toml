@@ -1,8 +1,22 @@
 [config]
+# Size of matrices to be testing
 matrix_size = 2
+
+# Approximate number of matrices to be validating the polynomial at.
 matrices_to_fuzz = 8000
+
+# From the starting polynomial how many mutations should be applied before minimization starts.
 mutated_polynomials_to_evaluate = 1
+
+# Number of terms in the polynomial to be used.
 polynomial_length = 6
+
+# TODO: This would benifit from being an enum or something easier to understand
+# The mode of operation. See documentation.
 mode = 3
+
+# The starting polynomial to test. This changes based on mode.
 starting_polynomial = [1,1,1,1,1]
+
+# How many times should we take the output polynomials and rerun them through the minimizer. WARNING: Huge impact on performance.
 number_of_generations = 1
