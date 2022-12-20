@@ -12,6 +12,7 @@ use threadpool::ThreadPool;
 pub mod current_state;
 pub mod polynomial;
 pub mod polynomial_verifier;
+pub mod matrix_generator;
 
 fn generate_mutated_polynomials(
     base_polynomial: &Polynomial,
@@ -82,11 +83,9 @@ pub fn initialize_current_state(
 
     current_state.starting_mutated_polynomials = vec![base_polynomial.clone()];
 
-    // TODO: Reenable mutated polynomials after tests.
-    /*
     current_state.starting_mutated_polynomials =
         generate_mutated_polynomials(&base_polynomial, mutated_polynomials_to_evaluate);
-    */
+    
     debug!("Generated mutated polynomials:");
     for poly in &current_state.starting_mutated_polynomials {
         debug!("{}", poly.to_string());
