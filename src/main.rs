@@ -70,8 +70,11 @@ fn mode_test_polynomial(args: Args) {
     } else {
         polynomial::Polynomial::from_vec(args.starting_polynomial, args.matrix_size)
     };
-    let polynomial_verifier =
-        polynomial_verifier::PolynomialVerifier::new(args.matrices_to_fuzz, args.matrix_size);
+    let polynomial_verifier = polynomial_verifier::PolynomialVerifier::new(
+        args.matrices_to_fuzz,
+        args.matrix_size,
+        polynomial.len(),
+    );
     let verify_polynomial = polynomial_verifier.test_polynomial(&polynomial);
     let duration = start.elapsed();
     info!("Total time elapsed verifying polynomial {:?}", duration);

@@ -1,9 +1,9 @@
 {
-    "matrix_size": 2,
-    "matrices_to_fuzz": 100000,
-    "mutated_polynomials_to_evaluate": 50,
-    "polynomial_length": 5,
-    "mode": 3,
-    "starting_polynomial": [0.9145172, 1.0000000, 0.3463593, 0.5656466, 0.2500000, 0.2500000, 0.2500000, 1.0000000, 1.0000000],
+    "matrix_size": 4,
+    "matrices_to_fuzz": 800000,
+    "mutated_polynomials_to_evaluate": 1,
+    "polynomial_length": 20,
+    "mode": 1,
+    "starting_polynomial": [0.25,0.25,0.25,0,0.25,0,0,0,-1,0,0,0,0.25,0,0,0,0.25,0.25,0.25,0.25,0.25],
     "number_of_generations": 1
 }

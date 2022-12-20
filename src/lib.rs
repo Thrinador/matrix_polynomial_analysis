@@ -79,8 +79,14 @@ pub fn initialize_current_state(
     mutated_polynomials_to_evaluate: usize,
 ) -> CurrentState {
     let mut current_state = CurrentState::new(base_polynomial.len(), 0);
+
+    current_state.starting_mutated_polynomials = vec![base_polynomial.clone()];
+
+    // TODO: Reenable mutated polynomials after tests.
+    /*
     current_state.starting_mutated_polynomials =
         generate_mutated_polynomials(&base_polynomial, mutated_polynomials_to_evaluate);
+    */
     debug!("Generated mutated polynomials:");
     for poly in &current_state.starting_mutated_polynomials {
         debug!("{}", poly.to_string());
@@ -118,6 +124,7 @@ pub fn mutate_polynomial(
     let polynomial_verifier = Arc::new(polynomial_verifier::PolynomialVerifier::new(
         matrices_to_fuzz,
         current_state.starting_mutated_polynomials[0].get_size(),
+        current_state.starting_mutated_polynomials[0].len(),
     ));
 
     for gen in current_state.current_generation..generations {

@@ -53,6 +53,23 @@ impl Polynomial {
         true
     }
 
+    pub fn is_polynomial_nonnegative_from_matrix_with_powers(
+        &self,
+        matrix_powers: &Vec<DMatrix<f64>>,
+    ) -> bool {
+        let mut final_matrix = matrix_powers[0].scale(0.0);
+        for (coefficient, matrix_power) in self.coefficients.iter().rev().zip(matrix_powers) {
+            final_matrix += matrix_power.scale(*coefficient);
+        }
+
+        for value in final_matrix.iter().enumerate() {
+            if value.1 < &0.0 {
+                return false;
+            }
+        }
+        true
+    }
+
     pub fn from_element(polynomial_length: usize, matrix_size: usize, element: f64) -> Polynomial {
         Polynomial {
             coefficients: vec![element; polynomial_length],

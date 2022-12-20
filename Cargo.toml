@@ -5,10 +5,8 @@ authors = ["Ben Clark <thrinador1@gmail.com>"]
 edition = "2018"
 
 [profile.release]
-lto = true
 panic = "abort"
-debug = 1
-debuginfo-level = 1
+debug = true
 
 [dependencies]
 nalgebra = { version = "0.30.1", features = ["rand"] }
